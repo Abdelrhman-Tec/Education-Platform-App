@@ -1,0 +1,68 @@
+name: education_platform_app
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # Localization runtime
+  intl: ^0.20.2
+  easy_localization: ^3.0.7+1
+
+  # UI and Styling
+  cupertino_icons: ^1.0.8
+  flutter_svg: ^2.2.1
+  flutter_screenutil: ^5.9.3
+
+  # Network and Connectivity
+  data_connection_checker_tv: ^0.3.5-nullsafety
+  dio: ^5.9.0
+  pretty_dio_logger: ^1.4.0
+  retrofit: ^4.6.0
+
+  # State Management
+  flutter_bloc: ^9.1.1
+  get_it: ^8.0.3
+
+  # Storage
+  shared_preferences: ^2.5.3
+
+  # Serialization annotations (runtime)
+  json_annotation: ^4.9.0
+  freezed_annotation: ^3.1.0
+
+  # Firebase
+  firebase_core: ^4.0.0
+  firebase_auth: ^6.1.1
+  flutter_facebook_auth: ^7.1.2
+
+  # Splash Screen / Misc
+  flutter_native_splash: ^2.4.6
+  persistent_bottom_nav_bar: ^6.2.1
+  cached_network_image: ^3.4.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner: ^2.6.0
+  json_serializable: ^6.11.1
+  freezed: ^3.2.0
+  intl_utils: ^2.8.12
+  retrofit_generator: ^10.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - lib/l10n/intl_ar.arb
+    - lib/l10n/intl_en.arb
+
+flutter_intl:
+  enabled: true
