@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 /// A fully customizable TextFormField used across the app.
 /// Supports password visibility toggle, custom colors, icons, validation, and styles.
 class CustomTextFormField extends StatefulWidget {
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final String hintText;
   final String? labelText;
   final bool isPassword;
@@ -23,7 +23,7 @@ class CustomTextFormField extends StatefulWidget {
 
   const CustomTextFormField({
     super.key,
-    required this.controller,
+    this.controller,
     required this.hintText,
     this.labelText,
     this.isPassword = false,
@@ -75,7 +75,11 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         prefixIcon: widget.prefixIcon != null ? Icon(widget.prefixIcon) : null,
         suffixIcon: widget.isPassword
             ? IconButton(
-                icon: Icon(_obscure ? Icons.visibility_off : Icons.visibility),
+                icon: Icon(
+                  _obscure
+                      ? Icons.visibility_off_outlined
+                      : Icons.visibility_off_outlined,
+                ),
                 onPressed: () => setState(() => _obscure = !_obscure),
               )
             : (widget.suffixIcon != null

@@ -15,7 +15,8 @@ class EducationPlatformApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp(
-        locale: const Locale("en"),
+        theme: ThemeData(fontFamily: 'NotoKufi'),
+        locale: const Locale("ar"),
         localizationsDelegates: const [
           S.delegate,
           GlobalMaterialLocalizations.delegate,

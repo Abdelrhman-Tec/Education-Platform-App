@@ -68,9 +68,10 @@
   "email": "البريد الإلكتروني",
   "password": "كلمة المرور",
   "confirmPassword": "تأكيد كلمة المرور",
-  "forgotPassword": "نسيت كلمة المرور?",
-  "dontHaveAccount": "ليس لديك حساب?",
-  "alreadyHaveAccount": "لديك حساب بالفعل?",
+  "forgotPassword": "نسيت كلمة المرور ؟",
+  "dontHaveAccount": "ليس لديك حساب ؟",
+  "alreadyHaveAccount": "لديك حساب بالفعل ؟",
+
 
   "settings": "الإعدادات",
   "accountSettings": "إعدادات الحساب",
@@ -144,5 +145,13 @@
   "purchaseSuccess": "تم الشراء بنجاح",
   "profileUpdated": "تم تحديث الملف الشخصي",
   "passwordChanged": "تم تغيير كلمة المرور",
-  "reviewSubmitted": "تم إرسال التقييم"
+  "reviewSubmitted": "تم إرسال التقييم",
+  "signIn" : "تسجيل الدخول",
+  "welcomeBack" : "مرحباً بعودتك",
+  "signUp" : "إنشاء حساب",
+  "signOut" : "تسجيل الخروج",
+  "signInWithGoogle" : "تسجيل الدخول بواسطة Google",
+  "signInWithApple" : "تسجيل الدخول بواسطة Apple",
+  "signInWithFacebook" : "تسجيل الدخول بواسطة Facebook",
+  "signInWithTwitter" : "تسجيل الدخول بواسطة Twitter"
 }

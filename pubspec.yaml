@@ -64,5 +64,8 @@ flutter:
     - lib/l10n/intl_ar.arb
     - lib/l10n/intl_en.arb
 
-flutter_intl:
-  enabled: true
+  fonts:
+    - family: NotoKufi
+      fonts:
+        - asset: assets/fonts/NotoKufiArabic-Regular.ttf
+          weight: 400

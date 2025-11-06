@@ -1,0 +1,11 @@
+export 'package:education_platform_app/core/helpers/extension.dart';
+export 'package:education_platform_app/features/auth/presentation/widgets/header_page.dart';
+export 'package:education_platform_app/generated/l10n.dart';
+export 'package:flutter/material.dart';
+export 'package:flutter_screenutil/flutter_screenutil.dart';
+export 'package:education_platform_app/core/helpers/spacing.dart';
+export 'package:education_platform_app/core/theme/app_colors.dart';
+export 'package:education_platform_app/core/widgets/widgets.dart';
+export 'package:education_platform_app/core/constants/app_text_style.dart';
+export 'package:education_platform_app/core/routing/routes.dart';
+export 'package:education_platform_app/features/auth/presentation/widgets/auth_redirect_text.dart';

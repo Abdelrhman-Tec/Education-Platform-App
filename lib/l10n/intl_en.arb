@@ -144,5 +144,8 @@
   "purchaseSuccess": "Purchase successful",
   "profileUpdated": "Profile updated",
   "passwordChanged": "Password changed",
-  "reviewSubmitted": "Review submitted"
+  "reviewSubmitted": "Review submitted",
+  "signIn" : "Sign In",
+  "welcomeBack" : "Welcome Back",
+  "signUp" : "Sign Up"
 }

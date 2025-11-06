@@ -169,6 +169,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "shoppingCart": MessageLookupByLibrary.simpleMessage("Shopping Cart"),
     "showMore": MessageLookupByLibrary.simpleMessage("Show More"),
+    "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
+    "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "sortBy": MessageLookupByLibrary.simpleMessage("Sort By"),
     "startCourse": MessageLookupByLibrary.simpleMessage("Start Course"),
     "studentReviews": MessageLookupByLibrary.simpleMessage("Student Reviews"),
@@ -183,6 +185,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unknownError": MessageLookupByLibrary.simpleMessage("Unknown Error"),
     "viewCertificate": MessageLookupByLibrary.simpleMessage("View Certificate"),
     "weakPassword": MessageLookupByLibrary.simpleMessage("Weak password"),
+    "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome Back"),
     "writeReview": MessageLookupByLibrary.simpleMessage("Write Review"),
     "yourRating": MessageLookupByLibrary.simpleMessage("Your Rating"),
   };
