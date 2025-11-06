@@ -1,6 +1,6 @@
 import 'package:education_platform_app/core/routing/routes.dart';
 import 'package:education_platform_app/features/auth/presentation/screens/login_screen.dart';
-import 'package:education_platform_app/features/auth/presentation/screens/register_screen.dart';
+// import 'package:education_platform_app/features/auth/presentation/screens/register_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +10,7 @@ class AppRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.register:
-        return _buildCupertinoRoute(const RegisterScreen());
+      // return _buildCupertinoRoute(const RegisterScreen());
 
       case Routes.login:
         return _buildCupertinoRoute(const LoginScreen());
