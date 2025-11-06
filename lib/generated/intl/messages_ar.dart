@@ -75,6 +75,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "favoriteCourses": MessageLookupByLibrary.simpleMessage("الكورسات المفضلة"),
     "featuredCourses": MessageLookupByLibrary.simpleMessage("الكورسات المميزة"),
     "filter": MessageLookupByLibrary.simpleMessage("تصفية"),
+    "firstName": MessageLookupByLibrary.simpleMessage("الاسم الأول"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage(
       "نسيت كلمة المرور ؟",
     ),
@@ -90,6 +91,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "invalidPhone": MessageLookupByLibrary.simpleMessage("رقم هاتف غير صحيح"),
     "language": MessageLookupByLibrary.simpleMessage("اللغة"),
     "languages": MessageLookupByLibrary.simpleMessage("اللغات"),
+    "lastName": MessageLookupByLibrary.simpleMessage("اسم العائلة"),
     "lastUpdated": MessageLookupByLibrary.simpleMessage("آخر تحديث"),
     "lectures": MessageLookupByLibrary.simpleMessage("محاضرة"),
     "level": MessageLookupByLibrary.simpleMessage("المستوى"),
@@ -166,7 +168,23 @@ class MessageLookup extends MessageLookupByLibrary {
     "shoppingCart": MessageLookupByLibrary.simpleMessage("السلة"),
     "showMore": MessageLookupByLibrary.simpleMessage("عرض المزيد"),
     "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+    "signInWithApple": MessageLookupByLibrary.simpleMessage(
+      "تسجيل الدخول بواسطة Apple",
+    ),
+    "signInWithFacebook": MessageLookupByLibrary.simpleMessage(
+      "تسجيل الدخول بواسطة Facebook",
+    ),
+    "signInWithGoogle": MessageLookupByLibrary.simpleMessage(
+      "تسجيل الدخول بواسطة Google",
+    ),
+    "signInWithTwitter": MessageLookupByLibrary.simpleMessage(
+      "تسجيل الدخول بواسطة Twitter",
+    ),
+    "signOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
     "signUp": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+    "signUpSubtitle": MessageLookupByLibrary.simpleMessage(
+      "أنشئ حسابك وابدأ رحلتك التعليمية معنا",
+    ),
     "sortBy": MessageLookupByLibrary.simpleMessage("ترتيب حسب"),
     "startCourse": MessageLookupByLibrary.simpleMessage("ابدأ الكورس"),
     "studentReviews": MessageLookupByLibrary.simpleMessage("تقييمات الطلاب"),

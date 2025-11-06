@@ -153,5 +153,10 @@
   "signInWithGoogle" : "تسجيل الدخول بواسطة Google",
   "signInWithApple" : "تسجيل الدخول بواسطة Apple",
   "signInWithFacebook" : "تسجيل الدخول بواسطة Facebook",
-  "signInWithTwitter" : "تسجيل الدخول بواسطة Twitter"
+  "signInWithTwitter" : "تسجيل الدخول بواسطة Twitter",
+  "firstName": "الاسم الأول",
+  "lastName": "اسم العائلة",
+    "signUpSubtitle": "أنشئ حسابك وابدأ رحلتك التعليمية معنا"
+
+  
 }

@@ -7,7 +7,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class HeaderPage extends StatelessWidget {
   final String titleHeader;
   final String subTitleHeader;
+  final double height;
   const HeaderPage({
+    this.height = 120,
     super.key,
     required this.titleHeader,
     required this.subTitleHeader,
@@ -17,7 +19,7 @@ class HeaderPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 120.h,
+      height: height.h,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

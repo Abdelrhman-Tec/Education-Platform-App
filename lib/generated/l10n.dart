@@ -993,6 +993,191 @@ class S {
   String get signUp {
     return Intl.message('Sign Up', name: 'signUp', desc: '', args: []);
   }
+
+  /// `Sign Out`
+  String get signOut {
+    return Intl.message('Sign Out', name: 'signOut', desc: '', args: []);
+  }
+
+  /// `Sign In with Google`
+  String get signInWithGoogle {
+    return Intl.message(
+      'Sign In with Google',
+      name: 'signInWithGoogle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign In with Apple`
+  String get signInWithApple {
+    return Intl.message(
+      'Sign In with Apple',
+      name: 'signInWithApple',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign In with Facebook`
+  String get signInWithFacebook {
+    return Intl.message(
+      'Sign In with Facebook',
+      name: 'signInWithFacebook',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign In with Twitter`
+  String get signInWithTwitter {
+    return Intl.message(
+      'Sign In with Twitter',
+      name: 'signInWithTwitter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign In with Linkedin`
+  String get signInWithLinkedin {
+    return Intl.message(
+      'Sign In with Linkedin',
+      name: 'signInWithLinkedin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign In with Github`
+  String get signInWithGithub {
+    return Intl.message(
+      'Sign In with Github',
+      name: 'signInWithGithub',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign In with Phone`
+  String get signInWithPhone {
+    return Intl.message(
+      'Sign In with Phone',
+      name: 'signInWithPhone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign In with Email`
+  String get signInWithEmail {
+    return Intl.message(
+      'Sign In with Email',
+      name: 'signInWithEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Up with Google`
+  String get signUpWithGoogle {
+    return Intl.message(
+      'Sign Up with Google',
+      name: 'signUpWithGoogle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Up with Apple`
+  String get signUpWithApple {
+    return Intl.message(
+      'Sign Up with Apple',
+      name: 'signUpWithApple',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Up with Facebook`
+  String get signUpWithFacebook {
+    return Intl.message(
+      'Sign Up with Facebook',
+      name: 'signUpWithFacebook',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Up with Twitter`
+  String get signUpWithTwitter {
+    return Intl.message(
+      'Sign Up with Twitter',
+      name: 'signUpWithTwitter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Up with Linkedin`
+  String get signUpWithLinkedin {
+    return Intl.message(
+      'Sign Up with Linkedin',
+      name: 'signUpWithLinkedin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Up with Github`
+  String get signUpWithGithub {
+    return Intl.message(
+      'Sign Up with Github',
+      name: 'signUpWithGithub',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Up with Phone`
+  String get signUpWithPhone {
+    return Intl.message(
+      'Sign Up with Phone',
+      name: 'signUpWithPhone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Up with Email`
+  String get signUpWithEmail {
+    return Intl.message(
+      'Sign Up with Email',
+      name: 'signUpWithEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `First Name`
+  String get firstName {
+    return Intl.message('First Name', name: 'firstName', desc: '', args: []);
+  }
+
+  /// `Last Name`
+  String get lastName {
+    return Intl.message('Last Name', name: 'lastName', desc: '', args: []);
+  }
+
+  /// `Create your account and start your learning journey with us`
+  String get signUpSubtitle {
+    return Intl.message(
+      'Create your account and start your learning journey with us',
+      name: 'signUpSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -77,6 +77,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "favoriteCourses": MessageLookupByLibrary.simpleMessage("Favorite Courses"),
     "featuredCourses": MessageLookupByLibrary.simpleMessage("Featured Courses"),
     "filter": MessageLookupByLibrary.simpleMessage("Filter"),
+    "firstName": MessageLookupByLibrary.simpleMessage("First Name"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
     "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
     "googlePay": MessageLookupByLibrary.simpleMessage("Google Pay"),
@@ -92,6 +93,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "language": MessageLookupByLibrary.simpleMessage("Language"),
     "languages": MessageLookupByLibrary.simpleMessage("Languages"),
+    "lastName": MessageLookupByLibrary.simpleMessage("Last Name"),
     "lastUpdated": MessageLookupByLibrary.simpleMessage("Last Updated"),
     "lectures": MessageLookupByLibrary.simpleMessage("Lecture"),
     "level": MessageLookupByLibrary.simpleMessage("Level"),
@@ -170,7 +172,59 @@ class MessageLookup extends MessageLookupByLibrary {
     "shoppingCart": MessageLookupByLibrary.simpleMessage("Shopping Cart"),
     "showMore": MessageLookupByLibrary.simpleMessage("Show More"),
     "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
+    "signInWithApple": MessageLookupByLibrary.simpleMessage(
+      "Sign In with Apple",
+    ),
+    "signInWithEmail": MessageLookupByLibrary.simpleMessage(
+      "Sign In with Email",
+    ),
+    "signInWithFacebook": MessageLookupByLibrary.simpleMessage(
+      "Sign In with Facebook",
+    ),
+    "signInWithGithub": MessageLookupByLibrary.simpleMessage(
+      "Sign In with Github",
+    ),
+    "signInWithGoogle": MessageLookupByLibrary.simpleMessage(
+      "Sign In with Google",
+    ),
+    "signInWithLinkedin": MessageLookupByLibrary.simpleMessage(
+      "Sign In with Linkedin",
+    ),
+    "signInWithPhone": MessageLookupByLibrary.simpleMessage(
+      "Sign In with Phone",
+    ),
+    "signInWithTwitter": MessageLookupByLibrary.simpleMessage(
+      "Sign In with Twitter",
+    ),
+    "signOut": MessageLookupByLibrary.simpleMessage("Sign Out"),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
+    "signUpSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Create your account and start your learning journey with us",
+    ),
+    "signUpWithApple": MessageLookupByLibrary.simpleMessage(
+      "Sign Up with Apple",
+    ),
+    "signUpWithEmail": MessageLookupByLibrary.simpleMessage(
+      "Sign Up with Email",
+    ),
+    "signUpWithFacebook": MessageLookupByLibrary.simpleMessage(
+      "Sign Up with Facebook",
+    ),
+    "signUpWithGithub": MessageLookupByLibrary.simpleMessage(
+      "Sign Up with Github",
+    ),
+    "signUpWithGoogle": MessageLookupByLibrary.simpleMessage(
+      "Sign Up with Google",
+    ),
+    "signUpWithLinkedin": MessageLookupByLibrary.simpleMessage(
+      "Sign Up with Linkedin",
+    ),
+    "signUpWithPhone": MessageLookupByLibrary.simpleMessage(
+      "Sign Up with Phone",
+    ),
+    "signUpWithTwitter": MessageLookupByLibrary.simpleMessage(
+      "Sign Up with Twitter",
+    ),
     "sortBy": MessageLookupByLibrary.simpleMessage("Sort By"),
     "startCourse": MessageLookupByLibrary.simpleMessage("Start Course"),
     "studentReviews": MessageLookupByLibrary.simpleMessage("Student Reviews"),

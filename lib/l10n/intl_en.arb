@@ -147,5 +147,26 @@
   "reviewSubmitted": "Review submitted",
   "signIn" : "Sign In",
   "welcomeBack" : "Welcome Back",
-  "signUp" : "Sign Up"
+  "signUp" : "Sign Up",
+  "signOut" : "Sign Out",
+  "signInWithGoogle" : "Sign In with Google",
+  "signInWithApple" : "Sign In with Apple",
+  "signInWithFacebook" : "Sign In with Facebook",
+  "signInWithTwitter" : "Sign In with Twitter",
+  "signInWithLinkedin" : "Sign In with Linkedin",
+  "signInWithGithub" : "Sign In with Github",
+  "signInWithPhone" : "Sign In with Phone",
+  "signInWithEmail" : "Sign In with Email",
+  "signUpWithGoogle" : "Sign Up with Google",
+  "signUpWithApple" : "Sign Up with Apple",
+  "signUpWithFacebook" : "Sign Up with Facebook",
+  "signUpWithTwitter" : "Sign Up with Twitter",
+  "signUpWithLinkedin" : "Sign Up with Linkedin",
+  "signUpWithGithub" : "Sign Up with Github",
+  "signUpWithPhone" : "Sign Up with Phone",
+  "signUpWithEmail" : "Sign Up with Email",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+    "signUpSubtitle": "Create your account and start your learning journey with us"
+
 }
