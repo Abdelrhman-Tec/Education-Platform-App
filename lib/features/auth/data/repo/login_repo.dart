@@ -10,8 +10,8 @@ class LoginRepo {
     try {
       final response = await apiService.login(loginRequestModel);
       return ApiResult.success(response);
-    } catch (e) {
-      return ApiResult.failure(ErrorHandler.handle(e.toString()));
+    } catch (error) {
+      return ApiResult.failure(ErrorHandler.handle(error));
     }
   }
 }

@@ -9,15 +9,15 @@ final getIt = GetIt.instance;
 Future<void> setupGetIt() async {
   // Dio
   Dio dio = await DioFactory.getDio();
-  getIt.registerLazySingleton<Dio>(() => dio);
+  getIt.registerFactory<Dio>(() => dio);
 
   // ApiServices
-  getIt.registerLazySingleton<ApiService>(() => ApiService(getIt<Dio>()));
+  getIt.registerFactory<ApiService>(() => ApiService(getIt<Dio>()));
 
   // LoginRepositories
-  getIt.registerLazySingleton<LoginRepo>(
+  getIt.registerFactory<LoginRepo>(
     () => LoginRepo(apiService: getIt<ApiService>()),
   );
 
-  getIt.registerLazySingleton<AuthCubit>(() => AuthCubit(getIt<LoginRepo>()));
+  getIt.registerFactory<AuthCubit>(() => AuthCubit(getIt<LoginRepo>()));
 }

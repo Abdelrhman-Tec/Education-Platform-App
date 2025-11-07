@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:education_platform_app/features/auth/presentation/cubit/auth_state.dart';
 import 'package:education_platform_app/features/auth/presentation/cubit/cubit_import.dart';
 
@@ -7,7 +9,7 @@ class AuthCubit extends Cubit<AuthState> {
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
 
-  AuthCubit(this.loginRepo) : super(AuthState.initial());
+  AuthCubit(this.loginRepo) : super(const AuthState.initial());
 
   Future<void> login() async {
     emit(const AuthState.loading());
@@ -19,8 +21,9 @@ class AuthCubit extends Cubit<AuthState> {
         emit(AuthState.success(loginResponse));
       },
       failure: (error) {
-        final message = error.apiErrorModel.message ?? 'Something went wrong';
-        emit(AuthState.failure(message: message));
+        final message = error.apiErrorModel.message ?? '';
+        log(message);
+        emit(AuthState.failure(message: message.toString()));
       },
     );
   }

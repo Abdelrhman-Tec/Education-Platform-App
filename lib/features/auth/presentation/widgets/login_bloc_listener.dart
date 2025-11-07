@@ -8,24 +8,23 @@ class LoginBlocListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<AuthCubit, AuthState>(
       listenWhen: (previous, current) =>
-          current is Loading || current is Success || current is Error,
+          current is Loading || current is Success || current is Failure,
       listener: (context, state) {
-        state.whenOrNull(
+        state.maybeWhen(
           loading: () {
             showDialog(
               context: context,
-              builder: (context) => const Center(
-                child: CircularProgressIndicator(color: AppColors.mediumBlue),
-              ),
+              builder: (context) =>
+                  const CustomLoading(color: AppColors.mediumBlue),
             );
           },
           success: (loginResponse) {
             context.pop();
             context.pushNamed(Routes.home);
           },
-          error: (error) {
-            setupErrorState(context, error);
-          },
+          failure: (message) => setupErrorState(context, message),
+
+          orElse: () {},
         );
       },
       child: const SizedBox.shrink(),
@@ -33,22 +32,77 @@ class LoginBlocListener extends StatelessWidget {
   }
 
   void setupErrorState(BuildContext context, String error) {
-    if (Navigator.canPop(context)) {
-      context.pop();
-    }
+    context.pop();
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        icon: const Icon(Icons.error, color: Colors.red, size: 32),
-        content: Text(error),
-        actions: [
-          TextButton(
-            onPressed: () {
-              if (Navigator.canPop(context)) context.pop();
-            },
-            child: const Text('Got it'),
+      builder: (context) => Dialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16.r),
+        ),
+        child: Container(
+          padding: EdgeInsets.all(20.w),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(16.r),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.2),
+                blurRadius: 10,
+                offset: const Offset(0, 4),
+              ),
+            ],
           ),
-        ],
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: AppColors.mediumBlue.withValues(alpha: 0.1),
+                ),
+                padding: EdgeInsets.all(12.w),
+                child: Icon(
+                  Icons.error_outline,
+                  color: AppColors.mediumBlue,
+                  size: 40.sp,
+                ),
+              ),
+              SizedBox(height: 15.h),
+              Text(
+                'Error',
+                style: AppTextStyles.titleMediumSemiBold.copyWith(
+                  color: AppColors.mediumBlue,
+                ),
+              ),
+              SizedBox(height: 10.h),
+              Text(
+                error,
+                textAlign: TextAlign.center,
+                style: AppTextStyles.bodyMediumNormal,
+              ),
+              SizedBox(height: 20.h),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.mediumBlue,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                    padding: EdgeInsets.symmetric(vertical: 14.h),
+                  ),
+                  onPressed: () => context.pop(),
+                  child: Text(
+                    'Got it',
+                    style: AppTextStyles.bodyMediumNormal.copyWith(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

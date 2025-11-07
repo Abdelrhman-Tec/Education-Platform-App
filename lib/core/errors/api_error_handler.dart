@@ -1,7 +1,7 @@
-// ignore_for_file: unreachable_switch_case, non_constant_identifier_names, constant_identifier_names
+// ignore_for_file: unreachable_switch_case
+
 import 'package:dio/dio.dart';
 import 'package:education_platform_app/core/networking/api_constants.dart';
-
 import 'api_error_model.dart';
 
 enum DataSource {
@@ -17,7 +17,6 @@ enum DataSource {
   SEND_TIMEOUT,
   CACHE_ERROR,
   NO_INTERNET_CONNECTION,
-  // API_LOGIC_ERROR,
   DEFAULT,
 }
 
@@ -152,6 +151,17 @@ class ErrorHandler implements Exception {
 }
 
 ApiErrorModel _handleError(DioException error) {
+  if (error.type == DioExceptionType.badResponse) {
+    final data = error.response?.data;
+    if (data != null && data['message'] != null) {
+      return ApiErrorModel(
+        message: data['message'],
+        code: error.response?.statusCode ?? -1,
+      );
+    } else {
+      return DataSource.DEFAULT.getFailure();
+    }
+  }
   switch (error.type) {
     case DioExceptionType.connectionTimeout:
       return DataSource.CONNECT_TIMEOUT.getFailure();

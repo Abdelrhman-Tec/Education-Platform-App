@@ -10,30 +10,7 @@ LoginResponseModel _$LoginResponseModelFromJson(Map<String, dynamic> json) =>
     LoginResponseModel(
       message: json['message'] as String,
       token: json['token'] as String,
-      user: User.fromJson(json['user'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$LoginResponseModelToJson(LoginResponseModel instance) =>
-    <String, dynamic>{
-      'message': instance.message,
-      'token': instance.token,
-      'user': instance.user,
-    };
-
-User _$UserFromJson(Map<String, dynamic> json) => User(
-  id: (json['id'] as num).toInt(),
-  firstName: json['first_name'] as String,
-  lastName: json['last_name'] as String,
-  email: json['email'] as String,
-  createdAt: DateTime.parse(json['created_at'] as String),
-  updatedAt: DateTime.parse(json['updated_at'] as String),
-);
-
-Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
-  'id': instance.id,
-  'first_name': instance.firstName,
-  'last_name': instance.lastName,
-  'email': instance.email,
-  'created_at': instance.createdAt.toIso8601String(),
-  'updated_at': instance.updatedAt.toIso8601String(),
-};
+    <String, dynamic>{'message': instance.message, 'token': instance.token};

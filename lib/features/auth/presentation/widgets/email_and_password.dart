@@ -20,7 +20,6 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
   bool hasNumber = false;
   bool hasSpecialCharacter = false;
   bool hasMinLength = false;
-
   late TextEditingController passwordController;
 
   @override
@@ -52,25 +51,25 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
         children: [
           verticalSpace(25),
           CustomTextFormField(
-            hintText: 'email',
+            hintText: S.of(context).email,
             isPassword: false,
             // ignore: body_might_complete_normally_nullable
             validator: (value) {
               if (value == null ||
                   value.isEmpty ||
                   !AppRegex.isEmailValid(value)) {
-                return 'Please enter a valid email';
+                return S.of(context).email; // "Please enter a valid email"
               }
             },
             controller: context.read<AuthCubit>().email,
           ),
           verticalSpace(17),
           CustomTextFormField(
-            hintText: 'Password',
+            hintText: S.of(context).password,
             isPassword: true,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return S.of(context).email; // "Please enter your password"
+                return S.of(context).password; // "Please enter your password"
               }
               if (!AppRegex.hasLowerCase(value)) {
                 return S
