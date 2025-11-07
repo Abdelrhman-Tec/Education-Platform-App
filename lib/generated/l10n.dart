@@ -1228,6 +1228,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Password Confirmation`
+  String get passwordConfirmation {
+    return Intl.message(
+      'Password Confirmation',
+      name: 'passwordConfirmation',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

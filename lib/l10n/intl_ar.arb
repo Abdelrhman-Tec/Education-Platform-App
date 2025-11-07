@@ -165,7 +165,7 @@
     "passwordValidationUppercase": "حرف كبير واحد على الأقل",
     "passwordValidationNumber": "رقم واحد على الأقل",
     "passwordValidationMinLength": "8 أحرف على الأقل",
-    "passwordValidationSpecialCharacter": "حرف خاص واحد على الأقل"
-
+    "passwordValidationSpecialCharacter": "حرف خاص واحد على الأقل",
+    "passwordConfirmation": "تأكيد كلمة المرور"
   
 }

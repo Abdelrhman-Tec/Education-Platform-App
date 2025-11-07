@@ -1,74 +1,62 @@
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
+import 'package:education_platform_app/features/sign_up/presentation/cubit/register_cubit.dart';
+import 'package:education_platform_app/features/sign_up/presentation/widgets/register_bloc_listener.dart';
+import 'package:education_platform_app/features/sign_up/presentation/widgets/register_form.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: _buildBody(context: context));
+    return Scaffold(body: _buildBody(context));
   }
-}
 
-Widget _buildBody({required BuildContext context}) {
-  return SingleChildScrollView(
-    child: SafeArea(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          HeaderPage(
-            titleHeader: S.of(context).signUp,
-            subTitleHeader: S.of(context).signUpSubtitle,
+  Widget _buildBody(BuildContext context) {
+    return SingleChildScrollView(
+      child: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 60.h),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HeaderPage(
+                height: 165.h,
+                titleHeader: S.of(context).signUp,
+                subTitleHeader: S.of(context).signUpSubtitle,
+              ),
+              verticalSpace(30),
+              const RegisterForm(),
+              verticalSpace(30),
+              _buildRegisterButton(context),
+              verticalSpace(20),
+              AuthRedirectText(
+                questionText: S.of(context).alreadyHaveAccount,
+                actionText: S.of(context).signIn,
+                onTap: () => Navigator.pushNamed(context, Routes.login),
+              ),
+              RegisterBlocListener(),
+            ],
           ),
-          verticalSpace(30),
-          _buildRegisterForm(context: context),
-          verticalSpace(30),
-          _buildRegisterButton(context: context),
-          verticalSpace(20),
-          AuthRedirectText(
-            questionText: S.of(context).alreadyHaveAccount,
-            actionText: S.of(context).signIn,
-            onTap: () => Navigator.pushNamed(context, Routes.login),
-          ),
-        ],
-      ).paddingSymmetric(h: 20.w, v: 60.h),
-    ),
-  );
-}
+        ),
+      ),
+    );
+  }
 
-Widget _buildRegisterForm({required BuildContext context}) {
-  return Column(
-    children: [
-      CustomTextFormField(
-        hintText: S.of(context).firstName,
-        borderColor: AppColors.mediumBlue,
-      ),
-      verticalSpace(15),
-      CustomTextFormField(
-        hintText: S.of(context).lastName,
-        borderColor: AppColors.mediumBlue,
-      ),
-      verticalSpace(15),
-      CustomTextFormField(
-        hintText: S.of(context).email,
-        borderColor: AppColors.mediumBlue,
-      ),
-      verticalSpace(15),
-      CustomTextFormField(
-        hintText: S.of(context).password,
-        borderColor: AppColors.mediumBlue,
-        isPassword: true,
-      ),
-    ],
-  );
-}
+  Widget _buildRegisterButton(BuildContext context) {
+    return CustomButton(
+      text: S.of(context).signUp,
+      backgroundColor: AppColors.mediumBlue,
+      borderRadius: 5.r,
+      height: 60.h,
+      textColor: AppColors.white,
+      onPressed: () => _validateThenRegister(context),
+    );
+  }
 
-Widget _buildRegisterButton({required BuildContext context}) {
-  return CustomButton(
-    text: S.of(context).signUp,
-    backgroundColor: AppColors.mediumBlue,
-    borderRadius: 5.r,
-    height: 60.h,
-    textColor: AppColors.white,
-    onPressed: () {},
-  );
+  void _validateThenRegister(BuildContext context) {
+    final cubit = context.read<RegisterCubit>();
+    if (cubit.formKey.currentState!.validate()) {
+      cubit.register();
+    }
+  }
 }

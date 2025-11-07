@@ -2,7 +2,6 @@ import 'package:education_platform_app/core/helpers/app_regex.dart';
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
 import 'package:education_platform_app/features/sign_in/presentation/widgets/password_validation.dart';
 
-
 class EmailAndPassword extends StatefulWidget {
   const EmailAndPassword({super.key});
 
@@ -97,13 +96,15 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             controller: context.read<LoginCubit>().password,
           ),
           verticalSpace(15),
-          PasswordValidation(
-            hasLowercase: hasLowercase,
-            hasUppercase: hasUppercase,
-            hasNumber: hasNumber,
-            hasSpecialCharacter: hasSpecialCharacter,
-            hasMinLength: hasMinLength,
-          ),
+          if (passwordController.text.isNotEmpty) ...[
+            PasswordValidation(
+              hasLowercase: hasLowercase,
+              hasUppercase: hasUppercase,
+              hasNumber: hasNumber,
+              hasSpecialCharacter: hasSpecialCharacter,
+              hasMinLength: hasMinLength,
+            ),
+          ],
         ],
       ),
     );

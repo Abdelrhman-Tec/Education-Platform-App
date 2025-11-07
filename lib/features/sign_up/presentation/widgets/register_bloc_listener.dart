@@ -1,12 +1,13 @@
-import 'package:education_platform_app/features/sign_in/presentation/cubit/login_state.dart';
+import 'package:education_platform_app/features/sign_up/presentation/cubit/register_state.dart';
+import 'package:education_platform_app/features/sign_up/presentation/cubit/register_cubit.dart';
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
 
-class LoginBlocListener extends StatelessWidget {
-  const LoginBlocListener({super.key});
+class RegisterBlocListener extends StatelessWidget {
+  const RegisterBlocListener({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LoginCubit, LoginState>(
+    return BlocListener<RegisterCubit, RegisterState>(
       listenWhen: (previous, current) =>
           current is Loading || current is Success || current is Failure,
       listener: (context, state) {
@@ -18,12 +19,13 @@ class LoginBlocListener extends StatelessWidget {
                   const CustomLoading(color: AppColors.mediumBlue),
             );
           },
-          success: (loginResponse) {
+          success: (registerResponse) {
             context.pop();
-            context.pushReplacementNamed(Routes.home);
+            context.pushReplacementNamed(
+              Routes.login,
+            );
           },
           failure: (message) => setupErrorState(context, message),
-
           orElse: () {},
         );
       },

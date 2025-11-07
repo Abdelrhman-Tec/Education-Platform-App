@@ -121,6 +121,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordChanged": MessageLookupByLibrary.simpleMessage("Password changed"),
+    "passwordConfirmation": MessageLookupByLibrary.simpleMessage(
+      "Password Confirmation",
+    ),
     "passwordMismatch": MessageLookupByLibrary.simpleMessage(
       "Passwords do not match",
     ),

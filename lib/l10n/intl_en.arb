@@ -172,6 +172,7 @@
   "passwordValidationUppercase": "At least 1 uppercase letter",
   "passwordValidationNumber": "At least 1 number",
   "passwordValidationMinLength": "At least 8 characters",
-  "passwordValidationSpecialCharacter": "At least 1 special character"
+  "passwordValidationSpecialCharacter": "At least 1 special character",
+  "passwordConfirmation": "Password Confirmation"
 
 }

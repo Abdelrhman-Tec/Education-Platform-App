@@ -123,6 +123,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordChanged": MessageLookupByLibrary.simpleMessage(
       "تم تغيير كلمة المرور",
     ),
+    "passwordConfirmation": MessageLookupByLibrary.simpleMessage(
+      "تأكيد كلمة المرور",
+    ),
     "passwordMismatch": MessageLookupByLibrary.simpleMessage(
       "كلمات المرور غير متطابقة",
     ),

@@ -34,7 +34,7 @@ Widget _buildBody({required BuildContext context}) {
             questionText: S.of(context).dontHaveAccount,
             actionText: S.of(context).signUp,
             onTap: () {
-              Navigator.pushNamed(context, Routes.register);
+              context.pushNamed(Routes.register);
             },
           ),
           // Login Bloc Listener to handle login state
