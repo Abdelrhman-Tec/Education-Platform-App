@@ -19,8 +19,7 @@ Widget _buildBody({required BuildContext context}) {
             titleHeader: S.of(context).signIn,
             subTitleHeader: S.of(context).welcomeBack,
           ),
-          verticalSpace(30),
-          _buildLoginForm(context: context),
+          EmailAndPassword(),
           // Button Login
           verticalSpace(30),
           _buildLoginButton(context: context),
@@ -34,28 +33,10 @@ Widget _buildBody({required BuildContext context}) {
               Navigator.pushNamed(context, Routes.register);
             },
           ),
+          LoginBlocListener(),
         ],
       ).paddingSymmetric(h: 20.w, v: 60.h),
     ),
-  );
-}
-
-Widget _buildLoginForm({required BuildContext context}) {
-  return Column(
-    children: [
-      // Email
-      CustomTextFormField(
-        hintText: S.of(context).email,
-        borderColor: AppColors.mediumBlue,
-      ),
-      verticalSpace(20),
-      // Password
-      CustomTextFormField(
-        hintText: S.of(context).password,
-        borderColor: AppColors.mediumBlue,
-        isPassword: true,
-      ),
-    ],
   );
 }
 
@@ -66,7 +47,7 @@ Widget _buildLoginButton({required BuildContext context}) {
     borderRadius: 5.r,
     height: 60.h,
     textColor: AppColors.white,
-    onPressed: () {},
+    onPressed: () => validateThenDoLogin(context),
   );
 }
 
@@ -82,4 +63,10 @@ Widget _buildForgotPasswordButton({required BuildContext context}) {
     onPressed: () {},
     child: Text(S.of(context).forgotPassword),
   );
+}
+
+void validateThenDoLogin(BuildContext context) {
+  if (context.read<AuthCubit>().formKey.currentState!.validate()) {
+    context.read<AuthCubit>().login();
+  }
 }

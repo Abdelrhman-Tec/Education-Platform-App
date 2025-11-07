@@ -1,23 +1,28 @@
-import 'package:education_platform_app/core/routing/routes.dart';
+import 'package:education_platform_app/core/di/service_locator.dart';
 import 'package:education_platform_app/features/auth/presentation/screens/login_screen.dart';
-// import 'package:education_platform_app/features/auth/presentation/screens/register_screen.dart';
+import 'package:education_platform_app/features/auth/presentation/widgets/auth_imports.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
-/// AppRouter manages navigation logic and route generation
 class AppRouter {
-  /// Handles route generation based on route names
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.register:
-      // return _buildCupertinoRoute(const RegisterScreen());
+        // return _buildCupertinoRoute(const RegisterScreen());
+        break;
 
       case Routes.login:
-        return _buildCupertinoRoute(const LoginScreen());
+        return _buildCupertinoRoute(
+          BlocProvider(
+            create: (_) => getIt<AuthCubit>(),
+            child: const LoginScreen(),
+          ),
+        );
 
       default:
         return _buildCupertinoRoute(const NotFoundPage());
     }
+    // Fallback to ensure a non-null Route is always returned
+    return _buildCupertinoRoute(const NotFoundPage());
   }
 
   static CupertinoPageRoute _buildCupertinoRoute(Widget page) {

@@ -1,30 +1,36 @@
 import 'package:flutter/material.dart';
 
 /// Extension on BuildContext — for navigation, theming, and screen info
-extension ContextX on BuildContext {
-  // Navigation helpers
-  void push(Widget page) =>
-      Navigator.of(this).push(MaterialPageRoute(builder: (_) => page));
+extension Navigation on BuildContext {
+  Future<dynamic> pushNamed(String routeName, {Object? arguments}) {
+    return Navigator.of(this).pushNamed(routeName, arguments: arguments);
+  }
 
-  void pushReplacement(Widget page) => Navigator.of(
-    this,
-  ).pushReplacement(MaterialPageRoute(builder: (_) => page));
+  Future<dynamic> pushReplacementNamed(String routeName, {Object? arguments}) {
+    return Navigator.of(
+      this,
+    ).pushReplacementNamed(routeName, arguments: arguments);
+  }
 
-  void pop([dynamic result]) => Navigator.of(this).pop(result);
+  Future<dynamic> pushNamedAndRemoveUntil(
+    String routeName, {
+    Object? arguments,
+    required RoutePredicate predicate,
+  }) {
+    return Navigator.of(
+      this,
+    ).pushNamedAndRemoveUntil(routeName, predicate, arguments: arguments);
+  }
 
-  // Access theme, text styles, and colors
-  ThemeData get theme => Theme.of(this);
-  TextTheme get textTheme => theme.textTheme;
-  ColorScheme get colorScheme => theme.colorScheme;
+  void pop() => Navigator.of(this).pop();
+}
 
-  // Screen size helpers
-  Size get size => MediaQuery.of(this).size;
-  double get width => size.width;
-  double get height => size.height;
+extension StringExtension on String? {
+  bool isNullOrEmpty() => this == null || this == "";
+}
 
-  // Theme and direction info
-  bool get isDark => theme.brightness == Brightness.dark;
-  bool get isRtl => Directionality.of(this) == TextDirection.rtl;
+extension ListExtension<T> on List<T>? {
+  bool isNullOrEmpty() => this == null || this!.isEmpty;
 }
 
 /// Extension on String — for text formatting and validation

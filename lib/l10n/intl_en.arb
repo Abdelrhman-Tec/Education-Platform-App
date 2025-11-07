@@ -167,6 +167,11 @@
   "signUpWithEmail" : "Sign Up with Email",
   "firstName": "First Name",
   "lastName": "Last Name",
-    "signUpSubtitle": "Create your account and start your learning journey with us"
+    "signUpSubtitle": "Create your account and start your learning journey with us",
+      "passwordValidationLowercase": "At least 1 lowercase letter",
+  "passwordValidationUppercase": "At least 1 uppercase letter",
+  "passwordValidationNumber": "At least 1 number",
+  "passwordValidationMinLength": "At least 8 characters",
+  "passwordValidationSpecialCharacter": "At least 1 special character"
 
 }

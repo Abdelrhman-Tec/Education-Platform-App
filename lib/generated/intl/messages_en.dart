@@ -124,6 +124,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordMismatch": MessageLookupByLibrary.simpleMessage(
       "Passwords do not match",
     ),
+    "passwordValidationLowercase": MessageLookupByLibrary.simpleMessage(
+      "At least 1 lowercase letter",
+    ),
+    "passwordValidationMinLength": MessageLookupByLibrary.simpleMessage(
+      "At least 8 characters",
+    ),
+    "passwordValidationNumber": MessageLookupByLibrary.simpleMessage(
+      "At least 1 number",
+    ),
+    "passwordValidationSpecialCharacter": MessageLookupByLibrary.simpleMessage(
+      "At least 1 special character",
+    ),
+    "passwordValidationUppercase": MessageLookupByLibrary.simpleMessage(
+      "At least 1 uppercase letter",
+    ),
     "paymentFailed": MessageLookupByLibrary.simpleMessage("Payment Failed"),
     "paymentMethod": MessageLookupByLibrary.simpleMessage("Payment Method"),
     "paymentSuccess": MessageLookupByLibrary.simpleMessage(

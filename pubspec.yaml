@@ -47,6 +47,7 @@ dependencies:
   flutter_native_splash: ^2.4.6
   persistent_bottom_nav_bar: ^6.2.1
   cached_network_image: ^3.4.1
+  bloc: ^9.1.0
 
 dev_dependencies:
   flutter_test:

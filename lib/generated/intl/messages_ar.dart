@@ -126,6 +126,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordMismatch": MessageLookupByLibrary.simpleMessage(
       "كلمات المرور غير متطابقة",
     ),
+    "passwordValidationLowercase": MessageLookupByLibrary.simpleMessage(
+      "حرف صغير واحد على الأقل",
+    ),
+    "passwordValidationMinLength": MessageLookupByLibrary.simpleMessage(
+      "8 أحرف على الأقل",
+    ),
+    "passwordValidationNumber": MessageLookupByLibrary.simpleMessage(
+      "رقم واحد على الأقل",
+    ),
+    "passwordValidationSpecialCharacter": MessageLookupByLibrary.simpleMessage(
+      "حرف خاص واحد على الأقل",
+    ),
+    "passwordValidationUppercase": MessageLookupByLibrary.simpleMessage(
+      "حرف كبير واحد على الأقل",
+    ),
     "paymentFailed": MessageLookupByLibrary.simpleMessage("فشل في الدفع"),
     "paymentMethod": MessageLookupByLibrary.simpleMessage("طريقة الدفع"),
     "paymentSuccess": MessageLookupByLibrary.simpleMessage("تم الدفع بنجاح"),

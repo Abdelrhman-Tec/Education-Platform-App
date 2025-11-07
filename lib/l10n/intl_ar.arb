@@ -156,7 +156,16 @@
   "signInWithTwitter" : "تسجيل الدخول بواسطة Twitter",
   "firstName": "الاسم الأول",
   "lastName": "اسم العائلة",
-    "signUpSubtitle": "أنشئ حسابك وابدأ رحلتك التعليمية معنا"
+    "signUpSubtitle": "أنشئ حسابك وابدأ رحلتك التعليمية معنا",
+    "pleaseEnterValidEmail": "يرجى إدخال بريد إلكتروني صحيح",
+    "pleaseEnterYourPassword": "يرجى إدخال كلمة المرور الخاصة بك",
+    "pleaseEnterYourEmail": "يرجى إدخال عنوان بريدك الإلكتروني",
+    "pleaseEnterValidEmailAddress": "يرجى إدخال عنوان بريد إلكتروني صحيح",
+    "passwordValidationLowercase": "حرف صغير واحد على الأقل",
+    "passwordValidationUppercase": "حرف كبير واحد على الأقل",
+    "passwordValidationNumber": "رقم واحد على الأقل",
+    "passwordValidationMinLength": "8 أحرف على الأقل",
+    "passwordValidationSpecialCharacter": "حرف خاص واحد على الأقل"
 
   
 }

@@ -1178,6 +1178,56 @@ class S {
       args: [],
     );
   }
+
+  /// `At least 1 lowercase letter`
+  String get passwordValidationLowercase {
+    return Intl.message(
+      'At least 1 lowercase letter',
+      name: 'passwordValidationLowercase',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `At least 1 uppercase letter`
+  String get passwordValidationUppercase {
+    return Intl.message(
+      'At least 1 uppercase letter',
+      name: 'passwordValidationUppercase',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `At least 1 number`
+  String get passwordValidationNumber {
+    return Intl.message(
+      'At least 1 number',
+      name: 'passwordValidationNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `At least 8 characters`
+  String get passwordValidationMinLength {
+    return Intl.message(
+      'At least 8 characters',
+      name: 'passwordValidationMinLength',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `At least 1 special character`
+  String get passwordValidationSpecialCharacter {
+    return Intl.message(
+      'At least 1 special character',
+      name: 'passwordValidationSpecialCharacter',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
