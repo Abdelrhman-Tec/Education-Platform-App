@@ -1,5 +1,5 @@
-import 'package:education_platform_app/features/sign_up/presentation/cubit/register_state.dart';
-import 'package:education_platform_app/features/sign_up/presentation/cubit/register_cubit.dart';
+import 'package:education_platform_app/features/sign_up/presentation/sign_up_cubit/cubit/register_state.dart';
+import 'package:education_platform_app/features/sign_up/presentation/sign_up_cubit/cubit/register_cubit.dart';
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
 
 class RegisterBlocListener extends StatelessWidget {

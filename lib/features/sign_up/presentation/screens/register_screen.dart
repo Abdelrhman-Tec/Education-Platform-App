@@ -1,5 +1,5 @@
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
-import 'package:education_platform_app/features/sign_up/presentation/cubit/register_cubit.dart';
+import 'package:education_platform_app/features/sign_up/presentation/sign_up_cubit/cubit/register_cubit.dart';
 import 'package:education_platform_app/features/sign_up/presentation/widgets/register_bloc_listener.dart';
 import 'package:education_platform_app/features/sign_up/presentation/widgets/register_form.dart';
 

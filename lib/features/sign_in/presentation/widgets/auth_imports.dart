@@ -8,7 +8,7 @@ export 'package:education_platform_app/core/widgets/widgets.dart';
 export 'package:education_platform_app/core/constants/app_text_style.dart';
 export 'package:education_platform_app/core/routing/routes.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
-export 'package:education_platform_app/features/sign_in/presentation/cubit/login_cubit.dart';
+export 'package:education_platform_app/features/sign_in/presentation/sign_in_cubit/cubit/login_cubit.dart';
 export 'package:education_platform_app/features/sign_in/presentation/widgets/auth_redirect_text.dart';
 export 'package:education_platform_app/features/sign_in/presentation/widgets/email_and_password.dart';
 export 'package:education_platform_app/features/sign_in/presentation/widgets/header_page.dart';

@@ -1,7 +1,7 @@
 import 'package:education_platform_app/core/di/service_locator.dart';
 import 'package:education_platform_app/features/sign_in/presentation/screens/login_screen.dart';
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
-import 'package:education_platform_app/features/sign_up/presentation/cubit/register_cubit.dart';
+import 'package:education_platform_app/features/sign_up/presentation/sign_up_cubit/cubit/register_cubit.dart';
 import 'package:education_platform_app/features/sign_up/presentation/screens/register_screen.dart';
 import 'package:flutter/cupertino.dart';
 

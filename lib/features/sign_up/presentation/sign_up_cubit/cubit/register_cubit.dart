@@ -2,7 +2,7 @@ import 'package:education_platform_app/core/networking/api_result.dart';
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
 import 'package:education_platform_app/features/sign_up/data/model/register_request_model.dart';
 import 'package:education_platform_app/features/sign_up/data/repo/register_repo.dart';
-import 'package:education_platform_app/features/sign_up/presentation/cubit/register_state.dart';
+import 'package:education_platform_app/features/sign_up/presentation/sign_up_cubit/cubit/register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
   final RegisterRepo registerRepo;

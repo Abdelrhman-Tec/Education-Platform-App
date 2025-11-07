@@ -1,5 +1,5 @@
-import 'package:education_platform_app/features/sign_in/presentation/cubit/login_state.dart';
-import 'package:education_platform_app/features/sign_in/presentation/cubit/cubit_import.dart';
+import 'package:education_platform_app/features/sign_in/presentation/sign_in_cubit/cubit/login_state.dart';
+import 'package:education_platform_app/features/sign_in/presentation/sign_in_cubit/cubit/cubit_import.dart';
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
 class LoginCubit extends Cubit<LoginState> {
   final LoginRepo loginRepo;

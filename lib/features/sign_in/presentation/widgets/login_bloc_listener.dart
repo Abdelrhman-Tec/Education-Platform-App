@@ -1,4 +1,4 @@
-import 'package:education_platform_app/features/sign_in/presentation/cubit/login_state.dart';
+import 'package:education_platform_app/features/sign_in/presentation/sign_in_cubit/cubit/login_state.dart';
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
 
 class LoginBlocListener extends StatelessWidget {
