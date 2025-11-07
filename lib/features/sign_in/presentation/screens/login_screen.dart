@@ -1,4 +1,4 @@
-import 'package:education_platform_app/features/auth/presentation/widgets/auth_imports.dart';
+import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -71,7 +71,7 @@ Widget _buildForgotPasswordButton({required BuildContext context}) {
 }
 
 void validateThenDoLogin(BuildContext context) {
-  if (context.read<AuthCubit>().formKey.currentState!.validate()) {
-    context.read<AuthCubit>().login();
+  if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+    context.read<LoginCubit>().login();
   }
 }

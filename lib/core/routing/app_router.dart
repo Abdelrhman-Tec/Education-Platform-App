@@ -1,6 +1,6 @@
 import 'package:education_platform_app/core/di/service_locator.dart';
-import 'package:education_platform_app/features/auth/presentation/screens/login_screen.dart';
-import 'package:education_platform_app/features/auth/presentation/widgets/auth_imports.dart';
+import 'package:education_platform_app/features/sign_in/presentation/screens/login_screen.dart';
+import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
 import 'package:flutter/cupertino.dart';
 
 class AppRouter {
@@ -13,7 +13,7 @@ class AppRouter {
       case Routes.login:
         return _buildCupertinoRoute(
           BlocProvider(
-            create: (_) => getIt<AuthCubit>(),
+            create: (_) => getIt<LoginCubit>(),
             child: const LoginScreen(),
           ),
         );

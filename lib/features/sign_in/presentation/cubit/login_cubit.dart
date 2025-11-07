@@ -1,26 +1,26 @@
-import 'package:education_platform_app/features/auth/presentation/cubit/auth_state.dart';
-import 'package:education_platform_app/features/auth/presentation/cubit/cubit_import.dart';
-
-class AuthCubit extends Cubit<AuthState> {
+import 'package:education_platform_app/features/sign_in/presentation/cubit/login_state.dart';
+import 'package:education_platform_app/features/sign_in/presentation/cubit/cubit_import.dart';
+import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
+class LoginCubit extends Cubit<LoginState> {
   final LoginRepo loginRepo;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
 
-  AuthCubit(this.loginRepo) : super(const AuthState.initial());
+  LoginCubit(this.loginRepo) : super(const LoginState.initial());
 
   Future<void> login() async {
-    emit(const AuthState.loading());
+    emit(const LoginState.loading());
     final response = await loginRepo.login(
       LoginRequestModel(email: email.text, password: password.text),
     );
     response.when(
       success: (loginResponse) {
-        emit(AuthState.success(loginResponse));
+        emit(LoginState.success(loginResponse));
       },
       failure: (error) {
         final message = error.apiErrorModel.message ?? '';
-        emit(AuthState.failure(message: message.toString()));
+        emit(LoginState.failure(message: message.toString()));
       },
     );
   }

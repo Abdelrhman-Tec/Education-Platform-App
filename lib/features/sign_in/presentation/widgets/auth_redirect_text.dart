@@ -1,4 +1,5 @@
-import 'package:education_platform_app/features/auth/presentation/widgets/auth_imports.dart';
+
+import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
 
 class AuthRedirectText extends StatelessWidget {
   final String questionText;

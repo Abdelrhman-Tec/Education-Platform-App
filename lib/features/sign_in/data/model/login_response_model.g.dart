@@ -12,5 +12,6 @@ LoginResponseModel _$LoginResponseModelFromJson(Map<String, dynamic> json) =>
       token: json['token'] as String,
     );
 
+// ignore: unused_element
 Map<String, dynamic> _$LoginResponseModelToJson(LoginResponseModel instance) =>
     <String, dynamic>{'message': instance.message, 'token': instance.token};

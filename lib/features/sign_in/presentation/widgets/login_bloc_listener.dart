@@ -1,12 +1,13 @@
-import 'package:education_platform_app/features/auth/presentation/cubit/auth_state.dart';
-import 'package:education_platform_app/features/auth/presentation/widgets/auth_imports.dart';
+
+import 'package:education_platform_app/features/sign_in/presentation/cubit/login_state.dart';
+import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
 
 class LoginBlocListener extends StatelessWidget {
   const LoginBlocListener({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<AuthCubit, AuthState>(
+    return BlocListener<LoginCubit, LoginState>(
       listenWhen: (previous, current) =>
           current is Loading || current is Success || current is Failure,
       listener: (context, state) {

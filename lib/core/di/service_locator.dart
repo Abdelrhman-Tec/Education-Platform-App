@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:education_platform_app/core/networking/api_services.dart';
 import 'package:education_platform_app/core/networking/dio_factory.dart';
-import 'package:education_platform_app/features/auth/presentation/cubit/auth_cubit.dart';
-import 'package:education_platform_app/features/auth/presentation/cubit/cubit_import.dart';
+import 'package:education_platform_app/features/sign_in/data/repo/login_repo.dart';
+import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
@@ -19,5 +20,5 @@ Future<void> setupGetIt() async {
     () => LoginRepo(apiService: getIt<ApiService>()),
   );
 
-  getIt.registerFactory<AuthCubit>(() => AuthCubit(getIt<LoginRepo>()));
+  getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt<LoginRepo>()));
 }

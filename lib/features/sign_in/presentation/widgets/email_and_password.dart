@@ -1,11 +1,7 @@
 import 'package:education_platform_app/core/helpers/app_regex.dart';
-import 'package:education_platform_app/core/helpers/spacing.dart';
-import 'package:education_platform_app/core/widgets/custom_text_field.dart';
-import 'package:education_platform_app/features/auth/presentation/cubit/auth_cubit.dart';
-import 'package:education_platform_app/features/auth/presentation/widgets/password_validation.dart';
-import 'package:education_platform_app/generated/l10n.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
+import 'package:education_platform_app/features/sign_in/presentation/widgets/password_validation.dart';
+
 
 class EmailAndPassword extends StatefulWidget {
   const EmailAndPassword({super.key});
@@ -25,7 +21,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
   @override
   void initState() {
     super.initState();
-    passwordController = context.read<AuthCubit>().password;
+    passwordController = context.read<LoginCubit>().password;
     setupPasswordControllerListener();
   }
 
@@ -46,7 +42,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: context.read<AuthCubit>().formKey,
+      key: context.read<LoginCubit>().formKey,
       child: Column(
         children: [
           verticalSpace(25),
@@ -61,7 +57,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
                 return S.of(context).email; // "Please enter a valid email"
               }
             },
-            controller: context.read<AuthCubit>().email,
+            controller: context.read<LoginCubit>().email,
           ),
           verticalSpace(17),
           CustomTextFormField(
@@ -98,7 +94,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
               }
               return null;
             },
-            controller: context.read<AuthCubit>().password,
+            controller: context.read<LoginCubit>().password,
           ),
           verticalSpace(15),
           PasswordValidation(
