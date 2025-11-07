@@ -15,17 +15,21 @@ Widget _buildBody({required BuildContext context}) {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Title Header
           HeaderPage(
             titleHeader: S.of(context).signIn,
             subTitleHeader: S.of(context).welcomeBack,
           ),
+          // Email and Password Form
           EmailAndPassword(),
-          // Button Login
           verticalSpace(30),
+          // Login Button
           _buildLoginButton(context: context),
           verticalSpace(10),
+          // Forgot Password
           _buildForgotPasswordButton(context: context),
           verticalSpace(30),
+          // Don't have an account
           AuthRedirectText(
             questionText: S.of(context).dontHaveAccount,
             actionText: S.of(context).signUp,
@@ -33,6 +37,7 @@ Widget _buildBody({required BuildContext context}) {
               Navigator.pushNamed(context, Routes.register);
             },
           ),
+          // Login Bloc Listener to handle login state
           LoginBlocListener(),
         ],
       ).paddingSymmetric(h: 20.w, v: 60.h),
