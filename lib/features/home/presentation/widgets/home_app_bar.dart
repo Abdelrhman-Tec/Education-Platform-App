@@ -12,16 +12,16 @@ class HomeAppBar extends StatelessWidget {
           height: 60.h,
           child: Row(
             children: [
-              Expanded(
-                child: CircleAvatar(
-                  backgroundColor: AppColors.mediumBlue,
-                  radius: 24.r,
-                  child: Text(
-                    'A',
-                    style: AppTextStyles.titleSmallBold.copyWith(
-                      color: AppColors.white,
-                    ),
+              Container(
+                width: 45.w,
+                height: 45.h,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.fitWidth,
+                    image: AssetImage("assets/icons/profile.jpg"),
                   ),
+                  shape: BoxShape.circle,
+                  color: AppColors.lightGreyBlue,
                 ),
               ),
               horizontalSpace(10),
@@ -32,12 +32,12 @@ class HomeAppBar extends StatelessWidget {
         const Spacer(),
         Stack(
           children: [
-            Icon(Icons.shopping_cart, color: AppColors.mediumBlue),
+            Icon(Icons.shopping_cart, color: AppColors.mediumBlue, size: 26),
             Positioned(
-              right: 11.w,
+              right: 13.w,
               child: Container(
-                width: 13.w,
-                height: 13.h,
+                width: 14.w,
+                height: 14.h,
                 decoration: BoxDecoration(
                   color: Colors.amber,
                   borderRadius: BorderRadius.circular(50),

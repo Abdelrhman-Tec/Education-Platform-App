@@ -1,3 +1,4 @@
+import 'package:education_platform_app/core/theme/app_colors.dart';
 import 'package:education_platform_app/generated/l10n.dart';
 import 'package:education_platform_app/core/routing/routes.dart';
 import 'package:education_platform_app/core/routing/app_router.dart';
@@ -15,7 +16,10 @@ class EducationPlatformApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp(
-        theme: ThemeData(fontFamily: 'NotoKufi'),
+        theme: ThemeData(
+          fontFamily: 'NotoKufi',
+          scaffoldBackgroundColor: AppColors.white,
+        ),
         locale: const Locale("ar"),
         localizationsDelegates: const [
           S.delegate,
@@ -25,7 +29,7 @@ class EducationPlatformApp extends StatelessWidget {
         ],
         supportedLocales: S.delegate.supportedLocales,
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.home,
+        initialRoute: Routes.login,
         onGenerateRoute: AppRouter.generateRoute,
       ),
     );
