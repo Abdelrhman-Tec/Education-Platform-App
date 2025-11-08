@@ -1,7 +1,5 @@
+import 'package:education_platform_app/features/home/presentation/widgets/index.dart';
 import '../../../sign_in/presentation/widgets/auth_imports.dart';
-import '../widgets/home_app_bar.dart';
-import '../widgets/home_search_bar.dart';
-import '../widgets/title_header_page.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -16,7 +14,22 @@ Widget _buildBody(context) {
   return SafeArea(
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [HomeAppBar(), TitleHeaderHomePage(), HomeSearchBar()],
+      children: [
+        HomeAppBar(),
+        TitleHeaderHomePage(),
+        HomeSearchBar(),
+        verticalSpace(30),
+        SectionTitle(sectionTitle: S.of(context).categories),
+        verticalSpace(20),
+        CategoryItem(
+          title: "التسويق",
+          iconPath: "assets/icons/marketing.png",
+          iconColor: AppColors.yellow,
+          backgroundColor: Colors.amber.shade100.withValues(alpha: 0.7),
+        ),
+        verticalSpace(30),
+        SectionTitle(sectionTitle: S.of(context).popularCourses),
+      ],
     ),
   );
 }
