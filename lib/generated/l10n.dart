@@ -1238,6 +1238,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Search for the best`
+  String get searchHeaderLine1 {
+    return Intl.message(
+      'Search for the best',
+      name: 'searchHeaderLine1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `courses for you!`
+  String get searchHeaderLine2 {
+    return Intl.message(
+      'courses for you!',
+      name: 'searchHeaderLine2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Type what you want to search!`
+  String get writeWhatYouWant {
+    return Intl.message(
+      'Type what you want to search!',
+      name: 'writeWhatYouWant',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search for courses`
+  String get searchCoursesTitle {
+    return Intl.message(
+      'Search for courses',
+      name: 'searchCoursesTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Type a keyword to find courses`
+  String get searchCoursesSubtitle {
+    return Intl.message(
+      'Type a keyword to find courses',
+      name: 'searchCoursesSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Type at least two characters to start searching`
+  String get typeAtLeastTwo {
+    return Intl.message(
+      'Type at least two characters to start searching',
+      name: 'typeAtLeastTwo',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

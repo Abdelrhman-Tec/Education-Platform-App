@@ -173,6 +173,14 @@
   "passwordValidationNumber": "At least 1 number",
   "passwordValidationMinLength": "At least 8 characters",
   "passwordValidationSpecialCharacter": "At least 1 special character",
-  "passwordConfirmation": "Password Confirmation"
+  "passwordConfirmation": "Password Confirmation",
+    "searchHeaderLine1": "Search for the best",
+    "searchHeaderLine2": "courses for you!",
+      "writeWhatYouWant": "Type what you want to search!",
+      "searchCoursesTitle": "Search for courses",
+      "searchCoursesSubtitle": "Type a keyword to find courses",
+      "typeAtLeastTwo": "Type at least two characters to start searching"
+
+
 
 }

@@ -176,7 +176,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "reviews": MessageLookupByLibrary.simpleMessage("تقييم"),
     "save": MessageLookupByLibrary.simpleMessage("حفظ"),
     "search": MessageLookupByLibrary.simpleMessage("بحث"),
-    "searchCourses": MessageLookupByLibrary.simpleMessage("بحث عن الكورسات"),
+    "searchCourses": MessageLookupByLibrary.simpleMessage(
+      "ابحث عن افضل كورسات لك !",
+    ),
+    "searchCoursesSubtitle": MessageLookupByLibrary.simpleMessage(
+      "اكتب كلمة البحث للعثور على الكورسات",
+    ),
+    "searchCoursesTitle": MessageLookupByLibrary.simpleMessage(
+      "ابحث عن الكورسات",
+    ),
+    "searchHeaderLine1": MessageLookupByLibrary.simpleMessage("ابحث عن افضل"),
+    "searchHeaderLine2": MessageLookupByLibrary.simpleMessage("كورسات لك !"),
     "searchHint": MessageLookupByLibrary.simpleMessage(
       "ابحث عن كورس، مدرب، أو موضوع",
     ),
@@ -212,11 +222,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "termsConditions": MessageLookupByLibrary.simpleMessage("الشروط والأحكام"),
     "total": MessageLookupByLibrary.simpleMessage("المجموع الكلي"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("حاول مرة أخرى"),
+    "typeAtLeastTwo": MessageLookupByLibrary.simpleMessage(
+      "اكتب حرفين على الأقل للبدء في البحث",
+    ),
     "unknownError": MessageLookupByLibrary.simpleMessage("خطأ غير معروف"),
     "viewCertificate": MessageLookupByLibrary.simpleMessage("عرض الشهادة"),
     "weakPassword": MessageLookupByLibrary.simpleMessage("كلمة مرور ضعيفة"),
     "welcomeBack": MessageLookupByLibrary.simpleMessage("مرحباً بعودتك"),
     "writeReview": MessageLookupByLibrary.simpleMessage("اكتب مراجعة"),
+    "writeWhatYouWant": MessageLookupByLibrary.simpleMessage(
+      "اكتب ما تريد البحث عنه!",
+    ),
     "yourRating": MessageLookupByLibrary.simpleMessage("تقييمك"),
   };
 }

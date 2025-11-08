@@ -166,6 +166,15 @@
     "passwordValidationNumber": "رقم واحد على الأقل",
     "passwordValidationMinLength": "8 أحرف على الأقل",
     "passwordValidationSpecialCharacter": "حرف خاص واحد على الأقل",
-    "passwordConfirmation": "تأكيد كلمة المرور"
+    "passwordConfirmation": "تأكيد كلمة المرور",
+  "searchHeaderLine1": "ابحث عن افضل",
+  "searchHeaderLine2": "كورسات لك !",
+    "searchCourses": "ابحث عن افضل كورسات لك !",
+    "writeWhatYouWant": "اكتب ما تريد البحث عنه!",
+    "searchCoursesTitle": "ابحث عن الكورسات",
+    "searchCoursesSubtitle": "اكتب كلمة البحث للعثور على الكورسات",
+    "typeAtLeastTwo": "اكتب حرفين على الأقل للبدء في البحث"
+
+
   
 }

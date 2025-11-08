@@ -181,6 +181,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "save": MessageLookupByLibrary.simpleMessage("Save"),
     "search": MessageLookupByLibrary.simpleMessage("Search"),
     "searchCourses": MessageLookupByLibrary.simpleMessage("Search Courses"),
+    "searchCoursesSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Type a keyword to find courses",
+    ),
+    "searchCoursesTitle": MessageLookupByLibrary.simpleMessage(
+      "Search for courses",
+    ),
+    "searchHeaderLine1": MessageLookupByLibrary.simpleMessage(
+      "Search for the best",
+    ),
+    "searchHeaderLine2": MessageLookupByLibrary.simpleMessage(
+      "courses for you!",
+    ),
     "searchHint": MessageLookupByLibrary.simpleMessage(
       "Search for course, instructor, or topic",
     ),
@@ -254,11 +266,17 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "total": MessageLookupByLibrary.simpleMessage("Total"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("Try Again"),
+    "typeAtLeastTwo": MessageLookupByLibrary.simpleMessage(
+      "Type at least two characters to start searching",
+    ),
     "unknownError": MessageLookupByLibrary.simpleMessage("Unknown Error"),
     "viewCertificate": MessageLookupByLibrary.simpleMessage("View Certificate"),
     "weakPassword": MessageLookupByLibrary.simpleMessage("Weak password"),
     "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome Back"),
     "writeReview": MessageLookupByLibrary.simpleMessage("Write Review"),
+    "writeWhatYouWant": MessageLookupByLibrary.simpleMessage(
+      "Type what you want to search!",
+    ),
     "yourRating": MessageLookupByLibrary.simpleMessage("Your Rating"),
   };
 }
