@@ -78,7 +78,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                 icon: Icon(
                   _obscure
                       ? Icons.visibility_off_outlined
-                      : Icons.visibility_off_outlined,
+                      : Icons.visibility_outlined,
                 ),
                 onPressed: () => setState(() => _obscure = !_obscure),
               )

@@ -46,7 +46,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
         children: [
           verticalSpace(25),
           CustomTextFormField(
-            suffixIcon: Icons.email,
+            prefixIcon: Icons.email,
             hintText: S.of(context).email,
             isPassword: false,
             // ignore: body_might_complete_normally_nullable
@@ -61,6 +61,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           ),
           verticalSpace(17),
           CustomTextFormField(
+            prefixIcon: Icons.lock,
             hintText: S.of(context).password,
             isPassword: true,
             validator: (value) {
