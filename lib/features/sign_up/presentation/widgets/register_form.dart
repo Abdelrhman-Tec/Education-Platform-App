@@ -155,10 +155,4 @@ class _RegisterFormState extends State<RegisterForm> {
     }
     return null;
   }
-
-  @override
-  void dispose() {
-    passwordController.dispose();
-    super.dispose();
-  }
 }
