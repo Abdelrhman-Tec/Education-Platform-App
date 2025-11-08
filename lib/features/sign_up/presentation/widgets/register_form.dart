@@ -53,6 +53,7 @@ class _RegisterFormState extends State<RegisterForm> {
             children: [
               Expanded(
                 child: CustomTextFormField(
+                  prefixIcon: Icons.person,
                   controller: cubit.firstName,
                   hintText: S.of(context).firstName,
                   borderColor: AppColors.mediumBlue,
@@ -62,6 +63,7 @@ class _RegisterFormState extends State<RegisterForm> {
               horizontalSpace(15),
               Expanded(
                 child: CustomTextFormField(
+                  prefixIcon: Icons.person,
                   controller: cubit.lastName,
                   hintText: S.of(context).lastName,
                   borderColor: AppColors.mediumBlue,
@@ -72,6 +74,7 @@ class _RegisterFormState extends State<RegisterForm> {
           ),
           verticalSpace(15),
           CustomTextFormField(
+            prefixIcon: Icons.email,
             controller: cubit.email,
             hintText: S.of(context).email,
             borderColor: AppColors.mediumBlue,
@@ -79,6 +82,7 @@ class _RegisterFormState extends State<RegisterForm> {
           ),
           verticalSpace(15),
           CustomTextFormField(
+            prefixIcon: Icons.lock,
             controller: cubit.password,
             hintText: S.of(context).password,
             borderColor: AppColors.mediumBlue,
@@ -87,6 +91,7 @@ class _RegisterFormState extends State<RegisterForm> {
           ),
           verticalSpace(15),
           CustomTextFormField(
+            prefixIcon: Icons.lock,
             controller: cubit.confirmPassword,
             hintText: S.of(context).passwordConfirmation,
             borderColor: AppColors.mediumBlue,
