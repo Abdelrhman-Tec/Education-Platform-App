@@ -2,7 +2,6 @@ import 'package:education_platform_app/core/helpers/app_regex.dart';
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
 import 'package:education_platform_app/features/sign_in/presentation/widgets/password_validation.dart';
 
-
 class EmailAndPassword extends StatefulWidget {
   const EmailAndPassword({super.key});
 
@@ -11,12 +10,12 @@ class EmailAndPassword extends StatefulWidget {
 }
 
 class _EmailAndPasswordState extends State<EmailAndPassword> {
+  late TextEditingController passwordController;
   bool hasLowercase = false;
   bool hasUppercase = false;
   bool hasNumber = false;
   bool hasSpecialCharacter = false;
   bool hasMinLength = false;
-  late TextEditingController passwordController;
 
   @override
   void initState() {
@@ -47,6 +46,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
         children: [
           verticalSpace(25),
           CustomTextFormField(
+            suffixIcon: Icons.email,
             hintText: S.of(context).email,
             isPassword: false,
             // ignore: body_might_complete_normally_nullable
