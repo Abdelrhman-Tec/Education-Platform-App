@@ -11,11 +11,11 @@ CategoriesResponseModel _$CategoriesResponseModelFromJson(
 ) => CategoriesResponseModel(
   status: json['status'] as bool?,
   data: (json['data'] as List<dynamic>?)
-      ?.map((e) => Datum.fromJson(e as Map<String, dynamic>))
+      ?.map((e) => Category.fromJson(e as Map<String, dynamic>))
       .toList(),
 );
 
-Datum _$DatumFromJson(Map<String, dynamic> json) => Datum(
+Category _$CategoryFromJson(Map<String, dynamic> json) => Category(
   id: (json['id'] as num?)?.toInt(),
   name: json['name'] as String?,
   image: json['image'] as String?,

@@ -7,7 +7,7 @@ abstract class ApiConstants {
   static const String users = "/api/users";
 
   /// Categories
-  static const String categories = "api/categories";
+  static const String categories = "/api/categories";
 }
 
 class ApiErrors {

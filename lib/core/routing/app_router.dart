@@ -1,4 +1,5 @@
 import 'package:education_platform_app/core/di/service_locator.dart';
+import 'package:education_platform_app/features/categories/presentation/categories_cubit/cubit/categories_cubit.dart';
 import 'package:education_platform_app/features/home/presentation/screens/home_screen.dart';
 import 'package:education_platform_app/features/sign_in/presentation/screens/login_screen.dart';
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
@@ -24,7 +25,12 @@ class AppRouter {
           ),
         );
       case Routes.home:
-        return _buildCupertinoRoute(const HomeScreen());
+        return _buildCupertinoRoute(
+          BlocProvider.value(
+            value: getIt<CategoriesCubit>()..getCategories(),
+            child: const HomeScreen(),
+          ),
+        );
 
       default:
         return _buildCupertinoRoute(const NotFoundPage());

@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:education_platform_app/core/networking/api_constants.dart';
+import 'package:education_platform_app/features/categories/data/model/categories_response_model.dart';
 import 'package:education_platform_app/features/sign_in/data/model/login_request_model.dart';
 import 'package:education_platform_app/features/sign_in/data/model/login_response_model.dart';
 import 'package:education_platform_app/features/sign_up/data/model/register_request_model.dart';
@@ -18,4 +19,7 @@ abstract class ApiService {
   Future<RegisterResponseModel> register(
     @Body() RegisterRequestModel registerRequestModel,
   );
+
+  @GET(ApiConstants.categories)
+  Future<CategoriesResponseModel> getCategories();
 }

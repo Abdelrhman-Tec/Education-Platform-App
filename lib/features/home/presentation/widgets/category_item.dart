@@ -3,8 +3,8 @@ import 'package:education_platform_app/features/sign_in/presentation/widgets/aut
 class CategoryItem extends StatelessWidget {
   final String title;
   final String iconPath;
-  final Color backgroundColor;
-  final Color iconColor;
+  final String backgroundColorHex;
+  final String iconColorHex;
   final double? width;
   final double? height;
   final double borderRadius;
@@ -13,30 +13,39 @@ class CategoryItem extends StatelessWidget {
     super.key,
     required this.title,
     required this.iconPath,
-    this.backgroundColor = const Color(0xFFFFF3CD),
-    this.iconColor = Colors.yellow,
+    required this.backgroundColorHex,
+    required this.iconColorHex,
     this.width,
     this.height,
     this.borderRadius = 14,
   });
+
+  Color _hexToColor(String hex) {
+    hex = hex.replaceAll("#", "");
+    if (hex.length == 6) hex = "FF$hex";
+    return Color(int.parse(hex, radix: 16));
+  }
 
   @override
   Widget build(BuildContext context) {
     final double w = width ?? MediaQuery.of(context).size.width * 0.3;
     final double h = height ?? w;
 
+    final Color bgColor = _hexToColor(backgroundColorHex);
+    final Color iconColor = _hexToColor(iconColorHex);
+
     return Container(
       width: w,
       height: h,
       decoration: BoxDecoration(
-        color: backgroundColor,
+        color: bgColor,
         borderRadius: BorderRadius.circular(borderRadius),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(iconPath, width: w * 0.3, color: iconColor),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           Text(
             title,
             style: TextStyle(

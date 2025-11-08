@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:education_platform_app/core/networking/api_services.dart';
 import 'package:education_platform_app/core/networking/dio_factory.dart';
+import 'package:education_platform_app/features/categories/data/repo/categories_repo.dart';
+import 'package:education_platform_app/features/categories/presentation/categories_cubit/cubit/categories_cubit.dart';
 import 'package:education_platform_app/features/sign_in/data/repo/login_repo.dart';
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
 import 'package:education_platform_app/features/sign_up/data/repo/register_repo.dart';
@@ -30,5 +32,12 @@ Future<void> setupGetIt() async {
 
   getIt.registerFactory<RegisterCubit>(
     () => RegisterCubit(getIt<RegisterRepo>()),
+  );
+  getIt.registerFactory<CategoriesRepo>(
+    () => CategoriesRepo(getIt<ApiService>()),
+  );
+
+  getIt.registerFactory<CategoriesCubit>(
+    () => CategoriesCubit(getIt<CategoriesRepo>()),
   );
 }
