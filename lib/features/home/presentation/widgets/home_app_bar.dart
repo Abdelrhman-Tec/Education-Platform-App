@@ -12,16 +12,18 @@ class HomeAppBar extends StatelessWidget {
           height: 60.h,
           child: Row(
             children: [
-              Container(
-                width: 45.w,
-                height: 45.h,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    fit: BoxFit.fitWidth,
-                    image: AssetImage("assets/icons/profile.jpg"),
+              Expanded(
+                child: Container(
+                  width: 52.w,
+                  height: 52.h,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.fitWidth,
+                      image: AssetImage("assets/icons/profile.jpg"),
+                    ),
+                    shape: BoxShape.circle,
+                    color: AppColors.lightGreyBlue,
                   ),
-                  shape: BoxShape.circle,
-                  color: AppColors.lightGreyBlue,
                 ),
               ),
               horizontalSpace(10),

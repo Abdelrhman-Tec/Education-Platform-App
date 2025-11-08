@@ -21,12 +21,17 @@ Widget _buildBody(context) {
         verticalSpace(30),
         SectionTitle(sectionTitle: S.of(context).categories),
         verticalSpace(20),
-        CategoryItem(
-          title: "التسويق",
-          iconPath: "assets/icons/marketing.png",
-          iconColor: AppColors.yellow,
-          backgroundColor: Colors.amber.shade100.withValues(alpha: 0.7),
+        SizedBox(
+          height: 120.h,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: [
+
+              horizontalSpace(10),
+            ],
+          ),
         ),
+
         verticalSpace(30),
         SectionTitle(sectionTitle: S.of(context).popularCourses),
       ],
