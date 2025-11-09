@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+  final String name;
+  const MainScreen({super.key, required this.name});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -14,8 +15,8 @@ class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
   int cartItemCount = 5;
 
-  final List<Widget> _screens = const [
-    HomeScreen(),
+  late final List<Widget> _screens = [
+    HomeScreen(name: widget.name),
     PlaceholderScreen(title: "التصنيفات"),
     PlaceholderScreen(title: "الدورات"),
     PlaceholderScreen(title: "سلة المشتريات"),

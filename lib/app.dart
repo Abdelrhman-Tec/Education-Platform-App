@@ -29,7 +29,7 @@ class EducationPlatformApp extends StatelessWidget {
         ],
         supportedLocales: S.delegate.supportedLocales,
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.mainScreen,
+        initialRoute: Routes.login,
         onGenerateRoute: AppRouter.generateRoute,
       ),
     );

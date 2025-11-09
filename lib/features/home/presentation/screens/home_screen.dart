@@ -4,11 +4,15 @@ import 'package:education_platform_app/features/home/presentation/widgets/index.
 import '../../../sign_in/presentation/widgets/auth_imports.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  final String name;
+  const HomeScreen({super.key, required this.name});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: HomeAppBar(), body: _buildBody(context));
+    return Scaffold(
+      appBar: HomeAppBar(name: name),
+      body: _buildBody(context),
+    );
   }
 }
 

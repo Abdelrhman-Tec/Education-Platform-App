@@ -1,10 +1,11 @@
 import 'dart:ui';
 import 'package:skeletonizer/skeletonizer.dart';
-
 import '../../../sign_in/presentation/widgets/auth_imports.dart';
 
 class HomeAppBar extends StatefulWidget implements PreferredSizeWidget {
-  const HomeAppBar({super.key});
+  final String name;
+
+  const HomeAppBar({super.key, required this.name});
 
   @override
   State<HomeAppBar> createState() => _HomeAppBarState();
@@ -20,11 +21,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 4), () {
-      if (mounted) {
-        setState(() {
-          _showSkeleton = false;
-        });
-      }
+      if (mounted) setState(() => _showSkeleton = false);
     });
   }
 
@@ -46,60 +43,59 @@ class _HomeAppBarState extends State<HomeAppBar> {
         enabled: _showSkeleton,
         child: Row(
           children: [
-            SizedBox(
-              width: 200.w,
-              height: 60.h,
+            // Circle + Name
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+              decoration: BoxDecoration(
+                color: AppColors.lightGreyBlue.withValues(alpha: 0.15),
+                borderRadius: BorderRadius.circular(12),
+              ),
               child: Row(
                 children: [
-                  Expanded(
-                    child: Container(
-                      width: 52.w,
-                      height: 52.h,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage("assets/icons/profile.jpg"),
-                        ),
-                        shape: BoxShape.circle,
-                        color: AppColors.lightGreyBlue,
+                  CircleAvatar(
+                    radius: 26.r,
+                    backgroundColor: AppColors.lightGreyBlue,
+                    child: Text(
+                      widget.name[0].toUpperCase(),
+                      style: AppTextStyles.titleSmallSemiBold.copyWith(
+                        color: AppColors.white,
                       ),
                     ),
                   ),
-                  horizontalSpace(10),
-                  Text(
-                    "Abdelrhman Nada",
-                    style: AppTextStyles.titleSmallSemiBold,
-                  ),
+                  SizedBox(width: 12.w),
+                  Text(widget.name, style: AppTextStyles.titleSmallSemiBold),
                 ],
               ),
             ),
             const Spacer(),
+            // Cart Icon with badge
             Stack(
+              clipBehavior: Clip.none,
               children: [
                 Icon(
                   Icons.shopping_cart,
                   color: AppColors.mediumBlue,
-                  size: 26,
+                  size: 28.sp,
                 ),
                 Positioned(
-                  top: 1,
-                  right: 12.w,
+                  right: -6.w,
+                  top: -4.h,
                   child: Container(
-                    width: 14.w,
-                    height: 14.h,
+                    padding: EdgeInsets.all(2.sp),
                     decoration: BoxDecoration(
                       color: Colors.amber,
-                      borderRadius: BorderRadius.circular(50),
+                      shape: BoxShape.circle,
+                    ),
+                    constraints: BoxConstraints(
+                      minWidth: 16.w,
+                      minHeight: 16.h,
                     ),
                     child: Center(
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Text(
-                          "0",
-                          style: AppTextStyles.titleSmallSemiBold.copyWith(
-                            color: AppColors.white,
-                            fontSize: 9.sp,
-                          ),
+                      child: Text(
+                        "0",
+                        style: AppTextStyles.titleSmallSemiBold.copyWith(
+                          color: AppColors.white,
+                          fontSize: 10.sp,
                         ),
                       ),
                     ),
@@ -112,6 +108,4 @@ class _HomeAppBarState extends State<HomeAppBar> {
       ),
     );
   }
-
-  Size get preferredSize => Size.fromHeight(80.h);
 }

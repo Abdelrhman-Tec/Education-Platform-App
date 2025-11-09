@@ -13,4 +13,13 @@ class CoursesRepo {
       return ApiResult.failure(ErrorHandler.handle(error));
     }
   }
+
+  Future<ApiResult<List<Course>>> searchCourses(String query) async {
+    try {
+      final response = await apiService.searchCourses(query);
+      return ApiResult.success(response.data ?? []);
+    } catch (error) {
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
 }

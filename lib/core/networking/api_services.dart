@@ -26,4 +26,7 @@ abstract class ApiService {
 
   @GET(ApiConstants.courses)
   Future<CoursesResponseModel> getCourses();
+
+  @GET(ApiConstants.searchCourses)
+  Future<CoursesResponseModel> searchCourses(@Query("query") String query);
 }

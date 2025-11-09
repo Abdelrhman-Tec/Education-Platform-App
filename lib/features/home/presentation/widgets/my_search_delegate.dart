@@ -1,6 +1,23 @@
+import 'dart:async';
+import 'package:education_platform_app/features/courses/data/model/courses_response_model.dart';
+import 'package:education_platform_app/features/courses/presentation/courses_cubit/cubit/courses_cubit.dart';
+import 'package:education_platform_app/features/home/presentation/widgets/search_course_card.dart';
 import '../../../sign_in/presentation/widgets/auth_imports.dart';
 
 class MySearchDelegate extends SearchDelegate {
+  final CoursesCubit coursesCubit;
+  Timer? _debounce;
+
+  final VoidCallback onClose;
+
+  MySearchDelegate({required this.coursesCubit, required this.onClose});
+
+  @override
+  void close(BuildContext context, result) {
+    onClose();
+    super.close(context, result);
+  }
+
   @override
   String get searchFieldLabel => S.current.searchCourses;
 
@@ -29,24 +46,22 @@ class MySearchDelegate extends SearchDelegate {
   );
 
   @override
-  InputDecorationTheme get searchFieldDecorationTheme {
-    return InputDecorationTheme(
-      hintStyle: TextStyle(color: Colors.grey.shade600, fontSize: 16),
-      filled: true,
-      fillColor: Colors.grey.shade200,
-      contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(20),
-        borderSide: BorderSide.none,
-      ),
-    );
-  }
+  InputDecorationTheme get searchFieldDecorationTheme => InputDecorationTheme(
+    hintStyle: TextStyle(color: Colors.grey.shade600, fontSize: 16),
+    filled: true,
+    fillColor: Colors.grey.shade200,
+    contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(20),
+      borderSide: BorderSide.none,
+    ),
+  );
 
   @override
   List<Widget>? buildActions(BuildContext context) {
+    if (query.isEmpty) return null;
     return [
-      if (query.isNotEmpty)
-        IconButton(icon: const Icon(Icons.clear), onPressed: () => query = ''),
+      IconButton(icon: const Icon(Icons.clear), onPressed: () => query = ''),
     ];
   }
 
@@ -58,63 +73,136 @@ class MySearchDelegate extends SearchDelegate {
     );
   }
 
+  void _onQueryChanged(String query) {
+    if (_debounce?.isActive ?? false) _debounce!.cancel();
+    _debounce = Timer(const Duration(milliseconds: 500), () {
+      if (query.trim().length >= 2) {
+        coursesCubit.searchCourses(query.trim());
+      }
+    });
+  }
+
   @override
   Widget buildResults(BuildContext context) {
-    return Center(
-      child: Text(
-        S.of(context).writeWhatYouWant,
-        style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
-        textAlign: TextAlign.center,
-      ),
+    if (query.trim().isEmpty) {
+      return Center(
+        child: Text(
+          S.of(context).writeWhatYouWant,
+          style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
+        ),
+      );
+    }
+
+    _onQueryChanged(query);
+
+    return BlocBuilder<CoursesCubit, CoursesState<List<Course>>>(
+      bloc: coursesCubit,
+      builder: (context, state) {
+        return state.when(
+          initial: () => const SizedBox.shrink(),
+          loading: () => const Center(child: CircularProgressIndicator()),
+          success: (courses) => courses.isEmpty
+              ? Center(child: Text("لا توجد نتائج"))
+              : ListView.builder(
+                  itemCount: courses.length,
+                  itemBuilder: (context, index) {
+                    final course = courses[index];
+                    return SearchCourseCard(
+                      imageUrl: course.image ?? '',
+                      title: course.title ?? '',
+                      description: course.description ?? '',
+                    );
+                  },
+                ),
+          failure: (error) => Center(
+            child: Text(error, style: const TextStyle(color: Colors.red)),
+          ),
+        );
+      },
     );
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return Column(
-      children: [
-        const Spacer(),
-        Center(
-          child: Icon(Icons.search, size: 80, color: Colors.grey.shade500),
-        ),
-        const SizedBox(height: 20),
-        Center(
-          child: Text(
-            S.of(context).searchCoursesTitle,
-            style: AppTextStyles.titleSmallBold,
-            textAlign: TextAlign.center,
+    if (query.trim().length < 2) {
+      return Column(
+        children: [
+          const Spacer(),
+          Center(
+            child: Icon(Icons.search, size: 80, color: Colors.grey.shade500),
           ),
-        ),
-        const SizedBox(height: 10),
-        Center(
-          child: Text(
-            S.of(context).searchCoursesSubtitle,
-            style: AppTextStyles.titleSmallBold.copyWith(
-              fontSize: 14,
-              color: Colors.grey.shade400,
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ),
-        const SizedBox(height: 20),
-        Container(
-          width: 300,
-          height: 60,
-          decoration: BoxDecoration(
-            color: Colors.blue.withOpacity(0.2),
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: Colors.blue.withOpacity(0.4)),
-          ),
-          child: Center(
+          const SizedBox(height: 20),
+          Center(
             child: Text(
-              S.of(context).typeAtLeastTwo,
-              style: const TextStyle(fontSize: 15, color: Colors.blue),
+              S.of(context).searchCoursesTitle,
+              style: AppTextStyles.titleSmallBold,
               textAlign: TextAlign.center,
             ),
           ),
-        ),
-        const Spacer(),
-      ],
+          const SizedBox(height: 10),
+          Center(
+            child: Text(
+              S.of(context).searchCoursesSubtitle,
+              style: AppTextStyles.titleSmallBold.copyWith(
+                fontSize: 14,
+                color: Colors.grey.shade400,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          const SizedBox(height: 20),
+          Container(
+            width: 300,
+            height: 60,
+            decoration: BoxDecoration(
+              color: Colors.blue.withAlpha(50),
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: Colors.blue.withAlpha(100)),
+            ),
+            child: Center(
+              child: Text(
+                S.of(context).typeAtLeastTwo,
+                style: const TextStyle(fontSize: 15, color: Colors.blue),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+          const Spacer(),
+        ],
+      );
+    }
+
+    _onQueryChanged(query);
+
+    return BlocBuilder<CoursesCubit, CoursesState<List<Course>>>(
+      bloc: coursesCubit,
+      builder: (context, state) {
+        return state.when(
+          initial: () => const SizedBox.shrink(),
+          loading: () => const Center(child: CircularProgressIndicator()),
+          success: (courses) => ListView.builder(
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            itemCount: courses.length,
+            itemBuilder: (context, index) {
+              final course = courses[index];
+              return ListTile(
+                title: Text(course.title ?? ''),
+                subtitle: Text(course.description ?? ''),
+                onTap: () => close(context, course),
+              );
+            },
+          ),
+          failure: (error) => Center(
+            child: Text(error, style: const TextStyle(color: Colors.red)),
+          ),
+        );
+      },
     );
+  }
+
+  @override
+  void dispose() {
+    _debounce?.cancel();
+    super.dispose();
   }
 }
