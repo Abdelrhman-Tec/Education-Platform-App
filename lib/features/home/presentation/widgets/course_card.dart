@@ -1,6 +1,7 @@
+import 'package:education_platform_app/core/function/fix_url_imdage.dart';
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
 
-class ProductCard extends StatelessWidget {
+class CourseCard extends StatelessWidget {
   final String imageUrl;
   final String title;
   final String price;
@@ -8,7 +9,7 @@ class ProductCard extends StatelessWidget {
   final int lectures;
   final int likes;
 
-  const ProductCard({
+  const CourseCard({
     super.key,
     required this.imageUrl,
     required this.title,
@@ -32,10 +33,10 @@ class ProductCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(
-              imageUrl,
+            Image.network(
+              fixUrlImage(imageUrl),
               fit: BoxFit.cover,
-              height: 200.h,
+              height: 210.h,
               width: double.infinity,
               errorBuilder: (_, __, ___) => Container(
                 color: Colors.grey.shade200,
@@ -58,7 +59,7 @@ class ProductCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Text(
-                price,
+                "\$$price",
                 style: AppTextStyles.titleSmallSemiBold.copyWith(
                   fontSize: 16.sp,
                   color: AppColors.brightGreen,

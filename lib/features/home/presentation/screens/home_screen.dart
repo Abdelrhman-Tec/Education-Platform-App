@@ -1,6 +1,6 @@
 import 'package:education_platform_app/features/home/presentation/widgets/categoery_list.dart';
+import 'package:education_platform_app/features/home/presentation/widgets/courses_list.dart';
 import 'package:education_platform_app/features/home/presentation/widgets/index.dart';
-import 'package:education_platform_app/features/home/presentation/widgets/product_card.dart';
 import '../../../sign_in/presentation/widgets/auth_imports.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -27,14 +27,7 @@ Widget _buildBody(context) {
           verticalSpace(30),
           SectionTitle(sectionTitle: S.of(context).popularCourses),
           verticalSpace(30),
-          ProductCard(
-            imageUrl: 'assets/images/images.png',
-            title: 'كورس C++ من البداية إلى الاحتراف',
-            price: '100\$',
-            students: 23,
-            lectures: 23,
-            likes: 23,
-          ),
+          CoursesList(),
           verticalSpace(100),
         ],
       ),

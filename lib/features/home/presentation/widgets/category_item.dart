@@ -1,3 +1,4 @@
+import 'package:education_platform_app/core/function/fix_url_imdage.dart';
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
 
 class CategoryItem extends StatelessWidget {
@@ -44,7 +45,11 @@ class CategoryItem extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(iconPath, width: w * 0.3, color: iconColor),
+          Image.network(
+            fixUrlImage(iconPath),
+            width: w * 0.3,
+            color: iconColor,
+          ),
           const SizedBox(height: 5),
           Text(
             title,
