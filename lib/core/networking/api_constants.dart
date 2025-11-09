@@ -8,6 +8,9 @@ abstract class ApiConstants {
 
   /// Categories
   static const String categories = "/api/categories";
+
+  /// Courses
+  static const String courses = "/api/courses";
 }
 
 class ApiErrors {

@@ -1,5 +1,6 @@
 import 'package:education_platform_app/core/di/service_locator.dart';
 import 'package:education_platform_app/features/categories/presentation/categories_cubit/cubit/categories_cubit.dart';
+import 'package:education_platform_app/features/courses/presentation/courses_cubit/cubit/courses_cubit.dart';
 import 'package:education_platform_app/features/sign_in/presentation/screens/login_screen.dart';
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
 import 'package:education_platform_app/features/sign_up/presentation/sign_up_cubit/cubit/register_cubit.dart';
@@ -27,8 +28,11 @@ class AppRouter {
 
       case Routes.mainScreen:
         return _buildCupertinoRoute(
-          BlocProvider.value(
-            value: getIt<CategoriesCubit>()..getCategories(),
+          MultiBlocProvider(
+            providers: [
+              BlocProvider.value(value: getIt<CategoriesCubit>()..getCategories()),
+              BlocProvider.value(value: getIt<CoursesCubit>()..getCourses()),
+            ],
             child: MainScreen(),
           ),
         );
