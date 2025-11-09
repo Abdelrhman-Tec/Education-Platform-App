@@ -50,6 +50,7 @@ dependencies:
   bloc: ^9.1.0
   skeletonizer: ^2.1.0+1
   flutter_animate: ^4.5.2
+  logger: ^2.6.2
 
 dev_dependencies:
   flutter_test:
