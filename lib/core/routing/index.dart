@@ -1,0 +1,9 @@
+export  'dart:convert';
+export 'package:education_platform_app/core/cache/shared_prefs_service.dart';
+export 'package:education_platform_app/core/di/service_locator.dart';
+export 'package:education_platform_app/features/categories/presentation/categories_cubit/cubit/categories_cubit.dart';
+export 'package:education_platform_app/features/sign_in/presentation/screens/login_screen.dart';
+export 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
+export 'package:education_platform_app/features/sign_up/presentation/sign_up_cubit/cubit/register_cubit.dart';
+export 'package:education_platform_app/features/sign_up/presentation/screens/register_screen.dart';
+export 'package:education_platform_app/main_screen.dart';

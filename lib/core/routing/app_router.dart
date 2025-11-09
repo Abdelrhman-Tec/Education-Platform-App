@@ -1,15 +1,6 @@
-import 'dart:convert';
-
-import 'package:education_platform_app/core/cache/shared_prefs_service.dart';
-import 'package:education_platform_app/core/di/service_locator.dart';
-import 'package:education_platform_app/features/categories/presentation/categories_cubit/cubit/categories_cubit.dart';
+import 'package:education_platform_app/core/routing/index.dart';
 import 'package:education_platform_app/features/courses/presentation/courses_cubit/cubit/courses_cubit.dart';
 import 'package:education_platform_app/features/sign_in/data/repo/auth_import_repo.dart';
-import 'package:education_platform_app/features/sign_in/presentation/screens/login_screen.dart';
-import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
-import 'package:education_platform_app/features/sign_up/presentation/sign_up_cubit/cubit/register_cubit.dart';
-import 'package:education_platform_app/features/sign_up/presentation/screens/register_screen.dart';
-import 'package:education_platform_app/main_screen.dart';
 import 'package:flutter/cupertino.dart';
 
 class AppRouter {
