@@ -2,15 +2,21 @@ import 'dart:async';
 import 'package:education_platform_app/features/courses/data/model/courses_response_model.dart';
 import 'package:education_platform_app/features/courses/presentation/courses_cubit/cubit/courses_cubit.dart';
 import 'package:education_platform_app/features/home/presentation/widgets/search_course_card.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 import '../../../sign_in/presentation/widgets/auth_imports.dart';
 
 class MySearchDelegate extends SearchDelegate {
   final CoursesCubit coursesCubit;
+  final bool showSkeleton;
   Timer? _debounce;
 
   final VoidCallback onClose;
 
-  MySearchDelegate({required this.coursesCubit, required this.onClose});
+  MySearchDelegate({
+    required this.showSkeleton,
+    required this.coursesCubit,
+    required this.onClose,
+  });
 
   @override
   void close(BuildContext context, result) {
@@ -185,10 +191,13 @@ class MySearchDelegate extends SearchDelegate {
             itemCount: courses.length,
             itemBuilder: (context, index) {
               final course = courses[index];
-              return ListTile(
-                title: Text(course.title ?? ''),
-                subtitle: Text(course.description ?? ''),
-                onTap: () => close(context, course),
+              return Skeletonizer(
+                enabled: showSkeleton,
+                child: ListTile(
+                  title: Text(course.title ?? ''),
+                  subtitle: Text(course.description ?? ''),
+                  onTap: () => close(context, course),
+                ),
               );
             },
           ),

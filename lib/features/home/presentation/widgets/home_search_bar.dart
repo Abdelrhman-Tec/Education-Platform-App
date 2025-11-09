@@ -39,6 +39,7 @@ class _HomeSearchBarState extends State<HomeSearchBar> {
               showSearch(
                 context: context,
                 delegate: MySearchDelegate(
+                  showSkeleton: _showSkeleton,
                   coursesCubit: coursesCubit,
                   onClose: () {
                     coursesCubit.getCourses();
