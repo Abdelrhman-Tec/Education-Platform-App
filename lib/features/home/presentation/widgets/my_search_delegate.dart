@@ -9,7 +9,6 @@ class MySearchDelegate extends SearchDelegate {
   final CoursesCubit coursesCubit;
   final bool showSkeleton;
   Timer? _debounce;
-
   final VoidCallback onClose;
 
   MySearchDelegate({
@@ -132,16 +131,11 @@ class MySearchDelegate extends SearchDelegate {
   Widget buildSuggestions(BuildContext context) {
     if (query.trim().length < 2) {
       return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Spacer(),
-          Center(
-            child: Icon(Icons.search, size: 80, color: Colors.grey.shade500),
-          ),
-<<<<<<< HEAD
-        ),
-        const SizedBox(height: 10),
-        Center(
-          child: Text(
+          Icon(Icons.search, size: 80, color: Colors.grey.shade500),
+          const SizedBox(height: 10),
+          Text(
             S.of(context).searchCoursesSubtitle,
             style: AppTextStyles.titleSmallBold.copyWith(
               fontSize: 14,
@@ -149,46 +143,14 @@ class MySearchDelegate extends SearchDelegate {
             ),
             textAlign: TextAlign.center,
           ),
-        ),
-        const SizedBox(height: 20),
-        Container(
-          width: 300,
-          height: 60,
-          decoration: BoxDecoration(
-            color: Colors.blue.withValues(alpha: 0.2),
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: Colors.blue.withValues(alpha: 0.4)),
-          ),
-          child: Center(
-=======
-          const SizedBox(height: 20),
-          Center(
->>>>>>> feature-search
-            child: Text(
-              S.of(context).searchCoursesTitle,
-              style: AppTextStyles.titleSmallBold,
-              textAlign: TextAlign.center,
-            ),
-          ),
-          const SizedBox(height: 10),
-          Center(
-            child: Text(
-              S.of(context).searchCoursesSubtitle,
-              style: AppTextStyles.titleSmallBold.copyWith(
-                fontSize: 14,
-                color: Colors.grey.shade400,
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ),
           const SizedBox(height: 20),
           Container(
             width: 300,
             height: 60,
             decoration: BoxDecoration(
-              color: Colors.blue.withAlpha(50),
+              color: Colors.blue.withOpacity(0.2),
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: Colors.blue.withAlpha(100)),
+              border: Border.all(color: Colors.blue.withOpacity(0.4)),
             ),
             child: Center(
               child: Text(
@@ -198,7 +160,6 @@ class MySearchDelegate extends SearchDelegate {
               ),
             ),
           ),
-          const Spacer(),
         ],
       );
     }

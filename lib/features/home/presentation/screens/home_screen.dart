@@ -5,14 +5,9 @@ import 'package:education_platform_app/features/home/presentation/widgets/course
 import 'package:education_platform_app/features/home/presentation/widgets/index.dart';
 import '../../../sign_in/presentation/widgets/auth_imports.dart';
 
-<<<<<<< HEAD
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
-=======
-class HomeScreen extends StatelessWidget {
   final String name;
   const HomeScreen({super.key, required this.name});
->>>>>>> feature-search
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -29,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: HomeAppBar(name: name),
+      appBar: HomeAppBar(name: widget.name),
       body: _buildBody(context),
     );
   }
