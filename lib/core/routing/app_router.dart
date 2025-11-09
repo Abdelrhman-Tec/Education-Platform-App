@@ -26,20 +26,24 @@ class AppRouter {
             child: const LoginScreen(),
           ),
         );
-
       case Routes.mainScreen:
-        final name = settings.arguments as LoginResponseModel;
+        final loginData = settings.arguments as LoginResponseModel?;
+        if (loginData == null) {
+          return _buildCupertinoRoute(
+            BlocProvider(
+              create: (_) => getIt<LoginCubit>(),
+              child: const LoginScreen(),
+            ),
+          );
+        }
+
         return _buildCupertinoRoute(
           MultiBlocProvider(
             providers: [
               BlocProvider(create: (_) => getIt<CategoriesCubit>()),
               BlocProvider(create: (_) => getIt<CoursesCubit>()),
-              BlocProvider.value(
-                value: getIt<CategoriesCubit>()..getCategories(),
-              ),
-              BlocProvider.value(value: getIt<CoursesCubit>()..getCourses()),
             ],
-            child: MainScreen(name: name.user!.firstName ?? ''),
+            child: MainScreen(name: loginData.user?.firstName ?? ''),
           ),
         );
 

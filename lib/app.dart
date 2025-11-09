@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class EducationPlatformApp extends StatelessWidget {
   final String initialRoute;
+
   const EducationPlatformApp({super.key, required this.initialRoute});
 
   @override
@@ -15,23 +16,25 @@ class EducationPlatformApp extends StatelessWidget {
       designSize: const Size(390, 844),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: MaterialApp(
-        theme: ThemeData(
-          fontFamily: 'NotoKufi',
-          scaffoldBackgroundColor: AppColors.white,
-        ),
-        locale: const Locale("ar"),
-        localizationsDelegates: const [
-          S.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: S.delegate.supportedLocales,
-        debugShowCheckedModeBanner: false,
-        initialRoute: initialRoute,
-        onGenerateRoute: AppRouter.generateRoute,
-      ),
+      builder: (context, child) {
+        return MaterialApp(
+          theme: ThemeData(
+            fontFamily: 'NotoKufi',
+            scaffoldBackgroundColor: AppColors.white,
+          ),
+          locale: const Locale("ar"),
+          localizationsDelegates: const [
+            S.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: S.delegate.supportedLocales,
+          debugShowCheckedModeBanner: false,
+          initialRoute: initialRoute,
+          onGenerateRoute: AppRouter.generateRoute,
+        );
+      },
     );
   }
 }
