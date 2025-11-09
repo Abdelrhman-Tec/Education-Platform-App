@@ -13,13 +13,19 @@ class LoginCubit extends Cubit<LoginState> {
 
   Future<void> login() async {
     emit(const LoginState.loading());
+
     final response = await loginRepo.login(
       LoginRequestModel(email: email.text, password: password.text),
     );
+
     response.when(
       success: (loginResponse) {
         emit(LoginState.success(loginResponse));
         SharedPrefsService.saveString('token', loginResponse.token);
+        SharedPrefsService.saveString(
+          'user',
+          loginResponse.toJson().toString(),
+        );
       },
       failure: (error) {
         final message = error.apiErrorModel.message ?? '';
