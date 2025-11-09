@@ -1,7 +1,8 @@
+import 'package:education_platform_app/features/courses/presentation/courses_cubit/cubit/courses_cubit.dart';
+import 'package:education_platform_app/features/home/presentation/widgets/my_search_delegate.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../sign_in/presentation/widgets/auth_imports.dart';
-import 'my_search_delegate.dart';
 
 class HomeSearchBar extends StatefulWidget {
   const HomeSearchBar({super.key});
@@ -12,6 +13,7 @@ class HomeSearchBar extends StatefulWidget {
 
 class _HomeSearchBarState extends State<HomeSearchBar> {
   bool _showSkeleton = true;
+  late final coursesCubit = context.read<CoursesCubit>();
 
   @override
   void initState() {
@@ -34,7 +36,16 @@ class _HomeSearchBarState extends State<HomeSearchBar> {
         children: [
           GestureDetector(
             onTap: () {
-              showSearch(context: context, delegate: MySearchDelegate());
+              showSearch(
+                context: context,
+                delegate: MySearchDelegate(
+                  showSkeleton: _showSkeleton,
+                  coursesCubit: coursesCubit,
+                  onClose: () {
+                    coursesCubit.getCourses();
+                  },
+                ),
+              );
             },
             child: Container(
               width: double.infinity,
