@@ -49,6 +49,7 @@ dependencies:
   cached_network_image: ^3.4.1
   bloc: ^9.1.0
   skeletonizer: ^2.1.0+1
+  flutter_animate: ^4.5.2
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +65,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/icons/
+    - assets/images/
     - lib/l10n/intl_ar.arb
     - lib/l10n/intl_en.arb
 
