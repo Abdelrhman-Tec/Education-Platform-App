@@ -1,7 +1,5 @@
-import 'package:education_platform_app/core/theme/app_colors.dart';
 import 'package:education_platform_app/features/home/presentation/screens/home_screen.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

@@ -30,8 +30,8 @@ class AppRouter {
         return _buildCupertinoRoute(
           MultiBlocProvider(
             providers: [
-              BlocProvider.value(value: getIt<CategoriesCubit>()..getCategories()),
-              BlocProvider.value(value: getIt<CoursesCubit>()..getCourses()),
+              BlocProvider(create: (_) => getIt<CategoriesCubit>()),
+              BlocProvider(create: (_) => getIt<CoursesCubit>()),
             ],
             child: MainScreen(),
           ),

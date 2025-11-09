@@ -1,10 +1,24 @@
+import 'package:education_platform_app/features/categories/presentation/categories_cubit/cubit/categories_cubit.dart';
+import 'package:education_platform_app/features/courses/presentation/courses_cubit/cubit/courses_cubit.dart';
 import 'package:education_platform_app/features/home/presentation/widgets/categoery_list.dart';
 import 'package:education_platform_app/features/home/presentation/widgets/courses_list.dart';
 import 'package:education_platform_app/features/home/presentation/widgets/index.dart';
 import '../../../sign_in/presentation/widgets/auth_imports.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<CategoriesCubit>().getCategories();
+    context.read<CoursesCubit>().getCourses();
+  }
 
   @override
   Widget build(BuildContext context) {
