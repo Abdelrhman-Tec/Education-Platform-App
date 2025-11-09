@@ -10,12 +10,12 @@ class EmailAndPassword extends StatefulWidget {
 }
 
 class _EmailAndPasswordState extends State<EmailAndPassword> {
+  late TextEditingController passwordController;
   bool hasLowercase = false;
   bool hasUppercase = false;
   bool hasNumber = false;
   bool hasSpecialCharacter = false;
   bool hasMinLength = false;
-  late TextEditingController passwordController;
 
   @override
   void initState() {
@@ -46,6 +46,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
         children: [
           verticalSpace(25),
           CustomTextFormField(
+            prefixIcon: Icons.email,
             hintText: S.of(context).email,
             isPassword: false,
             // ignore: body_might_complete_normally_nullable
@@ -60,6 +61,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           ),
           verticalSpace(17),
           CustomTextFormField(
+            prefixIcon: Icons.lock,
             hintText: S.of(context).password,
             isPassword: true,
             validator: (value) {
