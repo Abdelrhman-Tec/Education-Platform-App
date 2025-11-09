@@ -1,3 +1,4 @@
+import 'package:education_platform_app/core/function/handle_skeleton_loading.dart';
 import 'package:education_platform_app/features/courses/data/model/courses_response_model.dart';
 import 'package:education_platform_app/features/home/presentation/widgets/course_card.dart';
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
@@ -13,19 +14,17 @@ class CoursesList extends StatefulWidget {
 }
 
 class _CoursesListState extends State<CoursesList> {
-  bool _showSkeleton = true;
+bool _showSkeleton = true;
 
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(const Duration(seconds: 4), () {
-      if (mounted) {
-        setState(() {
-          _showSkeleton = false;
-        });
-      }
+@override
+void initState() {
+  super.initState();
+  handleSkeletonLoading(this, (value) {
+    setState(() {
+      _showSkeleton = value;
     });
-  }
+  });
+}
 
   @override
   Widget build(BuildContext context) {

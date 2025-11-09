@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:education_platform_app/core/cache/shared_prefs_service.dart';
 import 'package:education_platform_app/core/di/service_locator.dart';
 import 'package:education_platform_app/features/categories/presentation/categories_cubit/cubit/categories_cubit.dart';
 import 'package:education_platform_app/features/courses/presentation/courses_cubit/cubit/courses_cubit.dart';
@@ -28,14 +31,25 @@ class AppRouter {
         );
 
       case Routes.mainScreen:
-        final name = settings.arguments as LoginResponseModel;
+        final userJson = SharedPrefsService.getString('user');
+        LoginResponseModel? loginResponse;
+
+        if (settings.arguments != null &&
+            settings.arguments is LoginResponseModel) {
+          loginResponse = settings.arguments as LoginResponseModel;
+        } else if (userJson != null && userJson.isNotEmpty) {
+          loginResponse = LoginResponseModel.fromJson(jsonDecode(userJson));
+        }
+
+        final name = loginResponse?.user?.firstName ?? 'Guest';
+
         return _buildCupertinoRoute(
           MultiBlocProvider(
             providers: [
               BlocProvider(create: (_) => getIt<CategoriesCubit>()),
               BlocProvider(create: (_) => getIt<CoursesCubit>()),
             ],
-            child: MainScreen(name: name.user!.firstName ?? ''),
+            child: MainScreen(name: name),
           ),
         );
 

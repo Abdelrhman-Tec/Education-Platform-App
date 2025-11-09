@@ -1,3 +1,4 @@
+import 'package:education_platform_app/core/function/handle_skeleton_loading.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import '../../../sign_in/presentation/widgets/auth_imports.dart';
@@ -10,19 +11,17 @@ class TitleHeaderHomePage extends StatefulWidget {
 }
 
 class _TitleHeaderHomePageState extends State<TitleHeaderHomePage> {
-  bool _showSkeleton = true;
+bool _showSkeleton = true;
 
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(const Duration(seconds: 4), () {
-      if (mounted) {
-        setState(() {
-          _showSkeleton = false;
-        });
-      }
+@override
+void initState() {
+  super.initState();
+  handleSkeletonLoading(this, (value) {
+    setState(() {
+      _showSkeleton = value;
     });
-  }
+  });
+}
 
   @override
   Widget build(BuildContext context) {

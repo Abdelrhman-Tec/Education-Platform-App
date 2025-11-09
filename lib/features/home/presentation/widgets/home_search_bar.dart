@@ -1,3 +1,4 @@
+import 'package:education_platform_app/core/function/handle_skeleton_loading.dart';
 import 'package:education_platform_app/features/courses/presentation/courses_cubit/cubit/courses_cubit.dart';
 import 'package:education_platform_app/features/home/presentation/widgets/my_search_delegate.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -12,20 +13,19 @@ class HomeSearchBar extends StatefulWidget {
 }
 
 class _HomeSearchBarState extends State<HomeSearchBar> {
-  bool _showSkeleton = true;
   late final coursesCubit = context.read<CoursesCubit>();
+bool _showSkeleton = true;
 
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(const Duration(seconds: 4), () {
-      if (mounted) {
-        setState(() {
-          _showSkeleton = false;
-        });
-      }
+@override
+void initState() {
+  super.initState();
+  handleSkeletonLoading(this, (value) {
+    setState(() {
+      _showSkeleton = value;
     });
-  }
+  });
+}
+
 
   @override
   Widget build(BuildContext context) {

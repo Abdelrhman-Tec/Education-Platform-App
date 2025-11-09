@@ -1,3 +1,4 @@
+import 'package:education_platform_app/core/function/handle_skeleton_loading.dart';
 import 'package:education_platform_app/features/categories/presentation/categories_cubit/cubit/categories_cubit.dart';
 import 'package:education_platform_app/features/home/presentation/widgets/category_item.dart';
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
@@ -14,17 +15,16 @@ class CategoriesList extends StatefulWidget {
 class _CategoriesListState extends State<CategoriesList> {
   bool _showSkeleton = true;
 
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(const Duration(seconds: 4), () {
-      if (mounted) {
-        setState(() {
-          _showSkeleton = false;
-        });
-      }
+@override
+void initState() {
+  super.initState();
+  handleSkeletonLoading(this, (value) {
+    setState(() {
+      _showSkeleton = value;
     });
-  }
+  });
+}
+
 
   @override
   @override

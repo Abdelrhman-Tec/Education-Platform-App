@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:education_platform_app/core/cache/shared_prefs_service.dart';
 import 'package:education_platform_app/features/sign_in/presentation/sign_in_cubit/cubit/login_state.dart';
 import 'package:education_platform_app/features/sign_in/presentation/sign_in_cubit/cubit/cubit_import.dart';
@@ -24,7 +26,7 @@ class LoginCubit extends Cubit<LoginState> {
         SharedPrefsService.saveString('token', loginResponse.token);
         SharedPrefsService.saveString(
           'user',
-          loginResponse.toJson().toString(),
+          jsonEncode(loginResponse.toJson()),
         );
       },
       failure: (error) {

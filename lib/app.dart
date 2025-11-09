@@ -5,6 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+GlobalObjectKey<NavigatorState> navigatorKey = GlobalObjectKey<NavigatorState>(
+  'navigatorKey',
+);
+
 class EducationPlatformApp extends StatelessWidget {
   final String initialRoute;
 
@@ -29,6 +33,7 @@ class EducationPlatformApp extends StatelessWidget {
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
+          navigatorKey: navigatorKey,
           supportedLocales: S.delegate.supportedLocales,
           debugShowCheckedModeBanner: false,
           initialRoute: initialRoute,

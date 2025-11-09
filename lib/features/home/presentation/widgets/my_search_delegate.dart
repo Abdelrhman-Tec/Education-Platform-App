@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:education_platform_app/features/courses/data/model/courses_response_model.dart';
 import 'package:education_platform_app/features/courses/presentation/courses_cubit/cubit/courses_cubit.dart';
 import 'package:education_platform_app/features/home/presentation/widgets/search_course_card.dart';
@@ -161,22 +159,6 @@ class MySearchDelegate extends SearchDelegate {
                   style: const TextStyle(fontSize: 15, color: Colors.blue),
                   textAlign: TextAlign.center,
                 ),
-              ),
-            ),
-          ),
-          Container(
-            width: 300,
-            height: 60,
-            decoration: BoxDecoration(
-              color: Colors.blue.withValues(alpha: 0.2),
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: Colors.blue.withValues(alpha: 0.4)),
-            ),
-            child: Center(
-              child: Text(
-                S.of(context).typeAtLeastTwo,
-                style: const TextStyle(fontSize: 15, color: Colors.blue),
-                textAlign: TextAlign.center,
               ),
             ),
           ),
