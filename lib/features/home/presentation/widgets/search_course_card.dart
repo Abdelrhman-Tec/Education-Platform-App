@@ -1,4 +1,3 @@
-import 'package:education_platform_app/core/function/fix_url_imdage.dart';
 import 'package:education_platform_app/core/function/handle_skeleton_loading.dart';
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -58,7 +57,7 @@ void initState() {
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image.network(
-                fixUrlImage(widget.imageUrl),
+                (widget.imageUrl),
                 width: 100.w,
                 height: 80.h,
                 fit: BoxFit.cover,

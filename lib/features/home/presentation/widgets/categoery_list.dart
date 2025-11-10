@@ -15,16 +15,15 @@ class CategoriesList extends StatefulWidget {
 class _CategoriesListState extends State<CategoriesList> {
   bool _showSkeleton = true;
 
-@override
-void initState() {
-  super.initState();
-  handleSkeletonLoading(this, (value) {
-    setState(() {
-      _showSkeleton = value;
+  @override
+  void initState() {
+    super.initState();
+    handleSkeletonLoading(this, (value) {
+      setState(() {
+        _showSkeleton = value;
+      });
     });
-  });
-}
-
+  }
 
   @override
   @override
@@ -53,6 +52,10 @@ void initState() {
                         iconColorHex: category.color ?? '',
                         width: 120,
                         height: 120,
+                        ontap: () => context.pushNamed(
+                          Routes.categoryScreen,
+                          arguments: categories[index],
+                        ),
                       )
                       .animate(delay: (index * 100).ms)
                       .fadeIn(duration: 700.ms)

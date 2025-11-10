@@ -1,5 +1,9 @@
 import 'package:education_platform_app/core/routing/index.dart';
+import 'package:education_platform_app/features/categories/data/model/categories_response_model.dart';
+import 'package:education_platform_app/features/categories/presentation/screens/category_screen.dart';
+import 'package:education_platform_app/features/courses/data/model/courses_response_model.dart';
 import 'package:education_platform_app/features/courses/presentation/courses_cubit/cubit/courses_cubit.dart';
+import 'package:education_platform_app/features/courses/presentation/screens/course_details_screen.dart';
 import 'package:education_platform_app/features/sign_in/data/repo/auth_import_repo.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -43,6 +47,21 @@ class AppRouter {
             child: MainScreen(name: name),
           ),
         );
+      case Routes.categoryScreen:
+        final categories = settings.arguments as Category;
+        return _buildCupertinoRoute(
+          BlocProvider(
+            create: (_) => getIt<CoursesCubit>(),
+            child: CategoryScreen(
+              title: categories.name ?? '',
+              coursesId: categories.id ?? 0,
+            ),
+          ),
+        );
+
+      case Routes.courseDetailsScreen:
+        final course = settings.arguments as Course;
+        return _buildCupertinoRoute(CourseDetailsScreen(courses: course));
 
       default:
         return _buildCupertinoRoute(const NotFoundPage());

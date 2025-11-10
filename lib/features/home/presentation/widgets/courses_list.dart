@@ -14,17 +14,17 @@ class CoursesList extends StatefulWidget {
 }
 
 class _CoursesListState extends State<CoursesList> {
-bool _showSkeleton = true;
+  bool _showSkeleton = true;
 
-@override
-void initState() {
-  super.initState();
-  handleSkeletonLoading(this, (value) {
-    setState(() {
-      _showSkeleton = value;
+  @override
+  void initState() {
+    super.initState();
+    handleSkeletonLoading(this, (value) {
+      setState(() {
+        _showSkeleton = value;
+      });
     });
-  });
-}
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +53,10 @@ void initState() {
                         students: 33,
                         lectures: 33,
                         likes: 100,
+                        ontap: () => context.pushNamed(
+                          Routes.courseDetailsScreen,
+                          arguments: course,
+                        ),
                       )
                       .animate(delay: (index * 100).ms)
                       .fadeIn(duration: 700.ms)

@@ -1,7 +1,8 @@
-import 'package:education_platform_app/core/function/fix_url_imdage.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
 
 class CategoryItem extends StatelessWidget {
+  final VoidCallback? ontap;
   final String title;
   final String iconPath;
   final String backgroundColorHex;
@@ -19,6 +20,7 @@ class CategoryItem extends StatelessWidget {
     this.width,
     this.height,
     this.borderRadius = 14,
+    this.ontap,
   });
 
   Color _hexToColor(String hex) {
@@ -35,32 +37,37 @@ class CategoryItem extends StatelessWidget {
     final Color bgColor = _hexToColor(backgroundColorHex);
     final Color iconColor = _hexToColor(iconColorHex);
 
-    return Container(
-      width: w,
-      height: h,
-      decoration: BoxDecoration(
-        color: bgColor,
-        borderRadius: BorderRadius.circular(borderRadius),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.network(
-            fixUrlImage(iconPath),
-            width: w * 0.3,
-            color: iconColor,
-          ),
-          const SizedBox(height: 5),
-          Text(
-            title,
-            style: TextStyle(
-              fontSize: w * 0.13,
-              fontWeight: FontWeight.bold,
+    return GestureDetector(
+      onTap: ontap,
+      child: Container(
+        width: w,
+        height: h,
+        decoration: BoxDecoration(
+          color: bgColor,
+          borderRadius: BorderRadius.circular(borderRadius),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CachedNetworkImage(
+              imageUrl: (iconPath),
+              width: w * 0.3,
               color: iconColor,
+              placeholder: (context, url) => const CircularProgressIndicator(),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
-            textAlign: TextAlign.center,
-          ),
-        ],
+            const SizedBox(height: 5),
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: w * 0.13,
+                fontWeight: FontWeight.bold,
+                color: iconColor,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
       ),
     );
   }

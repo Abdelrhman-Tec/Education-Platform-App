@@ -51,6 +51,8 @@ dependencies:
   skeletonizer: ^2.1.0+1
   flutter_animate: ^4.5.2
   logger: ^2.6.2
+  video_player: ^2.10.0
+  chewie: ^1.13.0
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +69,8 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
+    - assets/video/1.mp4
+    - assets/video/3.mp4
     - lib/l10n/intl_ar.arb
     - lib/l10n/intl_en.arb
 

@@ -1,5 +1,4 @@
 import 'package:education_platform_app/export.dart';
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 

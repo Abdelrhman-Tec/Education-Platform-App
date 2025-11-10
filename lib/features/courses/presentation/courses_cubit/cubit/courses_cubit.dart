@@ -30,4 +30,21 @@ class CoursesCubit extends Cubit<CoursesState<List<Course>>> {
       failure: (error) => emit(CoursesState.failure(error.toString())),
     );
   }
+
+  Future<void> getCoursesById(int categoryId) async {
+    emit(const CoursesState.loading());
+    final response = await coursesRepo.getCourses();
+    response.when(
+      success: (courses) {
+        final filteredCourses = courses
+            .where((course) => course.categoryId == categoryId)
+            .toList();
+
+        emit(CoursesState.success(filteredCourses));
+      },
+      failure: (error) {
+        emit(CoursesState.failure(ErrorHandler.handle(error).toString()));
+      },
+    );
+  }
 }

@@ -31,4 +31,12 @@ Course _$CourseFromJson(Map<String, dynamic> json) => Course(
   updatedAt: json['updated_at'] == null
       ? null
       : DateTime.parse(json['updated_at'] as String),
+  shortVideo: json['short_video'] == null
+      ? null
+      : ShortVideo.fromJson(json['short_video'] as Map<String, dynamic>),
+);
+
+ShortVideo _$ShortVideoFromJson(Map<String, dynamic> json) => ShortVideo(
+  url: json['url'] as String?,
+  duration: (json['duration'] as num?)?.toDouble(),
 );
