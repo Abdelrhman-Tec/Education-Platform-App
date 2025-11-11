@@ -1,3 +1,4 @@
+import 'package:education_platform_app/features/cart/presentation/cart_cubit/cubit/cart_cubit.dart';
 import 'package:education_platform_app/features/categories/data/model/categories_response_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:education_platform_app/core/routing/index.dart';
@@ -44,6 +45,7 @@ class AppRouter {
             providers: [
               BlocProvider(create: (_) => getIt<CategoriesCubit>()),
               BlocProvider(create: (_) => getIt<CoursesCubit>()),
+              BlocProvider(create: (_) => getIt<CartCubit>()),
             ],
             child: MainScreen(name: name),
           ),
@@ -64,7 +66,10 @@ class AppRouter {
       case Routes.courseDetailsScreen:
         final course = settings.arguments as CoursesResponseModel;
         return _buildCupertinoRoute(
-          CourseDetailsScreen(course:course),
+          BlocProvider(
+            create: (_) => getIt<CartCubit>(),
+            child: CourseDetailsScreen(course: course,),
+          ),
         );
 
       default:

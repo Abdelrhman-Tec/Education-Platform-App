@@ -1,7 +1,9 @@
 import 'package:education_platform_app/core/routing/index.dart';
+import 'package:education_platform_app/features/cart/presentation/cart_cubit/cubit/cart_cubit.dart';
 
 class CourseActionButton extends StatelessWidget {
-  const CourseActionButton({super.key});
+  final int courseId;
+  const CourseActionButton({super.key, required this.courseId,});
 
   @override
   Widget build(BuildContext context) {
@@ -15,5 +17,7 @@ class CourseActionButton extends StatelessWidget {
     );
   }
 
-  void _addToCart(BuildContext context) {}
+  void _addToCart(BuildContext context) {
+    context.read<CartCubit>().addToCart(courseId: courseId);
+  }
 }

@@ -11,7 +11,10 @@ import 'package:education_platform_app/features/courses/presentation/widgets/ins
 class CourseDetailsBody extends StatelessWidget {
   final CoursesResponseModel course;
 
-  const CourseDetailsBody({super.key, required this.course});
+  const CourseDetailsBody({
+    super.key,
+    required this.course,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +41,7 @@ class CourseDetailsBody extends StatelessWidget {
             duration: '15 ساعة',
           ),
           verticalSpace(24),
-          const CourseActionButton(),
+          CourseActionButton(courseId: course.id ?? 0,),
         ],
       ),
     );

@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:education_platform_app/core/networking/api_services.dart';
 import 'package:education_platform_app/core/networking/dio_factory.dart';
+import 'package:education_platform_app/features/cart/data/repo/cart_repo.dart';
+import 'package:education_platform_app/features/cart/presentation/cart_cubit/cubit/cart_cubit.dart';
 import 'package:education_platform_app/features/categories/data/repo/categories_repo.dart';
 import 'package:education_platform_app/features/categories/presentation/categories_cubit/cubit/categories_cubit.dart';
 import 'package:education_platform_app/features/courses/data/repo/courses_repo.dart';
@@ -46,4 +48,7 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<CoursesRepo>(() => CoursesRepo(getIt<ApiService>()));
 
   getIt.registerFactory<CoursesCubit>(() => CoursesCubit(getIt<CoursesRepo>()));
+
+  getIt.registerFactory<CartRepo>(() => CartRepo(getIt<ApiService>()));
+  getIt.registerFactory<CartCubit>(() => CartCubit(getIt<CartRepo>()));
 }

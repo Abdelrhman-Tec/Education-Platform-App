@@ -1,3 +1,4 @@
+import 'package:education_platform_app/features/cart/presentation/screens/cart_screen.dart';
 import 'package:education_platform_app/features/categories/presentation/screens/categories_screen.dart';
 import 'package:education_platform_app/features/home/presentation/screens/home_screen.dart';
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
@@ -12,13 +13,13 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
-  int cartItemCount = 5;
+  int cartItemCount = 0;
 
   late final List<Widget> _screens = [
     HomeScreen(name: widget.name),
     CategoriesScreen(),
     PlaceholderScreen(title: "الدورات"),
-    PlaceholderScreen(title: "سلة المشتريات"),
+    CartScreen(),
     PlaceholderScreen(title: "المزيد"),
   ];
 
@@ -103,7 +104,6 @@ class _MainScreenState extends State<MainScreen> {
   }
 }
 
-// وده ويدجت مؤقت لكل شاشة غير موجودة
 class PlaceholderScreen extends StatelessWidget {
   final String title;
   const PlaceholderScreen({super.key, required this.title});

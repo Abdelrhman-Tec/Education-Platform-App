@@ -6,14 +6,13 @@ import 'package:education_platform_app/features/courses/presentation/widgets/cou
 
 class CourseDetailsScreen extends StatelessWidget {
   final CoursesResponseModel course;
-
   const CourseDetailsScreen({super.key, required this.course});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CourseDetailsAppBar(course: course),
-      body: CourseDetailsBody(course: course),
+      body: CourseDetailsBody(course: course,),
     );
   }
 }

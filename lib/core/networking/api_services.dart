@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:education_platform_app/core/networking/api_constants.dart';
+import 'package:education_platform_app/features/cart/data/model/cart_request_model.dart';
+import 'package:education_platform_app/features/cart/data/model/cart_response_model.dart';
 import 'package:education_platform_app/features/categories/data/model/categories_response_model.dart';
 import 'package:education_platform_app/features/courses/data/model/courses_response_model.dart';
 import 'package:education_platform_app/features/sign_in/data/model/login_request_model.dart';
@@ -32,4 +34,11 @@ abstract class ApiService {
   Future<List<CoursesResponseModel>> searchCourses(
     @Query("query") String query,
   );
+
+  //cart
+  @GET(ApiConstants.cart)
+  Future<CartResponseModel> getCart(@Path("id") int id);
+
+  @POST(ApiConstants.addToCart)
+  Future<CartResponseBody> addToCart(@Body() CartRequestModel request);
 }

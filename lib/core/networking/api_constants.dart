@@ -14,6 +14,8 @@ abstract class ApiConstants {
 
   /// Search Courses
   static const String searchCourses = "/api/courses/search";
+  static const String cart = "/api/cart/{id}";
+  static const String addToCart = "/api/cart";
 }
 
 class ApiErrors {

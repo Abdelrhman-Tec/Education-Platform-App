@@ -39,6 +39,7 @@ class MySearchDelegate extends SearchDelegate {
     );
   }
 
+  @override
   InputDecorationTheme get searchFieldDecorationTheme => InputDecorationTheme(
         hintStyle: TextStyle(color: Colors.grey.shade600, fontSize: 16),
         filled: true,

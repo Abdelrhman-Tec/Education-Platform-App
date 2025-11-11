@@ -11,6 +11,7 @@ class LoginCubit extends Cubit<LoginState> {
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
 
+
   LoginCubit(this.loginRepo) : super(const LoginState.initial());
 
   Future<void> login() async {
@@ -35,6 +36,7 @@ class LoginCubit extends Cubit<LoginState> {
       },
     );
   }
+  
 
   @override
   Future<void> close() {
