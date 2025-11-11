@@ -4,6 +4,9 @@ import 'package:education_platform_app/features/cart/data/model/cart_request_mod
 import 'package:education_platform_app/features/cart/data/model/cart_response_model.dart';
 import 'package:education_platform_app/features/categories/data/model/categories_response_model.dart';
 import 'package:education_platform_app/features/courses/data/model/courses_response_model.dart';
+import 'package:education_platform_app/features/enrollments/data/model/enrollments_request_model.dart';
+import 'package:education_platform_app/features/enrollments/data/model/enrollments_response_model.dart';
+import 'package:education_platform_app/features/my_courses/data/model/my_course_response_model.dart';
 import 'package:education_platform_app/features/sign_in/data/model/login_request_model.dart';
 import 'package:education_platform_app/features/sign_in/data/model/login_response_model.dart';
 import 'package:education_platform_app/features/sign_up/data/model/register_request_model.dart';
@@ -31,6 +34,7 @@ abstract class ApiService {
   Future<List<CoursesResponseModel>> getCourses();
 
   @GET(ApiConstants.searchCourses)
+  @GET(ApiConstants.searchCourses)
   Future<List<CoursesResponseModel>> searchCourses(
     @Query("query") String query,
   );
@@ -41,4 +45,15 @@ abstract class ApiService {
 
   @POST(ApiConstants.addToCart)
   Future<CartResponseBody> addToCart(@Body() CartRequestModel request);
+
+  @DELETE(ApiConstants.removeFromCart)
+  Future<RemoveCartResponse> removeFromCart(@Path("id") int id);
+
+  @GET(ApiConstants.myCourses)
+  Future<List<MyCoursesResponseModel>> getMyCourses(@Path("id") int id);
+
+  @POST(ApiConstants.enrrollment)
+  Future<EnrollmentsResponseModel> enroll(
+    @Body() EnrollmentsRequestModel request,
+  );
 }

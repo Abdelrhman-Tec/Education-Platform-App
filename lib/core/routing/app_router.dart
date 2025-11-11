@@ -1,14 +1,15 @@
+import 'package:education_platform_app/features/enrollments/enrollments_cubit/cubit/enrollments_cubit.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:education_platform_app/core/routing/index.dart';
 import 'package:education_platform_app/features/cart/presentation/cart_cubit/cubit/cart_cubit.dart';
 import 'package:education_platform_app/features/cart/presentation/screens/cart_screen.dart';
 import 'package:education_platform_app/features/categories/data/model/categories_response_model.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:education_platform_app/core/routing/index.dart';
 import 'package:education_platform_app/features/categories/presentation/screens/category_screen.dart';
 import 'package:education_platform_app/features/courses/data/model/courses_response_model.dart';
 import 'package:education_platform_app/features/courses/presentation/courses_cubit/cubit/courses_cubit.dart';
 import 'package:education_platform_app/features/courses/presentation/screens/course_details_screen.dart';
+import 'package:education_platform_app/features/my_courses/presentation/my_courses_cubit/cubit/my_course_cubit.dart';
 import 'package:education_platform_app/features/sign_in/data/model/login_response_model.dart';
-import 'package:education_platform_app/features/sign_in/data/repo/auth_import_repo.dart';
 
 class AppRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -20,6 +21,7 @@ class AppRouter {
             child: const RegisterScreen(),
           ),
         );
+
       case Routes.login:
         return _buildCupertinoRoute(
           BlocProvider(
@@ -47,6 +49,8 @@ class AppRouter {
               BlocProvider(create: (_) => getIt<CategoriesCubit>()),
               BlocProvider(create: (_) => getIt<CoursesCubit>()),
               BlocProvider(create: (_) => getIt<CartCubit>()),
+              BlocProvider(create: (_) => getIt<MyCourseCubit>()),
+              BlocProvider(create: (_) => getIt<EnrollmentsCubit>()),
             ],
             child: MainScreen(name: name),
           ),
@@ -77,9 +81,10 @@ class AppRouter {
         return _buildCupertinoRoute(
           BlocProvider(
             create: (_) => getIt<CartCubit>(),
-            child: const CartScreen(),
+            child: CartScreen(),
           ),
         );
+
       default:
         return _buildCupertinoRoute(const NotFoundPage());
     }

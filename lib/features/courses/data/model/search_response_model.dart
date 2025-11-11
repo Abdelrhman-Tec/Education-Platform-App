@@ -1,9 +1,23 @@
 import 'package:json_annotation/json_annotation.dart';
-part 'courses_response_model.g.dart';
 
-@JsonSerializable(createToJson: false)
-class CoursesResponseModel {
-  CoursesResponseModel({
+part 'search_response_model.g.dart';
+
+@JsonSerializable()
+class SearchResponseModel {
+  SearchResponseModel({required this.status, required this.data});
+
+  final bool? status;
+  final List<Course>? data;
+
+  factory SearchResponseModel.fromJson(Map<String, dynamic> json) =>
+      _$SearchResponseModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SearchResponseModelToJson(this);
+}
+
+@JsonSerializable()
+class Course {
+  Course({
     required this.id,
     required this.title,
     required this.description,
@@ -57,11 +71,12 @@ class CoursesResponseModel {
   final Category? category;
   final Instructor? instructor;
 
-  factory CoursesResponseModel.fromJson(Map<String, dynamic> json) =>
-      _$CoursesResponseModelFromJson(json);
+  factory Course.fromJson(Map<String, dynamic> json) => _$CourseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CourseToJson(this);
 }
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class Category {
   Category({
     required this.id,
@@ -89,9 +104,11 @@ class Category {
 
   factory Category.fromJson(Map<String, dynamic> json) =>
       _$CategoryFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CategoryToJson(this);
 }
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class Instructor {
   Instructor({
     required this.id,
@@ -121,4 +138,6 @@ class Instructor {
 
   factory Instructor.fromJson(Map<String, dynamic> json) =>
       _$InstructorFromJson(json);
+
+  Map<String, dynamic> toJson() => _$InstructorToJson(this);
 }

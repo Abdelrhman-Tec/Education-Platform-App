@@ -23,7 +23,6 @@ class CoursesCubit extends Cubit<CoursesState<List<CoursesResponseModel>>> {
 
   Future<void> searchCourses(String query) async {
     if (query.trim().length < 2) return;
-
     emit(const CoursesState.loading());
     final response = await coursesRepo.searchCourses(query);
     response.when(

@@ -16,10 +16,10 @@ class CartCubit extends Cubit<CartState<dynamic>> {
   CartCubit(this.cartRepo) : super(const CartState.initial());
 
   /// Fetch all items in the cart for the given user id
-  Future<void> getAllItemCart(int id) async {
+  Future<void> getAllItemCart(int userid) async {
     emit(const CartState.loading());
     try {
-      final response = await cartRepo.getAllItemCart(id);
+      final response = await cartRepo.getAllItemCart(userid);
       response.when(
         success: (cart) => emit(CartState.success(cart)),
         failure: (error) => emit(
@@ -70,4 +70,35 @@ class CartCubit extends Cubit<CartState<dynamic>> {
       emit(const CartState.failure('Unexpected error, please try again'));
     }
   }
+
+  /// Remove a course from the cart
+  Future<void> removeFromCart({required int courseId}) async {
+    emit(const CartState.loading());
+    try {
+      final response = await cartRepo.removeFromCart(courseId: courseId);
+      response.when(
+        success: (_) {
+          final userJson = SharedPrefsService.getString('user');
+          if (userJson != null) {
+            final user = User.fromJson(jsonDecode(userJson)['user']);
+            if (user.id != null) {
+              getAllItemCart(user.id!);
+            } else {
+              emit(const CartState.failure('User data is invalid'));
+            }
+          } else {
+            emit(const CartState.failure('You must be logged in first'));
+          }
+        },
+        failure: (error) => emit(
+          CartState.failure(
+            error.apiErrorModel.message ?? 'Error removing course from cart',
+          ),
+        ),
+      );
+    } catch (e) {
+      emit(const CartState.failure('Unexpected error, please try again'));
+    }
+  }
+  
 }

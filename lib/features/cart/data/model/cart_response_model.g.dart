@@ -76,3 +76,12 @@ Data _$DataFromJson(Map<String, dynamic> json) => Data(
       : DateTime.parse(json['created_at'] as String),
   id: (json['id'] as num?)?.toInt(),
 );
+
+RemoveCartResponse _$RemoveCartResponseFromJson(Map<String, dynamic> json) =>
+    RemoveCartResponse(
+      status: json['status'] as bool,
+      message: json['message'] as String,
+    );
+
+Map<String, dynamic> _$RemoveCartResponseToJson(RemoveCartResponse instance) =>
+    <String, dynamic>{'status': instance.status, 'message': instance.message};

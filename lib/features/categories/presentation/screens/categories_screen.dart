@@ -31,7 +31,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: S.of(context).categories, showBack: false),
+      appBar: CustomAppBar(
+        title: S.of(context).categories, showBack: false),
       body: _buildBody(context),
     );
   }

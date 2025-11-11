@@ -2,11 +2,12 @@ import 'package:education_platform_app/features/cart/presentation/cart_cubit/cub
 import 'package:education_platform_app/features/cart/presentation/screens/cart_screen.dart';
 import 'package:education_platform_app/features/categories/presentation/screens/categories_screen.dart';
 import 'package:education_platform_app/features/home/presentation/screens/home_screen.dart';
+import 'package:education_platform_app/features/my_courses/presentation/screens/my_courses_screen.dart';
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
 
 class MainScreen extends StatefulWidget {
   final String name;
-  const MainScreen({super.key, required this.name});
+  const MainScreen({super.key, required this.name,});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -18,7 +19,7 @@ class _MainScreenState extends State<MainScreen> {
   late final List<Widget> _screens = [
     HomeScreen(name: widget.name),
     CategoriesScreen(),
-    PlaceholderScreen(title: "الدورات"),
+    MyCoursesScreen(),
     CartScreen(),
     PlaceholderScreen(title: "المزيد"),
   ];

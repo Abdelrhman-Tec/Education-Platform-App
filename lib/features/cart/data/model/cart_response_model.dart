@@ -146,3 +146,16 @@ class Data {
 
   factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
 }
+
+@JsonSerializable()
+class RemoveCartResponse {
+  final bool status;
+  final String message;
+
+  RemoveCartResponse({required this.status, required this.message});
+
+  factory RemoveCartResponse.fromJson(Map<String, dynamic> json) =>
+      _$RemoveCartResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$RemoveCartResponseToJson(this);
+}

@@ -1,7 +1,4 @@
 import 'package:education_platform_app/core/routing/index.dart';
-import 'package:education_platform_app/core/theme/app_colors.dart';
-import 'package:education_platform_app/core/widgets/custom_text_field.dart';
-import 'package:education_platform_app/export.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 class CheckoutSummaryCard extends StatelessWidget {

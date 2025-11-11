@@ -27,9 +27,12 @@ class CourseListView extends StatelessWidget {
                       imagePath: item.course!.image ?? '',
                       title: item.course!.title ?? '',
                       price: item.course!.price ?? '',
-                      onDelete: () => context.pushNamed(
+                      onTap: () => context.pushNamed(
                         Routes.courseDetailsScreen,
                         arguments: cart,
+                      ),
+                      onDelete: () => context.read<CartCubit>().removeFromCart(
+                        courseId: item.id!,
                       ),
                     )
                     .animate(delay: (index * 100).ms)
@@ -49,4 +52,3 @@ class CourseListView extends StatelessWidget {
     );
   }
 }
-

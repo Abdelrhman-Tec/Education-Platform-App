@@ -6,9 +6,9 @@ class CartRepo {
   final ApiService apiService;
   CartRepo(this.apiService);
 
-  Future<ApiResult<List<Cart>>> getAllItemCart(id) async {
+  Future<ApiResult<List<Cart>>> getAllItemCart(userid) async {
     try {
-      final response = await apiService.getCart(id);
+      final response = await apiService.getCart(userid);
       return ApiResult.success(response.data ?? []);
     } catch (error) {
       return ApiResult.failure(ErrorHandler.handle(error));
@@ -25,4 +25,17 @@ class CartRepo {
       return ApiResult.failure(ErrorHandler.handle(error));
     }
   }
+
+  Future<ApiResult<RemoveCartResponse>> removeFromCart({
+    required int courseId,
+  }) async {
+    try {
+      final response = await apiService.removeFromCart(courseId);
+      return ApiResult.success(response);
+    } catch (error) {
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
+  
+  
 }

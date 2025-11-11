@@ -7,6 +7,10 @@ import 'package:education_platform_app/features/categories/data/repo/categories_
 import 'package:education_platform_app/features/categories/presentation/categories_cubit/cubit/categories_cubit.dart';
 import 'package:education_platform_app/features/courses/data/repo/courses_repo.dart';
 import 'package:education_platform_app/features/courses/presentation/courses_cubit/cubit/courses_cubit.dart';
+import 'package:education_platform_app/features/enrollments/data/repo/enrollments_repo.dart';
+import 'package:education_platform_app/features/enrollments/enrollments_cubit/cubit/enrollments_cubit.dart';
+import 'package:education_platform_app/features/my_courses/data/repo/my_course_repo.dart';
+import 'package:education_platform_app/features/my_courses/presentation/my_courses_cubit/cubit/my_course_cubit.dart';
 import 'package:education_platform_app/features/sign_in/data/repo/login_repo.dart';
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
 import 'package:education_platform_app/features/sign_up/data/repo/register_repo.dart';
@@ -18,37 +22,48 @@ final getIt = GetIt.instance;
 Future<void> setupGetIt() async {
   // Dio
   Dio dio = await DioFactory.getDio();
-  getIt.registerFactory<Dio>(() => dio);
+  getIt.registerLazySingleton<Dio>(() => dio);
 
   // ApiServices
-  getIt.registerFactory<ApiService>(() => ApiService(getIt<Dio>()));
+  getIt.registerLazySingleton<ApiService>(() => ApiService(getIt<Dio>()));
 
-  // LoginRepositories
-  getIt.registerFactory<LoginRepo>(
+  // Repositories
+  getIt.registerLazySingleton<LoginRepo>(
     () => LoginRepo(apiService: getIt<ApiService>()),
   );
-
-  getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt<LoginRepo>()));
-
-  getIt.registerFactory<RegisterRepo>(
+  getIt.registerLazySingleton<RegisterRepo>(
     () => RegisterRepo(apiService: getIt<ApiService>()),
   );
+  getIt.registerLazySingleton<CategoriesRepo>(
+    () => CategoriesRepo(getIt<ApiService>()),
+  );
+  getIt.registerLazySingleton<CoursesRepo>(
+    () => CoursesRepo(getIt<ApiService>()),
+  );
+  getIt.registerLazySingleton<CartRepo>(() => CartRepo(getIt<ApiService>()));
+  getIt.registerLazySingleton<MyCourseRepo>(
+    () => MyCourseRepo(getIt<ApiService>()),
+  );
 
+  // Cubits
+  getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt<LoginRepo>()));
   getIt.registerFactory<RegisterCubit>(
     () => RegisterCubit(getIt<RegisterRepo>()),
   );
-  getIt.registerFactory<CategoriesRepo>(
-    () => CategoriesRepo(getIt<ApiService>()),
-  );
-
   getIt.registerFactory<CategoriesCubit>(
     () => CategoriesCubit(getIt<CategoriesRepo>()),
   );
-
-  getIt.registerFactory<CoursesRepo>(() => CoursesRepo(getIt<ApiService>()));
-
   getIt.registerFactory<CoursesCubit>(() => CoursesCubit(getIt<CoursesRepo>()));
-
-  getIt.registerFactory<CartRepo>(() => CartRepo(getIt<ApiService>()));
   getIt.registerFactory<CartCubit>(() => CartCubit(getIt<CartRepo>()));
+  getIt.registerFactory<MyCourseCubit>(
+    () => MyCourseCubit(getIt<MyCourseRepo>()),
+  );
+
+  getIt.registerFactory<EnrollmentsRepo>(
+    () => EnrollmentsRepo(getIt<ApiService>()),
+  );
+
+  getIt.registerFactory<EnrollmentsCubit>(
+    () => EnrollmentsCubit(getIt<EnrollmentsRepo>(), getIt<CartCubit>()),
+  );
 }

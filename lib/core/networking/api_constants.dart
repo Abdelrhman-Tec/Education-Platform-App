@@ -1,21 +1,20 @@
 abstract class ApiConstants {
   static const String baseUrl = "http://192.168.1.2";
 
-  /// Authentication
   static const String login = "/api/login";
   static const String register = "/api/register";
   static const String users = "/api/users";
 
-  /// Categories
   static const String categories = "/api/categories";
 
-  /// Courses
   static const String courses = "/api/courses";
 
-  /// Search Courses
   static const String searchCourses = "/api/courses/search";
   static const String cart = "/api/cart/{id}";
   static const String addToCart = "/api/cart";
+  static const String removeFromCart = "/api/cart/{id}";
+  static const String myCourses = '/api/my-courses/{id}';
+  static const String enrrollment = '/api/enrollments-cart';
 }
 
 class ApiErrors {

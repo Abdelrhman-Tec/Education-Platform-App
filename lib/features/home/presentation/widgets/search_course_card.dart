@@ -8,8 +8,10 @@ class SearchCourseCard extends StatefulWidget {
   final String description;
   final String? price;
   final int? students;
+  final String? name;
   final int? lectures;
   final int? likes;
+  final bool? showDeleteIcon;
   final VoidCallback onTap;
 
   const SearchCourseCard({
@@ -22,6 +24,8 @@ class SearchCourseCard extends StatefulWidget {
     this.lectures,
     this.likes,
     required this.onTap,
+    this.name,
+    this.showDeleteIcon,
   });
 
   @override
@@ -56,7 +60,7 @@ class _SearchCourseCardState extends State<SearchCourseCard> {
             border: Border.all(color: Colors.grey.shade300),
             boxShadow: [
               BoxShadow(
-                color: Colors.grey.withOpacity(0.1),
+                color: Colors.grey.withValues(alpha: 0.1),
                 blurRadius: 5,
                 offset: const Offset(0, 2),
               ),
@@ -88,13 +92,21 @@ class _SearchCourseCardState extends State<SearchCourseCard> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      widget.title,
-                      style: AppTextStyles.titleSmallSemiBold.copyWith(
-                        fontSize: 16.sp,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
+                    Row(
+                      children: [
+                        Text(
+                          widget.title,
+                          style: AppTextStyles.titleSmallSemiBold.copyWith(
+                            fontSize: 16.sp,
+                          ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        const Spacer(),
+                        if (widget.showDeleteIcon != null) ...[
+                          const Icon(Icons.delete, color: Colors.red),
+                        ],
+                      ],
                     ),
                     const SizedBox(height: 5),
                     Text(
@@ -106,6 +118,16 @@ class _SearchCourseCardState extends State<SearchCourseCard> {
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
+                    verticalSpace(10),
+                    Text(
+                      widget.name ?? '',
+                      style: AppTextStyles.titleSmallBold.copyWith(
+                        fontSize: 14.sp,
+                        color: AppColors.mediumBlue,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                     const SizedBox(height: 8),
                     // New info row (optional)
                     if (widget.price != null || widget.students != null)
@@ -113,9 +135,19 @@ class _SearchCourseCardState extends State<SearchCourseCard> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           if (widget.price != null)
-                            Text("Price: ${widget.price}", style: AppTextStyles.titleSmallBold.copyWith(fontSize: 13.sp)),
+                            Text(
+                              "Price: ${widget.price}",
+                              style: AppTextStyles.titleSmallBold.copyWith(
+                                fontSize: 13.sp,
+                              ),
+                            ),
                           if (widget.students != null)
-                            Text("Students: ${widget.students}", style: AppTextStyles.titleSmallBold.copyWith(fontSize: 13.sp)),
+                            Text(
+                              "Students: ${widget.students}",
+                              style: AppTextStyles.titleSmallBold.copyWith(
+                                fontSize: 13.sp,
+                              ),
+                            ),
                         ],
                       ),
                     if (widget.lectures != null || widget.likes != null)
@@ -125,9 +157,19 @@ class _SearchCourseCardState extends State<SearchCourseCard> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           if (widget.lectures != null)
-                            Text("Lectures: ${widget.lectures}", style: AppTextStyles.titleSmallBold.copyWith(fontSize: 13.sp)),
+                            Text(
+                              "Lectures: ${widget.lectures}",
+                              style: AppTextStyles.titleSmallBold.copyWith(
+                                fontSize: 13.sp,
+                              ),
+                            ),
                           if (widget.likes != null)
-                            Text("Likes: ${widget.likes}", style: AppTextStyles.titleSmallBold.copyWith(fontSize: 13.sp)),
+                            Text(
+                              "Likes: ${widget.likes}",
+                              style: AppTextStyles.titleSmallBold.copyWith(
+                                fontSize: 13.sp,
+                              ),
+                            ),
                         ],
                       ),
                   ],
