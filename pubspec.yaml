@@ -69,8 +69,6 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
-    - assets/video/1.mp4
-    - assets/video/3.mp4
     - lib/l10n/intl_ar.arb
     - lib/l10n/intl_en.arb
 

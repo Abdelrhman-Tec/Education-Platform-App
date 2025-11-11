@@ -80,12 +80,12 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<CategoriesResponseModel> getCategories() async {
+  Future<List<CategoriesResponseModel>> getCategories() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<CategoriesResponseModel>(
+    final _options = _setStreamType<List<CategoriesResponseModel>>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -95,10 +95,15 @@ class _ApiService implements ApiService {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late CategoriesResponseModel _value;
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<CategoriesResponseModel> _value;
     try {
-      _value = CategoriesResponseModel.fromJson(_result.data!);
+      _value = _result.data!
+          .map(
+            (dynamic i) =>
+                CategoriesResponseModel.fromJson(i as Map<String, dynamic>),
+          )
+          .toList();
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -107,12 +112,12 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<CoursesResponseModel> getCourses() async {
+  Future<List<CoursesResponseModel>> getCourses() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<CoursesResponseModel>(
+    final _options = _setStreamType<List<CoursesResponseModel>>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -122,10 +127,15 @@ class _ApiService implements ApiService {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late CoursesResponseModel _value;
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<CoursesResponseModel> _value;
     try {
-      _value = CoursesResponseModel.fromJson(_result.data!);
+      _value = _result.data!
+          .map(
+            (dynamic i) =>
+                CoursesResponseModel.fromJson(i as Map<String, dynamic>),
+          )
+          .toList();
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -134,25 +144,30 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<CoursesResponseModel> searchCourses(String query) async {
+  Future<List<CoursesResponseModel>> searchCourses(String query) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'query': query};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<CoursesResponseModel>(
+    final _options = _setStreamType<List<CoursesResponseModel>>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/courses/search',
+            '/api/courses/search',
             queryParameters: queryParameters,
             data: _data,
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late CoursesResponseModel _value;
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<CoursesResponseModel> _value;
     try {
-      _value = CoursesResponseModel.fromJson(_result.data!);
+      _value = _result.data!
+          .map(
+            (dynamic i) =>
+                CoursesResponseModel.fromJson(i as Map<String, dynamic>),
+          )
+          .toList();
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

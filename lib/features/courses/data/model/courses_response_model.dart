@@ -1,69 +1,123 @@
 import 'package:json_annotation/json_annotation.dart';
-
 part 'courses_response_model.g.dart';
 
 @JsonSerializable(createToJson: false)
 class CoursesResponseModel {
-  final bool? status;
-  final List<Course>? data;
+    CoursesResponseModel({
+        required this.id,
+        required this.title,
+        required this.description,
+        required this.image,
+        required this.price,
+        required this.division,
+        required this.createdBy,
+        required this.categoryId,
+        required this.instructorId,
+        required this.status,
+        required this.students,
+        required this.likes,
+        required this.shortVideoUrl,
+        required this.shortVideoDuration,
+        required this.createdAt,
+        required this.updatedAt,
+        required this.category,
+        required this.instructor,
+    });
 
-  CoursesResponseModel({required this.status, required this.data});
+    final int? id;
+    final String? title;
+    final String? description;
+    final String? image;
+    final String? price;
+    final String? division;
 
-  factory CoursesResponseModel.fromJson(Map<String, dynamic> json) =>
-      _$CoursesResponseModelFromJson(json);
+    @JsonKey(name: 'created_by') 
+    final int? createdBy;
+
+    @JsonKey(name: 'category_id') 
+    final int? categoryId;
+
+    @JsonKey(name: 'instructor_id') 
+    final int? instructorId;
+    final String? status;
+    final int? students;
+    final int? likes;
+
+    @JsonKey(name: 'short_video_url') 
+    final String? shortVideoUrl;
+
+    @JsonKey(name: 'short_video_duration') 
+    final String? shortVideoDuration;
+
+    @JsonKey(name: 'created_at') 
+    final DateTime? createdAt;
+
+    @JsonKey(name: 'updated_at') 
+    final DateTime? updatedAt;
+    final Category? category;
+    final Instructor? instructor;
+
+    factory CoursesResponseModel.fromJson(Map<String, dynamic> json) => _$CoursesResponseModelFromJson(json);
+
 }
 
 @JsonSerializable(createToJson: false)
-class Course {
-  final int? id;
-  final String? title;
-  final String? description;
-  final String? image;
-  final String? price;
-  final String? division;
+class Category {
+    Category({
+        required this.id,
+        required this.name,
+        required this.image,
+        required this.color,
+        required this.backgroundColor,
+        required this.createdAt,
+        required this.updatedAt,
+    });
 
-  @JsonKey(name: 'created_by')
-  final int? createdBy;
+    final int? id;
+    final String? name;
+    final String? image;
+    final String? color;
 
-  @JsonKey(name: 'category_id')
-  final int? categoryId;
+    @JsonKey(name: 'background_color') 
+    final String? backgroundColor;
 
-  final String? status;
+    @JsonKey(name: 'created_at') 
+    final DateTime? createdAt;
 
-  @JsonKey(name: 'created_at')
-  final DateTime? createdAt;
+    @JsonKey(name: 'updated_at') 
+    final DateTime? updatedAt;
 
-  @JsonKey(name: 'updated_at')
-  final DateTime? updatedAt;
+    factory Category.fromJson(Map<String, dynamic> json) => _$CategoryFromJson(json);
 
-  @JsonKey(name: 'short_video')
-  final ShortVideo? shortVideo;
-
-  Course({
-    required this.id,
-    required this.title,
-    required this.description,
-    required this.image,
-    required this.price,
-    required this.division,
-    required this.createdBy,
-    required this.categoryId,
-    required this.status,
-    required this.createdAt,
-    required this.updatedAt,
-    this.shortVideo,
-  });
-
-  factory Course.fromJson(Map<String, dynamic> json) => _$CourseFromJson(json);
 }
 
 @JsonSerializable(createToJson: false)
-class ShortVideo {
-  final String? url;
-  final double? duration;
+class Instructor {
+    Instructor({
+        required this.id,
+        required this.firstName,
+        required this.lastName,
+        required this.email,
+        required this.role,
+        required this.createdAt,
+        required this.updatedAt,
+    });
 
-  ShortVideo({this.url, this.duration});
+    final int? id;
 
-  factory ShortVideo.fromJson(Map<String, dynamic> json) =>
-      _$ShortVideoFromJson(json);
+    @JsonKey(name: 'first_name') 
+    final String? firstName;
+
+    @JsonKey(name: 'last_name') 
+    final String? lastName;
+    final String? email;
+    final String? role;
+
+    @JsonKey(name: 'created_at') 
+    final DateTime? createdAt;
+
+    @JsonKey(name: 'updated_at') 
+    final DateTime? updatedAt;
+
+    factory Instructor.fromJson(Map<String, dynamic> json) => _$InstructorFromJson(json);
 }

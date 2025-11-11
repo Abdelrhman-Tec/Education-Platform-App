@@ -13,7 +13,7 @@ abstract class ApiConstants {
   static const String courses = "/api/courses";
 
   /// Search Courses
-  static const String searchCourses = "/courses/search";
+  static const String searchCourses = "/api/courses/search";
 }
 
 class ApiErrors {

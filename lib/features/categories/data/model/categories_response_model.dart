@@ -4,23 +4,14 @@ part 'categories_response_model.g.dart';
 
 @JsonSerializable(createToJson: false)
 class CategoriesResponseModel {
-  const CategoriesResponseModel({required this.status, required this.data});
-
-  final bool? status;
-  final List<Category>? data;
-
-  factory CategoriesResponseModel.fromJson(Map<String, dynamic> json) =>
-      _$CategoriesResponseModelFromJson(json);
-}
-
-@JsonSerializable(createToJson: false)
-class Category {
-  const Category({
+  CategoriesResponseModel({
     required this.id,
     required this.name,
     required this.image,
     required this.color,
     required this.backgroundColor,
+    required this.createdAt,
+    required this.updatedAt,
   });
 
   final int? id;
@@ -31,6 +22,12 @@ class Category {
   @JsonKey(name: 'background_color')
   final String? backgroundColor;
 
-  factory Category.fromJson(Map<String, dynamic> json) =>
-      _$CategoryFromJson(json);
+  @JsonKey(name: 'created_at')
+  final DateTime? createdAt;
+
+  @JsonKey(name: 'updated_at')
+  final DateTime? updatedAt;
+
+  factory CategoriesResponseModel.fromJson(Map<String, dynamic> json) =>
+      _$CategoriesResponseModelFromJson(json);
 }

@@ -9,13 +9,6 @@ part of 'courses_response_model.dart';
 CoursesResponseModel _$CoursesResponseModelFromJson(
   Map<String, dynamic> json,
 ) => CoursesResponseModel(
-  status: json['status'] as bool?,
-  data: (json['data'] as List<dynamic>?)
-      ?.map((e) => Course.fromJson(e as Map<String, dynamic>))
-      .toList(),
-);
-
-Course _$CourseFromJson(Map<String, dynamic> json) => Course(
   id: (json['id'] as num?)?.toInt(),
   title: json['title'] as String?,
   description: json['description'] as String?,
@@ -24,19 +17,50 @@ Course _$CourseFromJson(Map<String, dynamic> json) => Course(
   division: json['division'] as String?,
   createdBy: (json['created_by'] as num?)?.toInt(),
   categoryId: (json['category_id'] as num?)?.toInt(),
+  instructorId: (json['instructor_id'] as num?)?.toInt(),
   status: json['status'] as String?,
+  students: (json['students'] as num?)?.toInt(),
+  likes: (json['likes'] as num?)?.toInt(),
+  shortVideoUrl: json['short_video_url'] as String?,
+  shortVideoDuration: json['short_video_duration'] as String?,
   createdAt: json['created_at'] == null
       ? null
       : DateTime.parse(json['created_at'] as String),
   updatedAt: json['updated_at'] == null
       ? null
       : DateTime.parse(json['updated_at'] as String),
-  shortVideo: json['short_video'] == null
+  category: json['category'] == null
       ? null
-      : ShortVideo.fromJson(json['short_video'] as Map<String, dynamic>),
+      : Category.fromJson(json['category'] as Map<String, dynamic>),
+  instructor: json['instructor'] == null
+      ? null
+      : Instructor.fromJson(json['instructor'] as Map<String, dynamic>),
 );
 
-ShortVideo _$ShortVideoFromJson(Map<String, dynamic> json) => ShortVideo(
-  url: json['url'] as String?,
-  duration: (json['duration'] as num?)?.toDouble(),
+Category _$CategoryFromJson(Map<String, dynamic> json) => Category(
+  id: (json['id'] as num?)?.toInt(),
+  name: json['name'] as String?,
+  image: json['image'] as String?,
+  color: json['color'] as String?,
+  backgroundColor: json['background_color'] as String?,
+  createdAt: json['created_at'] == null
+      ? null
+      : DateTime.parse(json['created_at'] as String),
+  updatedAt: json['updated_at'] == null
+      ? null
+      : DateTime.parse(json['updated_at'] as String),
+);
+
+Instructor _$InstructorFromJson(Map<String, dynamic> json) => Instructor(
+  id: (json['id'] as num?)?.toInt(),
+  firstName: json['first_name'] as String?,
+  lastName: json['last_name'] as String?,
+  email: json['email'] as String?,
+  role: json['role'] as String?,
+  createdAt: json['created_at'] == null
+      ? null
+      : DateTime.parse(json['created_at'] as String),
+  updatedAt: json['updated_at'] == null
+      ? null
+      : DateTime.parse(json['updated_at'] as String),
 );

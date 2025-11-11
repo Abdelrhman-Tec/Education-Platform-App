@@ -33,6 +33,8 @@ class CourseVideoPlayer extends StatelessWidget {
         child: ProfessionalVideoPlayer(
           videoUrl: videoUrl!,
           thumbnailUrl: thumbnailUrl,
+          progressBarColor: Colors.blue,
+          controlsColor: Colors.white,
         ),
       ),
     );

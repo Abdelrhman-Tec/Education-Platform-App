@@ -5,7 +5,7 @@ import 'package:education_platform_app/features/courses/data/model/courses_respo
 
 class CourseDetailsAppBar extends StatelessWidget
     implements PreferredSizeWidget {
-  final Course course;
+  final CoursesResponseModel course;
 
   const CourseDetailsAppBar({super.key, required this.course});
 

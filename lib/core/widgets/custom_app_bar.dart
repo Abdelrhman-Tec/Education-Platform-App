@@ -7,6 +7,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool showBack;
   final List<Widget>? actions;
   final Color? backgroundColor;
+  final bool? automaticallyImplyLeading;
   final Color? textColor;
   final double elevation;
 
@@ -18,12 +19,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.actions,
     this.backgroundColor,
     this.textColor,
-    this.elevation = 0.5,
+    this.elevation = 0.5, this.automaticallyImplyLeading,
   });
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: automaticallyImplyLeading ?? false,
       backgroundColor:
           backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
       centerTitle: centerTitle,

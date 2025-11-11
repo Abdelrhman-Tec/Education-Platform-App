@@ -9,7 +9,7 @@ import 'package:education_platform_app/features/courses/presentation/widgets/cou
 import 'package:education_platform_app/features/courses/presentation/widgets/instractor_info.dart';
 
 class CourseDetailsBody extends StatelessWidget {
-  final Course course;
+  final CoursesResponseModel course;
 
   const CourseDetailsBody({super.key, required this.course});
 
@@ -22,7 +22,7 @@ class CourseDetailsBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CourseVideoPlayer(
-            videoUrl: course.shortVideo!.url,
+            videoUrl: course.shortVideoUrl,
             thumbnailUrl: course.image,
           ),
           verticalSpace(16),

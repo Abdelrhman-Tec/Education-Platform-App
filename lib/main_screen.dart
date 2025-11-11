@@ -1,3 +1,4 @@
+import 'package:education_platform_app/features/categories/presentation/screens/categories_screen.dart';
 import 'package:education_platform_app/features/home/presentation/screens/home_screen.dart';
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
 
@@ -15,7 +16,7 @@ class _MainScreenState extends State<MainScreen> {
 
   late final List<Widget> _screens = [
     HomeScreen(name: widget.name),
-    PlaceholderScreen(title: "التصنيفات"),
+    CategoriesScreen(),
     PlaceholderScreen(title: "الدورات"),
     PlaceholderScreen(title: "سلة المشتريات"),
     PlaceholderScreen(title: "المزيد"),

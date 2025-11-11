@@ -68,7 +68,7 @@ class CourseCard extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Text(
-                  "\$$price",
+                  price,
                   style: AppTextStyles.titleSmallSemiBold.copyWith(
                     fontSize: 16.sp,
                     color: AppColors.brightGreen,

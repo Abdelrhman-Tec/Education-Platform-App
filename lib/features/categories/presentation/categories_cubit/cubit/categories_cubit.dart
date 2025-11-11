@@ -6,7 +6,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'categories_state.dart';
 part 'categories_cubit.freezed.dart';
 
-class CategoriesCubit extends Cubit<CategoriesState<List<Category>>> {
+class CategoriesCubit extends Cubit<CategoriesState<List<CategoriesResponseModel>>> {
   final CategoriesRepo categoriesRepo;
   CategoriesCubit(this.categoriesRepo) : super(const CategoriesState.initial());
 

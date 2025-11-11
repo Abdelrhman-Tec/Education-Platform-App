@@ -20,7 +20,7 @@ class CategoryScreen extends StatefulWidget {
 class _CategoryScreenState extends State<CategoryScreen> {
   @override
   void initState() {
-    context.read<CoursesCubit>().getCoursesById(widget.coursesId);
+    context.read<CoursesCubit>().getCoursesByCategory(widget.coursesId);
     super.initState();
   }
 
@@ -60,7 +60,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
 }
 
 Widget _buildBody(BuildContext context) {
-  return BlocBuilder<CoursesCubit, CoursesState<List<Course>>>(
+  return BlocBuilder<CoursesCubit, CoursesState<List<CoursesResponseModel>>>(
     builder: (context, state) {
       return state.when(
         initial: () => const SizedBox.shrink(),
@@ -91,6 +91,10 @@ Widget _buildBody(BuildContext context) {
                     students: 33,
                     lectures: 33,
                     likes: 100,
+                    ontap: () => context.pushNamed(
+                      Routes.courseDetailsScreen,
+                      arguments: course,
+                    ),
                   )
                   .animate(delay: (index * 100).ms)
                   .fadeIn(duration: 700.ms)

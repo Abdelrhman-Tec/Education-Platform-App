@@ -22,11 +22,14 @@ abstract class ApiService {
   );
 
   @GET(ApiConstants.categories)
-  Future<CategoriesResponseModel> getCategories();
+  Future<List<CategoriesResponseModel>> getCategories();
 
+  // Courses
   @GET(ApiConstants.courses)
-  Future<CoursesResponseModel> getCourses();
+  Future<List<CoursesResponseModel>> getCourses();
 
   @GET(ApiConstants.searchCourses)
-  Future<CoursesResponseModel> searchCourses(@Query("query") String query);
+  Future<List<CoursesResponseModel>> searchCourses(
+    @Query("query") String query,
+  );
 }

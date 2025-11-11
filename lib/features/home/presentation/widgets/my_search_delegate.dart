@@ -1,8 +1,9 @@
 import 'dart:async';
+import 'package:skeletonizer/skeletonizer.dart';
+import 'package:education_platform_app/core/routing/index.dart';
 import 'package:education_platform_app/features/courses/data/model/courses_response_model.dart';
 import 'package:education_platform_app/features/courses/presentation/courses_cubit/cubit/courses_cubit.dart';
 import 'package:education_platform_app/features/home/presentation/widgets/search_course_card.dart';
-import 'package:skeletonizer/skeletonizer.dart';
 import '../../../sign_in/presentation/widgets/auth_imports.dart';
 
 class MySearchDelegate extends SearchDelegate {
@@ -38,29 +39,17 @@ class MySearchDelegate extends SearchDelegate {
     );
   }
 
-  InputDecoration get searchFieldDecoration => InputDecoration(
-    hintText: searchFieldLabel,
-    prefixIcon: const Icon(Icons.search, color: Colors.grey),
-    filled: true,
-    fillColor: Colors.grey.shade200,
-    contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-    border: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(20),
-      borderSide: BorderSide.none,
-    ),
-  );
-
-  @override
   InputDecorationTheme get searchFieldDecorationTheme => InputDecorationTheme(
-    hintStyle: TextStyle(color: Colors.grey.shade600, fontSize: 16),
-    filled: true,
-    fillColor: Colors.grey.shade200,
-    contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-    border: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(20),
-      borderSide: BorderSide.none,
-    ),
-  );
+        hintStyle: TextStyle(color: Colors.grey.shade600, fontSize: 16),
+        filled: true,
+        fillColor: Colors.grey.shade200,
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+          borderSide: BorderSide.none,
+        ),
+      );
 
   @override
   List<Widget>? buildActions(BuildContext context) {
@@ -100,7 +89,7 @@ class MySearchDelegate extends SearchDelegate {
 
     _onQueryChanged(query);
 
-    return BlocBuilder<CoursesCubit, CoursesState<List<Course>>>(
+    return BlocBuilder<CoursesCubit, CoursesState<List<CoursesResponseModel>>>(
       bloc: coursesCubit,
       builder: (context, state) {
         return state.when(
@@ -113,9 +102,13 @@ class MySearchDelegate extends SearchDelegate {
                   itemBuilder: (context, index) {
                     final course = courses[index];
                     return SearchCourseCard(
-                      imageUrl: course.image ?? '',
-                      title: course.title ?? '',
-                      description: course.description ?? '',
+                      imageUrl: course.image ?? ''    ,
+                      title: course.title     ?? '',
+                      description: course.description ?? ''    ,
+                      onTap: () => context.pushNamed(
+                        Routes.courseDetailsScreen,
+                        arguments: course,
+                      ),
                     );
                   },
                 ),
@@ -149,9 +142,9 @@ class MySearchDelegate extends SearchDelegate {
               width: 300,
               height: 60,
               decoration: BoxDecoration(
-                color: Colors.blue.withValues(alpha: 0.2),
+                color: Colors.blue.withAlpha(50),
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: Colors.blue.withValues(alpha: 0.4)),
+                border: Border.all(color: Colors.blue.withAlpha(100)),
               ),
               child: Center(
                 child: Text(
@@ -168,7 +161,7 @@ class MySearchDelegate extends SearchDelegate {
 
     _onQueryChanged(query);
 
-    return BlocBuilder<CoursesCubit, CoursesState<List<Course>>>(
+    return BlocBuilder<CoursesCubit, CoursesState<List<CoursesResponseModel>>>(
       bloc: coursesCubit,
       builder: (context, state) {
         return state.when(
@@ -182,9 +175,12 @@ class MySearchDelegate extends SearchDelegate {
               return Skeletonizer(
                 enabled: showSkeleton,
                 child: ListTile(
-                  title: Text(course.title ?? ''),
-                  subtitle: Text(course.description ?? ''),
-                  onTap: () => close(context, course),
+                  title: Text(course.title ?? ''    ),
+                  subtitle: Text(course.description    ?? '' ),
+                  onTap: () => context.pushNamed(
+                    Routes.courseDetailsScreen,
+                    arguments: course,
+                  ),
                 ),
               );
             },

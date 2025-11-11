@@ -5,10 +5,10 @@ class CategoriesRepo {
   final ApiService apiService;
   CategoriesRepo(this.apiService);
 
-  Future<ApiResult<List<Category>>> getCategories() async {
+  Future<ApiResult<List<CategoriesResponseModel>>> getCategories() async {
     try {
       final response = await apiService.getCategories();
-      return ApiResult.success(response.data ?? []);
+      return ApiResult.success(response);
     } catch (error) {
       return ApiResult.failure(ErrorHandler.handle(error));
     }

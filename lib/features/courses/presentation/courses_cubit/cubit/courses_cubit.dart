@@ -3,10 +3,11 @@ import 'package:education_platform_app/features/courses/data/model/courses_respo
 import 'package:education_platform_app/features/courses/data/repo/courses_repo.dart';
 import 'package:education_platform_app/features/sign_in/data/repo/auth_import_repo.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'courses_state.dart';
 part 'courses_cubit.freezed.dart';
 
-class CoursesCubit extends Cubit<CoursesState<List<Course>>> {
+class CoursesCubit extends Cubit<CoursesState<List<CoursesResponseModel>>> {
   final CoursesRepo coursesRepo;
 
   CoursesCubit(this.coursesRepo) : super(const CoursesState.initial());
@@ -31,7 +32,7 @@ class CoursesCubit extends Cubit<CoursesState<List<Course>>> {
     );
   }
 
-  Future<void> getCoursesById(int categoryId) async {
+  Future<void> getCoursesByCategory(int categoryId) async {
     emit(const CoursesState.loading());
     final response = await coursesRepo.getCourses();
     response.when(
@@ -43,7 +44,7 @@ class CoursesCubit extends Cubit<CoursesState<List<Course>>> {
         emit(CoursesState.success(filteredCourses));
       },
       failure: (error) {
-        emit(CoursesState.failure(ErrorHandler.handle(error).toString()));
+        emit(CoursesState.failure(error.toString()));
       },
     );
   }

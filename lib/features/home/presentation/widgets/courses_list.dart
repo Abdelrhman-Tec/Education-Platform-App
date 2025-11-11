@@ -1,10 +1,12 @@
-import 'package:education_platform_app/core/function/handle_skeleton_loading.dart';
-import 'package:education_platform_app/features/courses/data/model/courses_response_model.dart';
-import 'package:education_platform_app/features/home/presentation/widgets/course_card.dart';
-import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:skeletonizer/skeletonizer.dart';
+import 'package:education_platform_app/core/function/handle_skeleton_loading.dart';
+import 'package:education_platform_app/core/routing/index.dart';
+import 'package:education_platform_app/features/courses/data/model/courses_response_model.dart';
 import 'package:education_platform_app/features/courses/presentation/courses_cubit/cubit/courses_cubit.dart';
+import 'package:education_platform_app/features/home/presentation/widgets/course_card.dart';
 
 class CoursesList extends StatefulWidget {
   const CoursesList({super.key});
@@ -28,7 +30,7 @@ class _CoursesListState extends State<CoursesList> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CoursesCubit, CoursesState<List<Course>>>(
+    return BlocBuilder<CoursesCubit, CoursesState<List<CoursesResponseModel>>>(
       builder: (context, state) {
         return state.when(
           initial: () => const SizedBox.shrink(),
@@ -36,7 +38,7 @@ class _CoursesListState extends State<CoursesList> {
             child: CircularProgressIndicator(color: AppColors.mediumBlue),
           ),
           success: (courses) => SizedBox(
-            height: 360.h,
+            height: 360,
             child: Skeletonizer(
               enabled: _showSkeleton,
               child: ListView.separated(
@@ -50,9 +52,9 @@ class _CoursesListState extends State<CoursesList> {
                         imageUrl: course.image ?? '',
                         title: course.title ?? '',
                         price: course.price ?? '',
-                        students: 33,
+                        students: course.students ?? 0,
                         lectures: 33,
-                        likes: 100,
+                        likes: course.likes ?? 0,
                         ontap: () => context.pushNamed(
                           Routes.courseDetailsScreen,
                           arguments: course,
