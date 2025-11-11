@@ -1,12 +1,13 @@
 import 'dart:ui';
+import 'package:education_platform_app/features/cart/presentation/cart_cubit/cubit/cart_cubit.dart';
 import 'package:education_platform_app/core/function/handle_skeleton_loading.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import '../../../sign_in/presentation/widgets/auth_imports.dart';
 
 class HomeAppBar extends StatefulWidget implements PreferredSizeWidget {
   final String name;
-
-  const HomeAppBar({super.key, required this.name});
+  final VoidCallback onCartTap;
+  const HomeAppBar({super.key, required this.name, required this.onCartTap});
 
   @override
   State<HomeAppBar> createState() => _HomeAppBarState();
@@ -16,18 +17,17 @@ class HomeAppBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _HomeAppBarState extends State<HomeAppBar> {
-bool _showSkeleton = true;
+  bool _showSkeleton = true;
 
-@override
-void initState() {
-  super.initState();
-  handleSkeletonLoading(this, (value) {
-    setState(() {
-      _showSkeleton = value;
+  @override
+  void initState() {
+    super.initState();
+    handleSkeletonLoading(this, (value) {
+      setState(() {
+        _showSkeleton = value;
+      });
     });
-  });
-}
-
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,40 +72,56 @@ void initState() {
               ),
             ),
             const Spacer(),
-            // Cart Icon with badge
-            Stack(
-              clipBehavior: Clip.none,
-              children: [
-                Icon(
-                  Icons.shopping_cart,
-                  color: AppColors.mediumBlue,
-                  size: 28.sp,
-                ),
-                Positioned(
-                  right: -6.w,
-                  top: -4.h,
-                  child: Container(
-                    padding: EdgeInsets.all(2.sp),
-                    decoration: BoxDecoration(
-                      color: Colors.amber,
-                      shape: BoxShape.circle,
-                    ),
-                    constraints: BoxConstraints(
-                      minWidth: 16.w,
-                      minHeight: 16.h,
-                    ),
-                    child: Center(
-                      child: Text(
-                        "0",
-                        style: AppTextStyles.titleSmallSemiBold.copyWith(
-                          color: AppColors.white,
-                          fontSize: 10.sp,
-                        ),
+            // Cart Icon with dynamic badge
+            BlocBuilder<CartCubit, CartState<dynamic>>(
+              builder: (context, state) {
+                int cartCount = 0;
+                state.maybeWhen(
+                  success: (cartItems) {
+                    cartCount = (cartItems as List).length;
+                  },
+                  orElse: () {},
+                );
+
+                return Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    GestureDetector(
+                      onTap: widget.onCartTap,
+                      child: Icon(
+                        Icons.shopping_cart,
+                        color: AppColors.mediumBlue,
+                        size: 28.sp,
                       ),
                     ),
-                  ),
-                ),
-              ],
+                    if (cartCount > 0)
+                      Positioned(
+                        right: -6.w,
+                        top: -4.h,
+                        child: Container(
+                          padding: EdgeInsets.all(2.sp),
+                          decoration: BoxDecoration(
+                            color: Colors.amber,
+                            shape: BoxShape.circle,
+                          ),
+                          constraints: BoxConstraints(
+                            minWidth: 16.w,
+                            minHeight: 16.h,
+                          ),
+                          child: Center(
+                            child: Text(
+                              "$cartCount",
+                              style: AppTextStyles.titleSmallSemiBold.copyWith(
+                                color: AppColors.white,
+                                fontSize: 10.sp,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                  ],
+                );
+              },
             ),
           ],
         ),

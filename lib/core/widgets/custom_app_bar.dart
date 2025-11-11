@@ -19,7 +19,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.actions,
     this.backgroundColor,
     this.textColor,
-    this.elevation = 0.5, this.automaticallyImplyLeading,
+    this.elevation = 0.5,
+    this.automaticallyImplyLeading,
   });
 
   @override
@@ -32,7 +33,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: elevation,
       leading: showBack
           ? IconButton(
-              icon: const Icon(Icons.arrow_back_ios_new, size: 20),
+              icon: const Icon(
+                Icons.arrow_back_ios_new,
+                size: 20,
+                color: Colors.white,
+              ),
               onPressed: () => Navigator.pop(context),
             )
           : null,

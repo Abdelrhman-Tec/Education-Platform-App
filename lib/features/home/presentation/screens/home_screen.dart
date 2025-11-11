@@ -24,7 +24,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: HomeAppBar(name: widget.name),
+      appBar: HomeAppBar(
+        name: widget.name,
+        onCartTap: () => context.pushNamed(Routes.cartScreen),
+      ),
       body: _buildBody(context),
     );
   }

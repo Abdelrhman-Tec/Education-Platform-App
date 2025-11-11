@@ -1,3 +1,4 @@
+import 'package:education_platform_app/features/cart/presentation/cart_cubit/cubit/cart_cubit.dart';
 import 'package:education_platform_app/features/cart/presentation/screens/cart_screen.dart';
 import 'package:education_platform_app/features/categories/presentation/screens/categories_screen.dart';
 import 'package:education_platform_app/features/home/presentation/screens/home_screen.dart';
@@ -13,7 +14,6 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
-  int cartItemCount = 0;
 
   late final List<Widget> _screens = [
     HomeScreen(name: widget.name),
@@ -41,64 +41,77 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   @override
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: _screens[_selectedIndex],
-      bottomNavigationBar: Theme(
-        data: Theme.of(context).copyWith(
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
-          splashFactory: NoSplash.splashFactory,
-        ),
-        child: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          currentIndex: _selectedIndex,
-          onTap: _onItemTapped,
-          selectedItemColor: AppColors.mediumBlue,
-          unselectedItemColor: Colors.grey,
-          showSelectedLabels: true,
-          showUnselectedLabels: true,
-          items: [
-            _navItem(Icons.home, "الرئيسية"),
-            _navItem(Icons.category, "التصنيفات"),
-            _navItem(Icons.school, "الدورات"),
-            _navItem(
-              Icons.shopping_cart,
-              "سلة المشتريات",
-              badge: Stack(
-                children: [
-                  Icon(Icons.shopping_cart, size: 28.sp),
-                  if (cartItemCount > 0)
-                    Positioned(
-                      right: 0,
-                      top: 0,
-                      child: Container(
-                        padding: EdgeInsets.all(2.r),
-                        decoration: BoxDecoration(
-                          color: AppColors.yellow,
-                          shape: BoxShape.circle,
-                        ),
-                        constraints: BoxConstraints(
-                          minWidth: 16.w,
-                          minHeight: 16.h,
-                        ),
-                        child: Text(
-                          '$cartItemCount',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 10.sp,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                ],
-              ),
+      bottomNavigationBar: BlocBuilder<CartCubit, CartState<dynamic>>(
+        builder: (context, state) {
+          int cartCount = 0;
+          state.maybeWhen(
+            success: (cartItems) {
+              cartCount = (cartItems as List).length;
+            },
+            orElse: () {},
+          );
+
+          return Theme(
+            data: Theme.of(context).copyWith(
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              splashFactory: NoSplash.splashFactory,
             ),
-            _navItem(Icons.more_horiz, "المزيد"),
-          ],
-        ),
+            child: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              currentIndex: _selectedIndex,
+              onTap: _onItemTapped,
+              selectedItemColor: AppColors.mediumBlue,
+              unselectedItemColor: Colors.grey,
+              showSelectedLabels: true,
+              showUnselectedLabels: true,
+              items: [
+                _navItem(Icons.home, "الرئيسية"),
+                _navItem(Icons.category, "التصنيفات"),
+                _navItem(Icons.school, "كورساتي"),
+                _navItem(
+                  Icons.shopping_cart,
+                  "سلة المشتريات",
+                  badge: Stack(
+                    children: [
+                      Icon(Icons.shopping_cart, size: 28.sp),
+                      if (cartCount > 0)
+                        Positioned(
+                          right: 0,
+                          top: 0,
+                          child: Container(
+                            padding: EdgeInsets.all(2.r),
+                            decoration: BoxDecoration(
+                              color: AppColors.yellow,
+                              shape: BoxShape.circle,
+                            ),
+                            constraints: BoxConstraints(
+                              minWidth: 16.w,
+                              minHeight: 16.h,
+                            ),
+                            child: Center(
+                              child: Text(
+                                '$cartCount',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 10.sp,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+                _navItem(Icons.more_horiz, "المزيد"),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

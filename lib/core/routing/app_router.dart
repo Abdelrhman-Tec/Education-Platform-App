@@ -1,4 +1,5 @@
 import 'package:education_platform_app/features/cart/presentation/cart_cubit/cubit/cart_cubit.dart';
+import 'package:education_platform_app/features/cart/presentation/screens/cart_screen.dart';
 import 'package:education_platform_app/features/categories/data/model/categories_response_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:education_platform_app/core/routing/index.dart';
@@ -68,10 +69,17 @@ class AppRouter {
         return _buildCupertinoRoute(
           BlocProvider(
             create: (_) => getIt<CartCubit>(),
-            child: CourseDetailsScreen(course: course,),
+            child: CourseDetailsScreen(course: course),
           ),
         );
 
+      case Routes.cartScreen:
+        return _buildCupertinoRoute(
+          BlocProvider(
+            create: (_) => getIt<CartCubit>(),
+            child: const CartScreen(),
+          ),
+        );
       default:
         return _buildCupertinoRoute(const NotFoundPage());
     }
