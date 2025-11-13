@@ -7,6 +7,8 @@ class SearchCourseCard extends StatefulWidget {
   final String title;
   final String description;
   final VoidCallback? ontapDelete;
+  final VoidCallback? goLessonsScreen;
+  final bool? showDeleteBtn;
   final String? price;
   final int? students;
   final String? name;
@@ -28,6 +30,8 @@ class SearchCourseCard extends StatefulWidget {
     this.name,
     this.showDeleteIcon,
     this.ontapDelete,
+    this.goLessonsScreen,
+    this.showDeleteBtn,
   });
 
   @override
@@ -108,11 +112,15 @@ class _SearchCourseCardState extends State<SearchCourseCard> {
                           ),
                         ),
                         const Spacer(),
-                        if (widget.showDeleteIcon != null) ...[
+                        if (widget.showDeleteIcon != null &&
+                            widget.showDeleteBtn != null &&
+                            widget.showDeleteIcon == true) ...[
                           GestureDetector(
                             onTap: widget.ontapDelete,
-                            child: const Icon(Icons.delete, color: Colors.red),
+                            child: Icon(Icons.delete, color: Colors.red),
                           ),
+                        ] else ...[
+                          const SizedBox(),
                         ],
                       ],
                     ),
@@ -127,14 +135,17 @@ class _SearchCourseCardState extends State<SearchCourseCard> {
                       overflow: TextOverflow.ellipsis,
                     ),
                     verticalSpace(10),
-                    Text(
-                      widget.name ?? '',
-                      style: AppTextStyles.titleSmallBold.copyWith(
-                        fontSize: 14.sp,
-                        color: AppColors.mediumBlue,
+                    GestureDetector(
+                      onTap: widget.goLessonsScreen,
+                      child: Text(
+                        widget.name ?? '',
+                        style: AppTextStyles.titleSmallBold.copyWith(
+                          fontSize: 14.sp,
+                          color: AppColors.mediumBlue,
+                        ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                       ),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
                     ),
                     const SizedBox(height: 8),
                     // New info row (optional)

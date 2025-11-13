@@ -22,6 +22,7 @@ abstract class ApiConstants {
   static const String getFavorites = "/api/favorites/{id}";
   static const String addToFavorites = "/api/favorites";
   static const String removeFromFavorites = "/api/favorites/{id}/{courseId}";
+  static const String getCourseLessons = "/api/courses/{course_id}/lessons";
 }
 
 class ApiErrors {

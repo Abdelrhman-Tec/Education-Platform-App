@@ -11,6 +11,8 @@ import 'package:education_platform_app/features/enrollments/data/repo/enrollment
 import 'package:education_platform_app/features/enrollments/enrollments_cubit/cubit/enrollments_cubit.dart';
 import 'package:education_platform_app/features/favorites/data/repo/favorites_repo.dart';
 import 'package:education_platform_app/features/favorites/presentation/favorites_cubit/cubit/favorites_cubit.dart';
+import 'package:education_platform_app/features/lessons/data/repo/lessons_repo.dart';
+import 'package:education_platform_app/features/lessons/presentation/lessons_cubit/cubit/lessons_cubit.dart';
 import 'package:education_platform_app/features/my_courses/data/repo/my_course_repo.dart';
 import 'package:education_platform_app/features/my_courses/presentation/my_courses_cubit/cubit/my_course_cubit.dart';
 import 'package:education_platform_app/features/sign_in/data/repo/login_repo.dart';
@@ -69,11 +71,13 @@ Future<void> setupGetIt() async {
     () => EnrollmentsCubit(getIt<EnrollmentsRepo>(), getIt<CartCubit>()),
   );
 
-
   getIt.registerFactory<FavoritesRepo>(
     () => FavoritesRepo(getIt<ApiService>()),
   );
   getIt.registerFactory<FavoritesCubit>(
     () => FavoritesCubit(getIt<FavoritesRepo>()),
   );
+
+  getIt.registerFactory<LessonsRepo>(() => LessonsRepo(getIt<ApiService>()));
+  getIt.registerFactory<LessonsCubit>(() => LessonsCubit(getIt<LessonsRepo>()));
 }

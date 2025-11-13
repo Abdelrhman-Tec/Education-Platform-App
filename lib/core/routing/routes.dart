@@ -9,4 +9,6 @@ abstract class Routes {
   static const String myCourseScreen = '/myCourseScreen';
   static const String profileScreen = '/profileScreen';
   static const String favorites = '/favorites';
+  static const String lessonsScreen = '/lessons_screen';
+  static const String lessonPlayer = '/lessonPlayer';
 }

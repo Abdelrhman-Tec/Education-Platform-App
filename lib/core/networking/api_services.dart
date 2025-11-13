@@ -9,6 +9,7 @@ import 'package:education_platform_app/features/enrollments/data/model/enrollmen
 import 'package:education_platform_app/features/enrollments/data/model/unenroll_response_model.dart';
 import 'package:education_platform_app/features/favorites/data/model/favorites_request_model.dart';
 import 'package:education_platform_app/features/favorites/data/model/favorites_response_model.dart';
+import 'package:education_platform_app/features/lessons/data/model/lessons_response_model.dart';
 import 'package:education_platform_app/features/my_courses/data/model/my_course_response_model.dart';
 import 'package:education_platform_app/features/sign_in/data/model/login_request_model.dart';
 import 'package:education_platform_app/features/sign_in/data/model/login_response_model.dart';
@@ -84,5 +85,11 @@ abstract class ApiService {
   Future<FavoritesRemoveResponseModel> removeFromFavorites(
     @Path("id") int userId,
     @Path("courseId") int courseId,
+  );
+
+  @GET(ApiConstants.getCourseLessons)
+  Future<LessonsResponseModel> getCourseLessons(
+    @Path("course_id") int courseId,
+    @Query("user_id") int userId,
   );
 }

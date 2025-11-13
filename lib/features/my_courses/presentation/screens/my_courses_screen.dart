@@ -106,6 +106,15 @@ class _MyCoursesScreenState extends State<MyCoursesScreen> {
                                   ontapDelete: deleting
                                       ? null
                                       : () => _deleteCourse(course.id!),
+                                  goLessonsScreen: () {
+                                    context.pushNamed(
+                                      Routes.lessonsScreen,
+                                      arguments: {
+                                        'id': course.id,
+                                        'image': course.image,
+                                      },
+                                    );
+                                  },
                                 )
                                 .animate(delay: (index * 100).ms)
                                 .fadeIn(duration: 700.ms)
@@ -118,7 +127,7 @@ class _MyCoursesScreenState extends State<MyCoursesScreen> {
                             if (deleting)
                               Positioned.fill(
                                 child: Container(
-                                  color: Colors.black.withOpacity(0.3),
+                                  color: Colors.black.withValues(alpha: 0.3),
                                   child: const Center(
                                     child: CircularProgressIndicator(
                                       color: AppColors.mediumBlue,
