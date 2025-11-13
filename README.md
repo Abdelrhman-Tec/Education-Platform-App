@@ -21,7 +21,7 @@ Education Platform App is a feature-rich mobile application built with Flutter t
 
 | Banner | Login Screen | Registration |
 |--------|--------------|--------------|
-| <img src="banner.png" width="200" /> | <img src="تسجيل الدخول.jpg" width="200" /> | <img src="انشاء حساب.jpg" width="200" /> |
+| <img src="assets/screens/banner.png" width="200" /> | <img src="assets/screens/تسجيل الدخول.jpg" width="200" /> | <img src="assets/screens/انشاء حساب.jpg" width="200" /> |
 
 </div>
 
@@ -30,7 +30,7 @@ Education Platform App is a feature-rich mobile application built with Flutter t
 
 | Home Page | Categories | Search |
 |-----------|------------|--------|
-| <img src="الصفحة الرئيسية.jpg" width="200" /> | <img src="التصنيفات.jpg" width="200" /> | <img src="صفحة البحث.jpg" width="200" /> |
+| <img src="assets/screens/الصفحة الرئيسية.jpg" width="200" /> | <img src="assets/screens/التصنيفات.jpg" width="200" /> | <img src="assets/screens/صفحة البحث.jpg" width="200" /> |
 
 </div>
 
@@ -39,7 +39,7 @@ Education Platform App is a feature-rich mobile application built with Flutter t
 
 | Category View | Course Details | My Courses |
 |---------------|----------------|------------|
-| <img src="تصنيف.jpg" width="200" /> | <img src="تفاصيل الكورس.jpg" width="200" /> | <img src="صفحة كورساتي.jpg" width="200" /> |
+| <img src="assets/screens/تصنيف.jpg" width="200" /> | <img src="assets/screens/تفاصيل الكورس.jpg" width="200" /> | <img src="assets/screens/صفحة كورساتي.jpg" width="200" /> |
 
 </div>
 
@@ -48,7 +48,7 @@ Education Platform App is a feature-rich mobile application built with Flutter t
 
 | Shopping Cart | Cart with Items | Enrollment Alert |
 |---------------|-----------------|------------------|
-| <img src="صفحة السلة.jpg" width="200" /> | <img src="كورسات في السلة.jpg" width="200" /> | <img src="رسالة تنيبه ان الكورسات مسجل فيها مسبقا.jpg" width="200" /> |
+| <img src="assets/screens/صفحة السلة.jpg" width="200" /> | <img src="assets/screens/كورسات في السلة.jpg" width="200" /> | <img src="assets/screens/رسالة تنيبه ان الكورسات مسجل فيها مسبقا.jpg" width="200" /> |
 
 </div>
 
@@ -57,7 +57,7 @@ Education Platform App is a feature-rich mobile application built with Flutter t
 
 | Lessons Page | Lesson Player | Profile | More Page |
 |--------------|---------------|---------|-----------|
-| <img src="المحاضرات.jpg" width="200" /> | <img src="صفحة مشاهدة المحاضرة.jpg" width="200" /> | <img src="الملف الشخصي.jpg" width="200" /> | <img src="صفحة المزيد.jpg" width="200" /> |
+| <img src="assets/screens/المحاضرات.jpg" width="200" /> | <img src="assets/screens/صفحة مشاهدة المحاضرة.jpg" width="200" /> | <img src="assets/screens/الملف الشخصي.jpg" width="200" /> | <img src="assets/screens/صفحة المزيد.jpg" width="200" /> |
 
 </div>
 
@@ -322,7 +322,7 @@ Found a bug? [Open an issue](https://github.com/your-repo/issues) and we'll fix 
 
 For questions or support, please reach out:
 
-- 📧 Email: support@educationplatform.com
+- 📧 Email: abdelrhman.nada.tech@gmail.com
 - 💬 Discord: [Join our community](https://discord.gg/educationplatform)
 - 🐦 Twitter: [@EducationPlatform](https://twitter.com/educationplatform)
 
