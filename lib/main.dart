@@ -16,3 +16,4 @@ Future<void> _initializeServices() async {
   await setupGetIt();
   await SharedPrefsService.init();
 }
+

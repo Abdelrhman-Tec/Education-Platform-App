@@ -1,4 +1,3 @@
-
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
 
 class AuthRedirectText extends StatelessWidget {
@@ -36,7 +35,7 @@ class AuthRedirectText extends StatelessWidget {
         Text(
           questionText,
           style: AppTextStyles.titleSmallSemiBold.copyWith(
-            color: AppColors.lightGreyBlue,
+            color: AppColors.mediumBlue.withValues(alpha: .4),
             fontSize: 15.sp,
           ),
         ),

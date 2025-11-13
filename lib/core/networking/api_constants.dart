@@ -3,6 +3,7 @@ abstract class ApiConstants {
 
   static const String login = "/api/login";
   static const String register = "/api/register";
+  static const String logout = "/api/logout";
   static const String users = "/api/users";
 
   static const String categories = "/api/categories";
@@ -10,11 +11,17 @@ abstract class ApiConstants {
   static const String courses = "/api/courses";
 
   static const String searchCourses = "/api/courses/search";
+  static const String unenroll = "/api/enrollments/{userId}/{courseId}";
   static const String cart = "/api/cart/{id}";
   static const String addToCart = "/api/cart";
   static const String removeFromCart = "/api/cart/{id}";
+  static const String getEnrollments = '/api/enrollments/{id}';
   static const String myCourses = '/api/my-courses/{id}';
   static const String enrrollment = '/api/enrollments-cart';
+
+  static const String getFavorites = "/api/favorites/{id}";
+  static const String addToFavorites = "/api/favorites";
+  static const String removeFromFavorites = "/api/favorites/{id}/{courseId}";
 }
 
 class ApiErrors {

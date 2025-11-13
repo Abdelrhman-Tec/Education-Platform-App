@@ -6,6 +6,7 @@ class SearchCourseCard extends StatefulWidget {
   final String imageUrl;
   final String title;
   final String description;
+  final VoidCallback? ontapDelete;
   final String? price;
   final int? students;
   final String? name;
@@ -26,6 +27,7 @@ class SearchCourseCard extends StatefulWidget {
     required this.onTap,
     this.name,
     this.showDeleteIcon,
+    this.ontapDelete,
   });
 
   @override
@@ -94,17 +96,23 @@ class _SearchCourseCardState extends State<SearchCourseCard> {
                   children: [
                     Row(
                       children: [
-                        Text(
-                          widget.title,
-                          style: AppTextStyles.titleSmallSemiBold.copyWith(
-                            fontSize: 16.sp,
+                        Expanded(
+                          flex: 3,
+                          child: Text(
+                            widget.title,
+                            style: AppTextStyles.titleSmallSemiBold.copyWith(
+                              fontSize: 16.sp,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                           ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
                         ),
                         const Spacer(),
                         if (widget.showDeleteIcon != null) ...[
-                          const Icon(Icons.delete, color: Colors.red),
+                          GestureDetector(
+                            onTap: widget.ontapDelete,
+                            child: const Icon(Icons.delete, color: Colors.red),
+                          ),
                         ],
                       ],
                     ),

@@ -51,19 +51,21 @@ class PasswordValidation extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 2.5,
-          backgroundColor: !hasIsValidated ? AppColors.greyBlue : Colors.green,
+          backgroundColor: !hasIsValidated
+              ? AppColors.greyBlue
+              : AppColors.mediumBlue,
         ),
         horizontalSpace(10),
         Text(
           text,
           style: TextStyle(
-            color: AppColors.greyBlue,
+            color: AppColors.mediumBlue,
             fontSize: 12,
             fontWeight: FontWeight.w400,
             decoration: hasIsValidated
                 ? TextDecoration.lineThrough
                 : TextDecoration.none,
-            decorationColor: Colors.green,
+            decorationColor: AppColors.mediumBlue,
             decorationThickness: 2,
             decorationStyle: TextDecorationStyle.solid,
           ),

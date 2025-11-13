@@ -50,10 +50,10 @@ class CoursesResponseModel {
   final String? shortVideoDuration;
 
   @JsonKey(name: 'created_at')
-  final DateTime? createdAt;
+  final String? createdAt;
 
   @JsonKey(name: 'updated_at')
-  final DateTime? updatedAt;
+  final String? updatedAt;
   final Category? category;
   final Instructor? instructor;
 

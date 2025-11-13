@@ -23,12 +23,8 @@ CoursesResponseModel _$CoursesResponseModelFromJson(
   likes: (json['likes'] as num?)?.toInt(),
   shortVideoUrl: json['short_video_url'] as String?,
   shortVideoDuration: json['short_video_duration'] as String?,
-  createdAt: json['created_at'] == null
-      ? null
-      : DateTime.parse(json['created_at'] as String),
-  updatedAt: json['updated_at'] == null
-      ? null
-      : DateTime.parse(json['updated_at'] as String),
+  createdAt: json['created_at'] as String?,
+  updatedAt: json['updated_at'] as String?,
   category: json['category'] == null
       ? null
       : Category.fromJson(json['category'] as Map<String, dynamic>),

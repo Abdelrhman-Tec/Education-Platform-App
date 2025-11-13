@@ -26,7 +26,7 @@ abstract class AppColors {
   static const Color lightGreyBlue = Color(0xFFB1B9C4);
   static const Color offWhite = Color(0xFFF1F3F9);
   static const Color brightGreen = Color(0xFF3AC995);
-  static const Color mediumBlue = Color(0xFF445B89);
+  static const Color mediumBlue = Colors.brown;
   static const Color softTeal = Color(0xFFCBEBE5);
   static const Color lightPeach = Color(0xFFF5E1DA);
   static const Color lavender = Color(0xFFCBB7CF);

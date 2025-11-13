@@ -5,6 +5,8 @@ class CourseCard extends StatelessWidget {
   final VoidCallback? ontap;
   final String imageUrl;
   final String title;
+  final bool? showRemoveFavoriteBtn;
+  final VoidCallback? onRemoveFavorite;
   final String price;
   final int students;
   final int lectures;
@@ -19,6 +21,8 @@ class CourseCard extends StatelessWidget {
     required this.lectures,
     required this.likes,
     this.ontap,
+    this.showRemoveFavoriteBtn = false,
+    this.onRemoveFavorite,
   });
 
   @override
@@ -55,14 +59,28 @@ class CourseCard extends StatelessWidget {
               ),
               Divider(color: Colors.grey.shade400),
               verticalSpace(10),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Text(
-                  title,
-                  style: AppTextStyles.titleSmallSemiBold.copyWith(
-                    fontSize: 16.sp,
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Text(
+                      title,
+                      style: AppTextStyles.titleSmallSemiBold.copyWith(
+                        fontSize: 16.sp,
+                      ),
+                    ),
                   ),
-                ),
+                  const Spacer(),
+                  showRemoveFavoriteBtn!
+                      ? Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: GestureDetector(
+                            onTap: onRemoveFavorite,
+                            child: Icon(Icons.delete, color: Colors.red),
+                          ),
+                        )
+                      : SizedBox.shrink(),
+                ],
               ),
               verticalSpace(10),
               Padding(

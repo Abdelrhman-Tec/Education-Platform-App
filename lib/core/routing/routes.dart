@@ -7,5 +7,6 @@ abstract class Routes {
   static const String courseDetailsScreen = '/courseDetailsScreen';
   static const String cartScreen = '/cartScreen';
   static const String myCourseScreen = '/myCourseScreen';
-
+  static const String profileScreen = '/profileScreen';
+  static const String favorites = '/favorites';
 }

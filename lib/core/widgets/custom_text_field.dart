@@ -1,3 +1,4 @@
+import 'package:education_platform_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 /// A fully customizable TextFormField used across the app.
@@ -66,16 +67,22 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       validator: widget.validator,
       onChanged: widget.onChanged,
       maxLines: widget.maxLines,
-      style: TextStyle(color: widget.textColor ?? Colors.black, fontSize: 16),
+      style: TextStyle(
+        color: widget.textColor ?? AppColors.mediumBlue,
+        fontSize: 16,
+      ),
       decoration: InputDecoration(
         labelText: widget.labelText,
         hintText: widget.hintText,
         filled: true,
         fillColor: widget.fillColor ?? Colors.grey.shade100,
-        prefixIcon: widget.prefixIcon != null ? Icon(widget.prefixIcon) : null,
+        prefixIcon: widget.prefixIcon != null
+            ? Icon(widget.prefixIcon, color: AppColors.mediumBlue)
+            : null,
         suffixIcon: widget.isPassword
             ? IconButton(
                 icon: Icon(
+                  color: AppColors.mediumBlue,
                   _obscure
                       ? Icons.visibility_off_outlined
                       : Icons.visibility_outlined,
@@ -84,7 +91,10 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               )
             : (widget.suffixIcon != null
                   ? IconButton(
-                      icon: Icon(widget.suffixIcon),
+                      icon: Icon(
+                        widget.suffixIcon,
+                        color: AppColors.mediumBlue,
+                      ),
                       onPressed: widget.onSuffixTap,
                     )
                   : null),

@@ -1,9 +1,4 @@
-import 'package:bloc/bloc.dart';
-import 'package:education_platform_app/features/courses/data/model/courses_response_model.dart';
-import 'package:education_platform_app/features/courses/data/repo/courses_repo.dart';
-import 'package:education_platform_app/features/sign_in/data/repo/auth_import_repo.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-
+import 'package:education_platform_app/features/courses/presentation/courses_cubit/cubit/course_index.dart';
 part 'courses_state.dart';
 part 'courses_cubit.freezed.dart';
 

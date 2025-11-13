@@ -41,7 +41,7 @@ class CourseActionButton extends StatelessWidget {
         showCustomSnackbar(
           context,
           message: 'تمت إضافة الكورس للكارت بنجاح',
-          backgroundColor: Colors.green,
+          backgroundColor: AppColors.mediumBlue,
         );
       },
       failure: (error) {

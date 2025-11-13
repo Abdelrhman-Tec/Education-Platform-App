@@ -45,7 +45,7 @@ class _CartScreenState extends State<CartScreen> {
     return Scaffold(
       appBar: CustomAppBar(
         title: S.of(context).cart,
-        showBack: true,
+        showBack: false,
         backgroundColor: AppColors.mediumBlue,
         textColor: AppColors.white,
       ),
@@ -54,34 +54,42 @@ class _CartScreenState extends State<CartScreen> {
   }
 
   Widget _buildBody() {
-    return SingleChildScrollView(
-      child: SafeArea(
-        child: Column(
-          children: [
-            CoursesContainer(child: CourseListView()),
-            verticalSpace(20),
-            CoursesContainer(
-              height: 250.h,
-              child: CheckoutSummaryCard(
-                hintText: S.of(context).enterCoupon,
-                applyText: S.of(context).apply,
-                subtotal: 0,
-                discount: 0,
-                total: 0,
-                onApply: () {
-                  // Logic to apply coupon
-                },
+    return BlocBuilder<CartCubit, CartState>(
+      builder: (context, state) {
+        return state.maybeWhen(
+          success: (cartItems) {
+            final items = cartItems as List<Cart>;
+            return SingleChildScrollView(
+              child: SafeArea(
+                child: Column(
+                  children: [
+                    CoursesContainer(cartItems: items, child: CourseListView()),
+                    verticalSpace(20),
+                    CoursesContainer(
+                      height: 250.h,
+                      child: CheckoutSummaryCard(
+                        hintText: S.of(context).enterCoupon,
+                        applyText: S.of(context).apply,
+                        subtotal: 0,
+                        discount: 0,
+                        total: 0,
+                        onApply: () {},
+                      ),
+                    ),
+                    verticalSpace(20),
+                    CustomButton(
+                      backgroundColor: AppColors.yellow,
+                      text: S.of(context).checkout,
+                      onPressed: () => handleCheckout(context),
+                    ),
+                  ],
+                ).paddingSymmetric(h: 20, v: 30),
               ),
-            ),
-            verticalSpace(20),
-            CustomButton(
-              backgroundColor: AppColors.yellow,
-              text: S.of(context).checkout,
-              onPressed: () => handleCheckout(context),
-            ),
-          ],
-        ).paddingSymmetric(h: 20, v: 30),
-      ),
+            );
+          },
+          orElse: () => const SizedBox.shrink(),
+        );
+      },
     );
   }
 
@@ -125,7 +133,9 @@ class _CartScreenState extends State<CartScreen> {
         showDialog(
           context: context,
           barrierDismissible: false,
-          builder: (_) => const Center(child: CircularProgressIndicator()),
+          builder: (_) => Center(
+            child: CircularProgressIndicator(color: AppColors.mediumBlue),
+          ),
         );
 
         await Future.delayed(const Duration(seconds: 3));

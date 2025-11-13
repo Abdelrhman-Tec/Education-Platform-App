@@ -18,4 +18,13 @@ class LoginRepo {
       return ApiResult.failure(ErrorHandler.handle(error));
     }
   }
+
+  Future<ApiResult<String>> logout({required String token}) async {
+    try {
+      final response = await apiService.logout('Bearer $token');
+      return ApiResult.success(response);
+    } catch (error) {
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
 }

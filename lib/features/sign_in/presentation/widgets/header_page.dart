@@ -31,7 +31,7 @@ class HeaderPage extends StatelessWidget {
           Text(
             subTitleHeader,
             style: AppTextStyles.titleSmallBold.copyWith(
-              color: AppColors.lightGreyBlue,
+              color: AppColors.mediumBlue.withValues(alpha: 0.4),
             ),
           ),
         ],

@@ -10,7 +10,7 @@ SearchResponseModel _$SearchResponseModelFromJson(Map<String, dynamic> json) =>
     SearchResponseModel(
       status: json['status'] as bool?,
       data: (json['data'] as List<dynamic>?)
-          ?.map((e) => Course.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Datum.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -18,7 +18,7 @@ Map<String, dynamic> _$SearchResponseModelToJson(
   SearchResponseModel instance,
 ) => <String, dynamic>{'status': instance.status, 'data': instance.data};
 
-Course _$CourseFromJson(Map<String, dynamic> json) => Course(
+Datum _$DatumFromJson(Map<String, dynamic> json) => Datum(
   id: (json['id'] as num?)?.toInt(),
   title: json['title'] as String?,
   description: json['description'] as String?,
@@ -47,7 +47,7 @@ Course _$CourseFromJson(Map<String, dynamic> json) => Course(
       : Instructor.fromJson(json['instructor'] as Map<String, dynamic>),
 );
 
-Map<String, dynamic> _$CourseToJson(Course instance) => <String, dynamic>{
+Map<String, dynamic> _$DatumToJson(Datum instance) => <String, dynamic>{
   'id': instance.id,
   'title': instance.title,
   'description': instance.description,

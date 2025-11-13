@@ -2,12 +2,13 @@ import 'package:education_platform_app/features/cart/presentation/cart_cubit/cub
 import 'package:education_platform_app/features/cart/presentation/screens/cart_screen.dart';
 import 'package:education_platform_app/features/categories/presentation/screens/categories_screen.dart';
 import 'package:education_platform_app/features/home/presentation/screens/home_screen.dart';
+import 'package:education_platform_app/features/more/presentation/screens/more_screen.dart';
 import 'package:education_platform_app/features/my_courses/presentation/screens/my_courses_screen.dart';
 import 'package:education_platform_app/features/sign_in/presentation/widgets/auth_imports.dart';
 
 class MainScreen extends StatefulWidget {
   final String name;
-  const MainScreen({super.key, required this.name,});
+  const MainScreen({super.key, required this.name});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -21,7 +22,7 @@ class _MainScreenState extends State<MainScreen> {
     CategoriesScreen(),
     MyCoursesScreen(),
     CartScreen(),
-    PlaceholderScreen(title: "المزيد"),
+    MoreScreen(),
   ];
 
   void _onItemTapped(int index) {

@@ -1,4 +1,7 @@
 import 'package:education_platform_app/features/enrollments/enrollments_cubit/cubit/enrollments_cubit.dart';
+import 'package:education_platform_app/features/favorites/presentation/favorites_cubit/cubit/favorites_cubit.dart';
+import 'package:education_platform_app/features/favorites/presentation/screens/favorites_screen.dart';
+import 'package:education_platform_app/features/profile/presentation/screens/profile_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:education_platform_app/core/routing/index.dart';
 import 'package:education_platform_app/features/cart/presentation/cart_cubit/cubit/cart_cubit.dart';
@@ -51,6 +54,7 @@ class AppRouter {
               BlocProvider(create: (_) => getIt<CartCubit>()),
               BlocProvider(create: (_) => getIt<MyCourseCubit>()),
               BlocProvider(create: (_) => getIt<EnrollmentsCubit>()),
+              BlocProvider(create: (_) => getIt<LoginCubit>()),
             ],
             child: MainScreen(name: name),
           ),
@@ -71,17 +75,27 @@ class AppRouter {
       case Routes.courseDetailsScreen:
         final course = settings.arguments as CoursesResponseModel;
         return _buildCupertinoRoute(
-          BlocProvider(
-            create: (_) => getIt<CartCubit>(),
+          MultiBlocProvider(
+            providers: [
+              BlocProvider(create: (_) => getIt<CartCubit>()),
+              BlocProvider(create: (_) => getIt<FavoritesCubit>()),
+            ],
             child: CourseDetailsScreen(course: course),
           ),
         );
 
       case Routes.cartScreen:
         return _buildCupertinoRoute(
+          BlocProvider(create: (_) => getIt<CartCubit>(), child: CartScreen()),
+        );
+      case Routes.profileScreen:
+        return _buildCupertinoRoute(const ProfileScreen());
+
+      case Routes.favorites:
+        return _buildCupertinoRoute(
           BlocProvider(
-            create: (_) => getIt<CartCubit>(),
-            child: CartScreen(),
+            create: (_) => getIt<FavoritesCubit>(),
+            child: FavoritesScreen(),
           ),
         );
 

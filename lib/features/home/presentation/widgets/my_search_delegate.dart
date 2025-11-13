@@ -41,16 +41,15 @@ class MySearchDelegate extends SearchDelegate {
 
   @override
   InputDecorationTheme get searchFieldDecorationTheme => InputDecorationTheme(
-        hintStyle: TextStyle(color: Colors.grey.shade600, fontSize: 16),
-        filled: true,
-        fillColor: Colors.grey.shade200,
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
-          borderSide: BorderSide.none,
-        ),
-      );
+    hintStyle: TextStyle(color: Colors.grey.shade600, fontSize: 16),
+    filled: true,
+    fillColor: Colors.grey.shade200,
+    contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(20),
+      borderSide: BorderSide.none,
+    ),
+  );
 
   @override
   List<Widget>? buildActions(BuildContext context) {
@@ -103,9 +102,9 @@ class MySearchDelegate extends SearchDelegate {
                   itemBuilder: (context, index) {
                     final course = courses[index];
                     return SearchCourseCard(
-                      imageUrl: course.image ?? ''    ,
-                      title: course.title     ?? '',
-                      description: course.description ?? ''    ,
+                      imageUrl: course.image ?? '',
+                      title: course.title ?? '',
+                      description: course.description ?? '',
                       onTap: () => context.pushNamed(
                         Routes.courseDetailsScreen,
                         arguments: course,
@@ -127,13 +126,13 @@ class MySearchDelegate extends SearchDelegate {
       return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.search, size: 80, color: Colors.grey.shade500),
+          Icon(Icons.search, size: 80, color: Colors.brown.shade500),
           const SizedBox(height: 10),
           Text(
             S.of(context).searchCoursesSubtitle,
             style: AppTextStyles.titleSmallBold.copyWith(
               fontSize: 14,
-              color: Colors.grey.shade400,
+              color: Colors.brown.shade400,
             ),
             textAlign: TextAlign.center,
           ),
@@ -143,14 +142,14 @@ class MySearchDelegate extends SearchDelegate {
               width: 300,
               height: 60,
               decoration: BoxDecoration(
-                color: Colors.blue.withAlpha(50),
+                color: Colors.brown.withAlpha(50),
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: Colors.blue.withAlpha(100)),
+                border: Border.all(color: Colors.brown.withAlpha(100)),
               ),
               child: Center(
                 child: Text(
                   S.of(context).typeAtLeastTwo,
-                  style: const TextStyle(fontSize: 15, color: Colors.blue),
+                  style: const TextStyle(fontSize: 15, color: Colors.brown),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -176,8 +175,8 @@ class MySearchDelegate extends SearchDelegate {
               return Skeletonizer(
                 enabled: showSkeleton,
                 child: ListTile(
-                  title: Text(course.title ?? ''    ),
-                  subtitle: Text(course.description    ?? '' ),
+                  title: Text(course.title ?? ''),
+                  subtitle: Text(course.description ?? ''),
                   onTap: () => context.pushNamed(
                     Routes.courseDetailsScreen,
                     arguments: course,

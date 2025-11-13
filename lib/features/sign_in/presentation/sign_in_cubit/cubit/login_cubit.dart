@@ -11,7 +11,6 @@ class LoginCubit extends Cubit<LoginState> {
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
 
-
   LoginCubit(this.loginRepo) : super(const LoginState.initial());
 
   Future<void> login() async {
@@ -36,7 +35,31 @@ class LoginCubit extends Cubit<LoginState> {
       },
     );
   }
-  
+
+  Future<void> logout() async {
+    emit(const LoginState.loading());
+
+    await Future.delayed(const Duration(seconds: 2));
+
+    final token = SharedPrefsService.getString('token') ?? '';
+    if (token.isEmpty) {
+      emit(const LoginState.failure(message: 'Token not found'));
+      return;
+    }
+
+    final response = await loginRepo.logout(token: token);
+
+    response.when(
+      success: (message) {
+        SharedPrefsService.remove('token');
+        SharedPrefsService.remove('user');
+        emit(LoginState.success('Logged out successfully'));
+      },
+      failure: (error) {
+        emit(LoginState.failure(message: error.toString()));
+      },
+    );
+  }
 
   @override
   Future<void> close() {

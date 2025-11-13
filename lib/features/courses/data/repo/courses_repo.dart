@@ -2,7 +2,6 @@ import 'package:education_platform_app/core/errors/api_error_handler.dart';
 import 'package:education_platform_app/core/networking/api_services.dart';
 import 'package:education_platform_app/features/courses/data/model/courses_response_model.dart';
 import 'package:education_platform_app/core/networking/api_result.dart';
-import 'package:education_platform_app/features/courses/data/model/search_response_model.dart';
 
 class CoursesRepo {
   final ApiService apiService;
@@ -17,7 +16,7 @@ class CoursesRepo {
     }
   }
 
-  Future<ApiResult<List<SearchResponseModel>>> searchCourses(
+  Future<ApiResult<List<CoursesResponseModel>>> searchCourses(
     String query,
   ) async {
     try {

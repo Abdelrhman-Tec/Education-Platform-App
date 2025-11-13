@@ -32,7 +32,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: S.of(context).categories, showBack: false),
+        title: S.of(context).categories,
+        showBack: false,
+        backgroundColor: AppColors.mediumBlue,
+        textColor: AppColors.white,
+      ),
       body: _buildBody(context),
     );
   }
@@ -120,29 +124,36 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
             height: 360.h,
             child: Skeletonizer(
               enabled: showSkeleton,
-              child: ListView.separated(
-                scrollDirection: Axis.vertical,
-                itemCount: courses.length,
-                separatorBuilder: (_, __) => const SizedBox(height: 15),
-                itemBuilder: (context, index) {
-                  final course = courses[index];
-                  return SearchCourseCard(
-                        imageUrl: course.image ?? '',
-                        title: course.title ?? '',
-                        description: course.description ?? '',
-                        onTap: () => context.pushNamed(
-                          Routes.courseDetailsScreen,
-                          arguments: course,
-                        ),
-                      )
-                      .animate(delay: (index * 100).ms)
-                      .fadeIn(duration: 700.ms)
-                      .slideY(
-                        begin: 0.2,
-                        duration: 400.ms,
-                        curve: Curves.easeOut,
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: Skeletonizer(
+                  enabled: showSkeleton,
+                  child: Column(
+                    children: List.generate(courses.length, (index) {
+                      final course = courses[index];
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 15),
+                        child:
+                            SearchCourseCard(
+                                  imageUrl: course.image ?? '',
+                                  title: course.title ?? '',
+                                  description: course.description ?? '',
+                                  onTap: () => context.pushNamed(
+                                    Routes.courseDetailsScreen,
+                                    arguments: course,
+                                  ),
+                                )
+                                .animate(delay: (index * 100).ms)
+                                .fadeIn(duration: 700.ms)
+                                .slideY(
+                                  begin: 0.2,
+                                  duration: 400.ms,
+                                  curve: Curves.easeOut,
+                                ),
                       );
-                },
+                    }),
+                  ),
+                ),
               ),
             ),
           ),
