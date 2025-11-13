@@ -34,7 +34,7 @@ Education Platform App is a feature-rich mobile application built with Flutter t
 
 | Banner | Login Screen | Registration |
 |--------|--------------|--------------|
-| <img src="screenshots/banner.png" width="200" /> | <img src="screenshots/تسجيل الدخول.jpg" width="200" /> | <img src="screenshots/انشاء حساب.jpg" width="200" /> |
+| <img src="assets/screens/banner.png" width="200" /> | <img src="assets/screens/تسجيل الدخول.jpg" width="200" /> | <img src="assets/screens/انشاء حساب.jpg" width="200" /> |
 
 </div>
 
@@ -43,7 +43,7 @@ Education Platform App is a feature-rich mobile application built with Flutter t
 
 | Home Page | Categories | Search |
 |-----------|------------|--------|
-| <img src="screenshots/الصفحة الرئيسية.jpg" width="200" /> | <img src="screenshots/التصنيفات.jpg" width="200" /> | <img src="screenshots/صفحة البحث.jpg" width="200" /> |
+| <img src="screenshots/الصفحة الرئيسية.jpg" width="200" /> | <img src="assets/screens/التصنيفات.jpg" width="200" /> | <img src="screenshots/صفحة البحث.jpg" width="200" /> |
 
 </div>
 
@@ -52,7 +52,7 @@ Education Platform App is a feature-rich mobile application built with Flutter t
 
 | Category View | Course Details | My Courses |
 |---------------|----------------|------------|
-| <img src="screenshots/تصنيف.jpg" width="200" /> | <img src="screenshots/تفاصيل الكورس.jpg" width="200" /> | <img src="screenshots/صفحة كورساتي.jpg" width="200" /> |
+| <img src="assets/screens/تصنيف.jpg" width="200" /> | <img src="assets/screens/تفاصيل الكورس.jpg" width="200" /> | <img src="assets/screens/صفحة كورساتي.jpg" width="200" /> |
 
 </div>
 
@@ -61,7 +61,7 @@ Education Platform App is a feature-rich mobile application built with Flutter t
 
 | Shopping Cart | Cart with Items | Enrollment Alert |
 |---------------|-----------------|------------------|
-| <img src="screenshots/صفحة السلة.jpg" width="200" /> | <img src="screenshots/كورسات في السلة.jpg" width="200" /> | <img src="screenshots/رسالة تنيبه ان الكورسات مسجل فيها مسبقا.jpg" width="200" /> |
+| <img src="assets/screens/صفحة السلة.jpg" width="200" /> | <img src="assets/screens/كورسات في السلة.jpg" width="200" /> | <img src="assets/screens/رسالة تنيبه ان الكورسات مسجل فيها مسبقا.jpg" width="200" /> |
 
 </div>
 
@@ -70,7 +70,7 @@ Education Platform App is a feature-rich mobile application built with Flutter t
 
 | Lessons Page | Lesson Player | Profile | More Page |
 |--------------|---------------|---------|-----------|
-| <img src="screenshots/المحاضرات.jpg" width="200" /> | <img src="screenshots/صفحة مشاهدة المحاضرة.jpg" width="200" /> | <img src="screenshots/الملف الشخصي.jpg" width="200" /> | <img src="screenshots/صفحة المزيد.jpg" width="200" /> |
+| <img src="assets/screens/المحاضرات.jpg" width="200" /> | <img src="assets/screens/صفحة مشاهدة المحاضرة.jpg" width="200" /> | <img src="assets/screens/الملف الشخصي.jpg" width="200" /> | <img src="screenshots/صفحة المزيد.jpg" width="200" /> |
 
 </div>
 
