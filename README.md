@@ -1,20 +1,16 @@
 # 📱 Education Platform App
 
+A modern Flutter-based education platform that provides an interactive learning experience with course management, enrollment, and progress tracking.
 
-<div align="center">
-![Flutter](https://img.shields.io/badge/Flutter-3.9.2-02569B?logo=flutter)
-![Dart](https://img.shields.io/badge/Dart-3.9.2-0175C2?logo=dart)
-![Firebase](https://img.shields.io/badge/Firebase-Integrated-FFCA28?logo=firebase)
-![License](https://img.shields.io/badge/License-MIT-green)
+## 🎥 Demo Video
 
-## 🎥 App Demo
-Click below to watch the demo video:
-[![Watch the video](https://img.youtube.com/vi/ITtY8s8g1EE/0.jpg)](https://www.youtube.com/watch?v=ITtY8s8g1EE&t=8s)
+Watch the full app demonstration on YouTube:
 
+[![Education Platform App Demo](https://img.youtube.com/vi/ITtY8s8g1EE/maxresdefault.jpg)](https://www.youtube.com/watch?v=ITtY8s8g1EE&t=9s)
 
-[Features](#-features) • [Tech Stack](#-tech-stack) • [Getting Started](#-getting-started) • [Architecture](#-architecture)
+**[▶️ Watch Demo Video](https://www.youtube.com/watch?v=ITtY8s8g1EE&t=9s)**
 
-</div>
+---
 
 ## 🚀 Project Overview
 
@@ -27,15 +23,18 @@ Education Platform App is a feature-rich mobile application built with Flutter t
 - ❤️ Favorite courses system
 - 👤 User authentication and profile management
 - 🎨 Full Arabic RTL support
+- 🌐 Professional video player integration
+
+---
 
 ## 📸 App Screenshots
 
 ### 🔐 Authentication & Onboarding
 <div align="center">
 
- | Login Screen | Registration |
- |--------------|--------------|
- |<img src="assets/screens/تسجيل الدخول.jpg" width="200" /> | <img src="assets/screens/انشاء حساب.jpg" width="200" /> |
+| Banner | Login Screen | Registration |
+|--------|--------------|--------------|
+| <img src="screenshots/banner.png" width="200" /> | <img src="screenshots/تسجيل الدخول.jpg" width="200" /> | <img src="screenshots/انشاء حساب.jpg" width="200" /> |
 
 </div>
 
@@ -44,7 +43,7 @@ Education Platform App is a feature-rich mobile application built with Flutter t
 
 | Home Page | Categories | Search |
 |-----------|------------|--------|
-| <img src="assets/screens/الصفحة الرئيسية.jpg" width="200" /> | <img src="assets/screens/التصنيفات.jpg" width="200" /> | <img src="assets/screens/صفحة البحث.jpg" width="200" /> |
+| <img src="screenshots/الصفحة الرئيسية.jpg" width="200" /> | <img src="screenshots/التصنيفات.jpg" width="200" /> | <img src="screenshots/صفحة البحث.jpg" width="200" /> |
 
 </div>
 
@@ -53,7 +52,7 @@ Education Platform App is a feature-rich mobile application built with Flutter t
 
 | Category View | Course Details | My Courses |
 |---------------|----------------|------------|
-| <img src="assets/screens/تصنيف.jpg" width="200" /> | <img src="assets/screens/تفاصيل الكورس.jpg" width="200" /> | <img src="assets/screens/صفحة كورساتي.jpg" width="200" /> |
+| <img src="screenshots/تصنيف.jpg" width="200" /> | <img src="screenshots/تفاصيل الكورس.jpg" width="200" /> | <img src="screenshots/صفحة كورساتي.jpg" width="200" /> |
 
 </div>
 
@@ -62,7 +61,7 @@ Education Platform App is a feature-rich mobile application built with Flutter t
 
 | Shopping Cart | Cart with Items | Enrollment Alert |
 |---------------|-----------------|------------------|
-| <img src="assets/screens/صفحة السلة.jpg" width="200" /> | <img src="assets/screens/كورسات في السلة.jpg" width="200" /> | <img src="assets/screens/رسالة تنيبه ان الكورسات مسجل فيها مسبقا.jpg" width="200" /> |
+| <img src="screenshots/صفحة السلة.jpg" width="200" /> | <img src="screenshots/كورسات في السلة.jpg" width="200" /> | <img src="screenshots/رسالة تنيبه ان الكورسات مسجل فيها مسبقا.jpg" width="200" /> |
 
 </div>
 
@@ -71,9 +70,11 @@ Education Platform App is a feature-rich mobile application built with Flutter t
 
 | Lessons Page | Lesson Player | Profile | More Page |
 |--------------|---------------|---------|-----------|
-| <img src="assets/screens/المحاضرات.jpg" width="200" /> | <img src="assets/screens/صفحة مشاهدة المحاضرة.jpg" width="200" /> | <img src="assets/screens/الملف الشخصي.jpg" width="200" /> | <img src="assets/screens/صفحة المزيد.jpg" width="200" /> |
+| <img src="screenshots/المحاضرات.jpg" width="200" /> | <img src="screenshots/صفحة مشاهدة المحاضرة.jpg" width="200" /> | <img src="screenshots/الملف الشخصي.jpg" width="200" /> | <img src="screenshots/صفحة المزيد.jpg" width="200" /> |
 
 </div>
+
+---
 
 ## 🛠 Tech Stack
 
@@ -97,7 +98,7 @@ Education Platform App is a feature-rich mobile application built with Flutter t
 - **Custom Cache Service** - Type-safe storage utilities
 
 ### UI & Design
-- **ScreenUtil** - Responsive design adaptation
+- **Flutter ScreenUtil** - Responsive design adaptation
 - **Custom Design System** - Consistent theming and components
 - **Material Design** - Google's design language
 - **RTL Support** - Full Arabic language support
@@ -107,27 +108,31 @@ Education Platform App is a feature-rich mobile application built with Flutter t
 - **JSON Serialization** - Automated JSON parsing
 - **Dependency Injection** - GetIt service locator
 
+---
+
 ## 🏗 Architecture
 
 The app follows a clean architecture pattern with clear separation of concerns:
 
 ### Layers Structure
+
 ```
 lib/
-├── core/                 # Framework-agnostic business logic
-│   ├── networking/       # API clients, DTOs, error handling
-│   ├── cache/            # Local storage abstractions
-│   ├── errors/           # Custom exception types
-│   └── theme/            # Design system
-├── features/             # Feature-based modules
-│   ├── sign_in/          # Authentication feature
-│   ├── courses/          # Course management
-│   ├── cart/             # Shopping cart
-│   └── lessons/          # Learning content
-└── main.dart             # App entry point
+├── core/                    # Framework-agnostic business logic
+│   ├── networking/          # API clients, DTOs, error handling
+│   ├── cache/              # Local storage abstractions
+│   ├── errors/             # Custom exception types
+│   └── theme/              # Design system
+├── features/               # Feature-based modules
+│   ├── sign_in/           # Authentication feature
+│   ├── courses/           # Course management
+│   ├── cart/              # Shopping cart
+│   └── lessons/           # Learning content
+└── main.dart              # App entry point
 ```
 
 ### State Management Flow
+
 ```
 UI → Cubit → Repository → Data Source (API/Local)
  ↓
@@ -139,6 +144,8 @@ State → UI Rebuild
 - **Dependency Injection** - Loose coupling
 - **Immutable State** - Predictable state changes
 - **Error Handling** - Centralized error management
+
+---
 
 ## ✨ Features
 
@@ -188,6 +195,8 @@ State → UI Rebuild
 - Professional video player
 - Intuitive navigation
 
+---
+
 ## 🧪 Testing
 
 ### Testing Strategy
@@ -197,6 +206,7 @@ State → UI Rebuild
 - **Cubit Tests** - State management testing
 
 ### Test Structure
+
 ```
 test/
 ├── unit/           # Business logic tests
@@ -204,43 +214,48 @@ test/
 └── integration/    # Feature tests
 ```
 
+---
+
 ## 📁 Folder Structure
+
 ```
 education_platform_app/
 ├── android/                    # Android-specific files
 ├── ios/                        # iOS-specific files
 ├── lib/
-│   ├── core/                   # Core framework
-│   │   ├── cache/              # Local storage
-│   │   ├── config/             # App configuration
-│   │   ├── constants/          # App constants
-│   │   ├── di/                 # Dependency injection
-│   │   ├── errors/             # Error handling
-│   │   ├── function/           # Utility functions
-│   │   ├── generated/          # Generated code
-│   │   ├── helpers/            # Helper utilities
-│   │   ├── networking/         # API communication
-│   │   ├── routing/            # Navigation
-│   │   ├── theme/              # Design system
-│   │   └── widgets/            # Reusable components
-│   ├── features/               # Feature modules
-│   │   ├── cart/               # Shopping cart
-│   │   ├── categories/         # Course categories
-│   │   ├── courses/            # Course management
-│   │   ├── enrollments/        # Enrollment system
-│   │   ├── favorites/          # Favorites management
-│   │   ├── home/               # Home screen
-│   │   ├── lessons/            # Lesson content
-│   │   ├── more/               # Additional features
-│   │   ├── my_courses/         # User's courses
-│   │   ├── profile/            # User profile
-│   │   ├── sign_in/            # Authentication
-│   │   └── sign_up/            # Registration
-│   ├── app.dart                # Main app widget
-│   └── main_screen.dart        # Root screen
-├── test/                       # Test files
-└── pubspec.yaml                # Dependencies
+│   ├── core/                  # Core framework
+│   │   ├── cache/            # Local storage
+│   │   ├── config/           # App configuration
+│   │   ├── constants/        # App constants
+│   │   ├── di/               # Dependency injection
+│   │   ├── errors/           # Error handling
+│   │   ├── function/         # Utility functions
+│   │   ├── generated/        # Generated code
+│   │   ├── helpers/          # Helper utilities
+│   │   ├── networking/       # API communication
+│   │   ├── routing/          # Navigation
+│   │   ├── theme/            # Design system
+│   │   └── widgets/          # Reusable components
+│   ├── features/             # Feature modules
+│   │   ├── cart/            # Shopping cart
+│   │   ├── categories/      # Course categories
+│   │   ├── courses/         # Course management
+│   │   ├── enrollments/     # Enrollment system
+│   │   ├── favorites/       # Favorites management
+│   │   ├── home/            # Home screen
+│   │   ├── lessons/         # Lesson content
+│   │   ├── more/            # Additional features
+│   │   ├── my_courses/      # User's courses
+│   │   ├── profile/         # User profile
+│   │   ├── sign_in/         # Authentication
+│   │   └── sign_up/         # Registration
+│   ├── app.dart             # Main app widget
+│   └── main_screen.dart     # Root screen
+├── test/                     # Test files
+└── pubspec.yaml             # Dependencies
 ```
+
+---
 
 ## 🚀 How to Run the Project
 
@@ -289,6 +304,8 @@ flutter build apk --release
 flutter build ios --release
 ```
 
+---
+
 ## 🔮 Future Improvements
 
 ### 🎯 Planned Features
@@ -314,48 +331,71 @@ flutter build ios --release
 - **Backend Integration** - Real-time synchronization
 - **Cloud Storage** - Media content delivery optimization
 
-## 👥 Contributing
+---
 
-We welcome contributions! Please follow these steps:
+## 📱 Download
+
+Coming soon on:
+- 📱 Google Play Store
+- 🍎 Apple App Store
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+---
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
-## 🐛 Issues
+---
 
-Found a bug? [Open an issue](https://github.com/your-repo/issues) and we'll fix it!
+## 👥 Contact & Social Links
 
-## 📞 Contact
+Developed with ❤️ by the Education Platform Team
 
-For questions or support, please reach out:
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/yourusername/education-platform-app)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](https://linkedin.com/in/yourprofile)
+[![Twitter](https://img.shields.io/badge/Twitter-Follow-blue?logo=twitter)](https://twitter.com/yourhandle)
+[![YouTube](https://img.shields.io/badge/YouTube-Subscribe-red?logo=youtube)](https://www.youtube.com/channel/yourchannel)
 
-- 📧 Email: abdelrhman.nada.tech@gmail.com
-- 💬 Discord: [Join our community](https://discord.gg/educationplatform)
-- 🐦 Twitter: [@EducationPlatform](https://twitter.com/educationplatform)
+---
 
-## 🙏 Acknowledgments
+## 🐛 Issues & Support
 
-- Flutter team for the amazing framework
-- All contributors who have helped improve this project
-- The open-source community for their valuable packages
+Found a bug? Have a feature request?
+
+- 🐛 [Report Bug](https://github.com/yourusername/education-platform-app/issues)
+- ✨ [Request Feature](https://github.com/yourusername/education-platform-app/issues)
+- 📧 Email: support@educationplatform.com
+
+---
+
+## ⭐ Show Your Support
+
+If you find this project helpful, please give it a ⭐ on GitHub!
+
+---
+
+## 📊 Project Stats
+
+![GitHub stars](https://img.shields.io/github/stars/yourusername/education-platform-app?style=social)
+![GitHub forks](https://img.shields.io/github/forks/yourusername/education-platform-app?style=social)
+![GitHub issues](https://img.shields.io/github/issues/yourusername/education-platform-app)
+![GitHub license](https://img.shields.io/github/license/yourusername/education-platform-app)
 
 ---
 
 <div align="center">
-
-**Built with Flutter 💙 | Supporting education worldwide 🌍 | Full Arabic RTL Support 📱**
-
-⭐ **Star us on GitHub if you find this project helpful!**
-
-[![GitHub stars](https://img.shields.io/github/stars/your-repo/education-platform-app?style=social)](https://github.com/your-repo/education-platform-app)
-[![GitHub forks](https://img.shields.io/github/forks/your-repo/education-platform-app?style=social)](https://github.com/your-repo/education-platform-app/fork)
-[![GitHub watchers](https://img.shields.io/github/watchers/your-repo/education-platform-app?style=social)](https://github.com/your-repo/education-platform-app)
-
+  <p>Made with ❤️ using Flutter</p>
+  <p>© 2024 Education Platform App. All rights reserved.</p>
 </div>
