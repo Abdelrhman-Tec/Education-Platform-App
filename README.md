@@ -9,9 +9,8 @@
 
 ## 🎥 App Demo
 Click below to watch the demo video:
-[![Watch the video](https://img.youtube.com/vi/6bmzUw-0dAc/0.jpg)]([https://www.youtube.com/watch?v=6bmzUw-0dAc](https://www.youtube.com/watch?v=ITtY8s8g1EE&t=8s))
+[![Watch the video](https://img.youtube.com/vi/ITtY8s8g1EE/0.jpg)](https://www.youtube.com/watch?v=ITtY8s8g1EE&t=8s)
 
-A modern Flutter-based education platform that provides an interactive learning experience with course management, enrollment, and progress tracking.
 
 [Features](#-features) • [Tech Stack](#-tech-stack) • [Getting Started](#-getting-started) • [Architecture](#-architecture)
 
