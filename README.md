@@ -32,9 +32,9 @@ Education Platform App is a feature-rich mobile application built with Flutter t
 ### 🔐 Authentication & Onboarding
 <div align="center">
 
-| Banner | Login Screen | Registration |
+| Login Screen | Registration |
 |--------|--------------|--------------|
-| <img src="assets/screens/banner.png" width="200" /> | <img src="assets/screens/تسجيل الدخول.jpg" width="200" /> | <img src="assets/screens/انشاء حساب.jpg" width="200" /> |
+| <img src="assets/screens/تسجيل الدخول.jpg" width="200" /> | <img src="assets/screens/انشاء حساب.jpg" width="200" /> |
 
 </div>
 
@@ -43,7 +43,7 @@ Education Platform App is a feature-rich mobile application built with Flutter t
 
 | Home Page | Categories | Search |
 |-----------|------------|--------|
-| <img src="screenshots/الصفحة الرئيسية.jpg" width="200" /> | <img src="assets/screens/التصنيفات.jpg" width="200" /> | <img src="assets/screens/صفحة البحث.jpg" width="200" /> |
+| <img src="assets/screens/الصفحة الرئيسية.jpg" width="200" /> | <img src="assets/screens/التصنيفات.jpg" width="200" /> | <img src="assets/screens/صفحة البحث.jpg" width="200" /> |
 
 </div>
 
