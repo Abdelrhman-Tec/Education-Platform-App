@@ -34,8 +34,7 @@ Education Platform App is a feature-rich mobile application built with Flutter t
 
 | Login Screen | Registration|
 --------------|--------------|
-| <img src="assets/screens/تسجيل الدخول.jpg" width="200" /> 
-| <img src="assets/screens/انشاء حساب.jpg" width="200" /> |
+| <img src="assets/screens/تسجيل الدخول.jpg" width="200" /> | <img src="assets/screens/انشاء حساب.jpg" width="200" /> |
 
 </div>
 
