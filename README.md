@@ -43,7 +43,7 @@ Education Platform App is a feature-rich mobile application built with Flutter t
 
 | Home Page | Categories | Search |
 |-----------|------------|--------|
-| <img src="screenshots/الصفحة الرئيسية.jpg" width="200" /> | <img src="assets/screens/التصنيفات.jpg" width="200" /> | <img src="screenshots/صفحة البحث.jpg" width="200" /> |
+| <img src="screenshots/الصفحة الرئيسية.jpg" width="200" /> | <img src="assets/screens/التصنيفات.jpg" width="200" /> | <img src="assets/screens/صفحة البحث.jpg" width="200" /> |
 
 </div>
 
@@ -70,7 +70,7 @@ Education Platform App is a feature-rich mobile application built with Flutter t
 
 | Lessons Page | Lesson Player | Profile | More Page |
 |--------------|---------------|---------|-----------|
-| <img src="assets/screens/المحاضرات.jpg" width="200" /> | <img src="assets/screens/صفحة مشاهدة المحاضرة.jpg" width="200" /> | <img src="assets/screens/الملف الشخصي.jpg" width="200" /> | <img src="screenshots/صفحة المزيد.jpg" width="200" /> |
+| <img src="assets/screens/المحاضرات.jpg" width="200" /> | <img src="assets/screens/صفحة مشاهدة المحاضرة.jpg" width="200" /> | <img src="assets/screens/الملف الشخصي.jpg" width="200" /> | <img src="assets/screens/صفحة المزيد.jpg" width="200" /> |
 
 </div>
 
